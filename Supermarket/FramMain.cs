@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Supermarket
 {
@@ -15,6 +17,10 @@ namespace Supermarket
         bool isInventoryCollapsed = true;
         bool isMenuCollapsed = true;
         bool isSalesCollapsed = true;
+        bool isProductsCollapsed = true;
+        bool isPurchasingSuppliersCollapsed = true;
+        bool isReportsCollapsed = true;
+        bool isSettingsCollapsed = true;
 
         public FramMain()
         {
@@ -30,6 +36,41 @@ namespace Supermarket
             this.ActiveControl = null;
         }
 
+        private void closeDropdowns()
+        {
+            if (!isInventoryCollapsed)
+            {
+                inventoryTimer.Start();
+            }
+            if (!isSalesCollapsed)
+            {
+                PointOfSalesTimer.Start();
+            }
+            if (!isProductsCollapsed)
+            {
+                ProductsTimer.Start();
+            }
+            if (!isPurchasingSuppliersCollapsed)
+            {
+                PurchasingSuppliersTimer.Start();
+            }
+            if (!isReportsCollapsed)
+            {
+                ReportsTimer.Start();
+            }
+            if (!isSettingsCollapsed)
+            {
+                SettingsTimer.Start();
+            }
+        }
+
+        private void closeMenu()
+        {
+            if (isMenuCollapsed)
+            {
+                MenuTimer.Start();
+            }
+        }
 
         bool isResetting = false;
 
@@ -53,18 +94,32 @@ namespace Supermarket
                 if (sender == btnInventory)
                 {
                     inventoryTimer.Start();
-                    if (!isSalesCollapsed)
-                    {
-                        salesTimer.Start();
-                    }
+                    closeDropdowns();
+                }
+                else if (sender == btnProducts)
+                {
+                    ProductsTimer.Start();
+                    closeDropdowns();
                 }
                 else if (sender == btnSales)
                 {
-                    salesTimer.Start();
-                    if (!isInventoryCollapsed)
-                    {
-                        inventoryTimer.Start();
-                    }
+                    PointOfSalesTimer.Start();
+                    closeDropdowns();
+                }
+                else if (sender == btnPurchasingSuppliers)
+                {
+                    PurchasingSuppliersTimer.Start();
+                    closeDropdowns();
+                }
+                else if (sender == btnReports)
+                {
+                    ReportsTimer.Start();
+                    closeDropdowns();
+                }
+                else if (sender == btnSettings)
+                {
+                    SettingsTimer.Start();
+                    closeDropdowns();
                 }
             }
             finally
@@ -94,13 +149,10 @@ namespace Supermarket
         {
             if (isInventoryCollapsed)
             {
+                closeMenu();
                 pnlInventoryContainer.Height += 10;
                 if (pnlInventoryContainer.Height >= 150)
                 {
-                    if (isMenuCollapsed)
-                    {
-                        MenuTimer.Start();
-                    }
                     pnlInventoryContainer.Height = 150;
                     inventoryTimer.Stop();
                     isInventoryCollapsed = false;
@@ -123,15 +175,12 @@ namespace Supermarket
         {
             if (isSalesCollapsed)
             {
+                closeMenu();
                 pnlSalesContainer.Height += 10;
-                if (pnlSalesContainer.Height >= 150)
+                if (pnlSalesContainer.Height >= 200)
                 {
-                    if (isMenuCollapsed)
-                    {
-                        MenuTimer.Start();
-                    }
-                    pnlSalesContainer.Height = 150;
-                    salesTimer.Stop();
+                    pnlSalesContainer.Height = 200;
+                    PointOfSalesTimer.Stop();
                     isSalesCollapsed = false;
                 }
             }
@@ -141,7 +190,7 @@ namespace Supermarket
                 if (pnlSalesContainer.Height <= 45)
                 {
                     pnlSalesContainer.Height = 45;
-                    salesTimer.Stop();
+                    PointOfSalesTimer.Stop();
                     isSalesCollapsed = true;
                 }
             }
@@ -152,31 +201,28 @@ namespace Supermarket
         {
             if (isMenuCollapsed)
             {
+                btnLogout.ImageAlign = HorizontalAlignment.Center;
+                btnLogout.TextAlign = HorizontalAlignment.Center;
                 pnlSidebar.Width += 10;
-                if (pnlSidebar.Width >= 200)
+                if (pnlSidebar.Width >= 265)
                 {
-                    pnlSidebar.Width = 200;
+                    pnlSidebar.Width = 265;
                     MenuTimer.Stop();
                     isMenuCollapsed = false;
                 }
             }
             else
             {
+                closeDropdowns();
+                btnLogout.ImageAlign = HorizontalAlignment.Left;
+                btnLogout.TextAlign = HorizontalAlignment.Left;
                 pnlSidebar.Width -= 10;
                 if (pnlSidebar.Width <= 44)
                 {
-                    if (!isInventoryCollapsed)
-                    {
-                        inventoryTimer.Start();
-                    }
-                    else if (!isSalesCollapsed)
-                    {
-                        salesTimer.Start();
-                    }
-
                     pnlSidebar.Width = 44;
                     MenuTimer.Stop();
                     isMenuCollapsed = true;
+
 
 
                 }
@@ -187,6 +233,125 @@ namespace Supermarket
         private void btnMenu_Click(object sender, EventArgs e)
         {
             MenuTimer.Start();
+        }
+
+        //Products Timer Tick Event
+        private void ProductsTimer_Tick(object sender, EventArgs e)
+        {
+            if(isProductsCollapsed)
+            {
+                closeMenu();
+                pnlProductsContainer.Height += 10;
+                if(pnlProductsContainer.Height >= 150)
+                {
+                    pnlProductsContainer.Height = 150;
+                    ProductsTimer.Stop();
+                    isProductsCollapsed = false;
+                }
+            }
+            else
+            {
+                pnlProductsContainer.Height -= 10;
+                if(pnlProductsContainer.Height <= 45)
+                {
+                    pnlProductsContainer.Height = 45;
+                    ProductsTimer.Stop();
+                    isProductsCollapsed = true;
+                }
+            }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //Purchasing Suppliers Timer Tick Event
+        private void PurchasingSuppliersTimer_Tick(object sender, EventArgs e)
+        {
+            if (isPurchasingSuppliersCollapsed)
+            {
+                closeMenu();
+                pnlPurchasingSuppliersContainer.Height += 10;
+                if (pnlPurchasingSuppliersContainer.Height >= 200)
+                {
+                    pnlPurchasingSuppliersContainer.Height = 200;
+                    PurchasingSuppliersTimer.Stop();
+                    isPurchasingSuppliersCollapsed = false;
+                }
+
+            }
+            else
+            {
+                pnlPurchasingSuppliersContainer.Height -= 10;
+                if (pnlPurchasingSuppliersContainer.Height <= 45)
+                {
+                    pnlPurchasingSuppliersContainer.Height = 45;
+                    PurchasingSuppliersTimer.Stop();
+                    isPurchasingSuppliersCollapsed = true;
+                }
+            }
+        }
+
+        //Reports Timer Tick Event
+        private void ReportsTimer_Tick(object sender, EventArgs e)
+        {
+            if (isReportsCollapsed)
+            {
+                closeMenu();
+                pnlReportsContainer.Height += 10;
+                if (pnlReportsContainer.Height >= 200)
+                {
+                    pnlReportsContainer.Height = 200;
+                    ReportsTimer.Stop();
+                    isReportsCollapsed = false;
+                }
+            }
+            else
+            {
+                pnlReportsContainer.Height -= 10;
+                if (pnlReportsContainer.Height <= 45)
+                {
+                    pnlReportsContainer.Height = 45;
+                    ReportsTimer.Stop();
+                    isReportsCollapsed = true;
+                }
+            }
+        }
+
+        private void SettingsTimer_Tick(object sender, EventArgs e)
+        {
+            if (isSettingsCollapsed)
+            {
+                closeMenu();
+                pnlSettingsContainer.Height += 10;
+                if (pnlSettingsContainer.Height >= 255)
+                {
+                    pnlSettingsContainer.Height = 255;
+                    SettingsTimer.Stop();
+                    isSettingsCollapsed = false;
+                }
+            }
+            else
+            {
+                pnlSettingsContainer.Height -= 10;
+                if (pnlSettingsContainer.Height <= 45)
+                {
+                    pnlSettingsContainer.Height = 45;
+                    SettingsTimer.Stop();
+                    isSettingsCollapsed = true;
+                }
+            }
+        }
+
+        private void pnlSidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

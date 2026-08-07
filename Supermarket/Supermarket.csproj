@@ -231,6 +231,26 @@
     <None Include="Resources\menu1.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\chashier.png" />
+    <None Include="Resources\chashier1.png" />
+    <None Include="Resources\stock-alert.png" />
+    <None Include="Resources\products.png" />
+    <None Include="Resources\products-list.png" />
+    <None Include="Resources\categories.png" />
+    <None Include="Resources\purchasing-suppliers.png" />
+    <None Include="Resources\suppliers.png" />
+    <None Include="Resources\purchase.png" />
+    <None Include="Resources\goods-receive.png" />
+    <None Include="Resources\cusrtomer.png" />
+    <None Include="Resources\profit-loss.png" />
+    <None Include="Resources\reports.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\employees.png" />
+    <None Include="Resources\users.png" />
+    <None Include="Resources\store.png" />
+    <None Include="Resources\general.png" />
+    <None Include="Resources\log-out.png" />
+    <None Include="Resources\sales-history.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
