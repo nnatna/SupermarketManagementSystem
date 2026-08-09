@@ -9,6 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Supermarket.UI.Dashboard;
+using Supermarket.UI.Customers;
+using Supermarket.UI.Inventory;
+using Supermarket.UI.Point_of_sale;
+using Supermarket.UI.Report;
+using Supermarket.UI.Purchasing_and_Suppliers;
+using Supermarket.UI.Settings;
+using Supermarket.UI.Products;
+
 
 namespace Supermarket
 {
@@ -27,13 +36,32 @@ namespace Supermarket
             InitializeComponent();
         }
 
+        private Form activeForm = null;
         private void FramMain_Load(object sender, EventArgs e)
         {
             btnDashboard.Checked = true;
             btnInventory.Checked = false;
-            btnSales.Checked = false;
+            btnPointOfSales.Checked = false;
 
             this.ActiveControl = null;
+        }
+
+        private void openChildForrm(Form childForm)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            pnlContent.Controls.Add(childForm);
+            pnlContent.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         private void closeDropdowns()
@@ -90,18 +118,109 @@ namespace Supermarket
                     clickedButton.Checked = true;
                 }
 
+                //Open Form
+
+                //Dasboard
+                if(sender == btnDashboard)
+                {
+                    openChildForrm(new frrmDashoard());
+                }
+
+                //Cusrtomer
+                if (sender==btnCustomers)
+                {
+                    openChildForrm(new frmCustomers());
+                }
+                //Inventory
+                if (sender == btnStock)
+                {
+                    openChildForrm(new frmStoctAlert());
+                }
+                if (sender == btnStockAdjustment)
+                {
+                    openChildForrm(new frmStockAdjustment());
+                }
+
+                //Point Of Sales
+                if (sender == btnCashier)
+                {
+                    openChildForrm(new frmChashier());
+
+                }
+                if (sender == btnSale)
+                {
+                    openChildForrm(new frmSales());
+                }
+                if (sender == btnSalesHistory)
+                {
+                    openChildForrm(new frmSaleHistory());
+                }
+                //Product
+                if (sender == btnCategories)
+                {
+                    openChildForrm(new frmCategoriesUnits());
+                }
+                if (sender == btnProductsList)
+                {
+                    openChildForrm(new frmProductsList());
+                }
+
+                //Purchasing & Suppliers
+                if (sender == btnPurchasingSuppliers)
+                {
+                    openChildForrm(new frmPurchaseOrders());
+                }
+                if (sender == btnSuppliers)
+                {
+                    openChildForrm(new frmSuppliers());
+                }
+                //Report
+                if (sender == btnInventoryReport)
+                {
+                    openChildForrm(new frminventoryReport());
+                }
+                if (sender == btnProfitLoss)
+                {
+                    openChildForrm(new frmProfitLoss());
+                }
+                if (sender == btnSalesReport)
+                {
+                    openChildForrm(new frmSalesReport());
+                }
+
+                //Settings
+                if (sender == btnEmployees)
+                {
+                    openChildForrm(new frmEmployees());
+                }
+                if (sender == btnGeneralSetting)
+                {
+                    openChildForrm(new frmGeneralSettings());
+                }
+                if (sender == btnStoreInfo)
+                {
+                    openChildForrm(new frmStore_nfo());
+                }
+                if (sender == btnUsers)
+                {
+                    openChildForrm(new frmUsers());
+                }
+
                 //Dropdown
                 if (sender == btnInventory)
                 {
                     inventoryTimer.Start();
                     closeDropdowns();
+                    
                 }
                 else if (sender == btnProducts)
                 {
                     ProductsTimer.Start();
                     closeDropdowns();
+                    
+
                 }
-                else if (sender == btnSales)
+                else if (sender == btnPointOfSales)
                 {
                     PointOfSalesTimer.Start();
                     closeDropdowns();
@@ -110,11 +229,13 @@ namespace Supermarket
                 {
                     PurchasingSuppliersTimer.Start();
                     closeDropdowns();
+                    
                 }
                 else if (sender == btnReports)
                 {
                     ReportsTimer.Start();
                     closeDropdowns();
+                    
                 }
                 else if (sender == btnSettings)
                 {

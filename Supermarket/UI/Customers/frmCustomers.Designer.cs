@@ -1,6 +1,6 @@
-﻿namespace Supermarket.UI.Dashboard
+﻿namespace Supermarket.UI.Customers
 {
-    partial class frrmDashoard
+    partial class frmCustomers
     {
         /// <summary>
         /// Required designer variable.
@@ -34,21 +34,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(347, 156);
+            this.label1.Location = new System.Drawing.Point(230, 163);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 16);
+            this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Dashoard";
+            this.label1.Text = "label1";
             // 
-            // frrmDashoard
+            // frmCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frrmDashoard";
-            this.Text = "frrmDashoard";
+            this.Name = "frmCustomers";
+            this.Text = "frmCustomers";
             this.ResumeLayout(false);
             this.PerformLayout();
 
