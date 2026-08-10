@@ -12,7 +12,7 @@ namespace Supermarket.DAL
     {
         DBConnection db = new DBConnection();
 
-        //Read
+        //READ
         public List<Products> GetAllProducts()
         {
             List<Products> list = new List<Products>();
