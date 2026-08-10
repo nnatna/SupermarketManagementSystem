@@ -310,3 +310,25 @@ CREATE TABLE stock_adjustments (
         CHECK (type IN ('addition', 'subtraction'))
 );
 GO
+
+/* =====================================================
+   16. VIEWS
+   ===================================================== */
+CREATE VIEW vw_Products AS
+SELECT 
+    p.id AS ProductId,
+    p.barcode AS Barcode,
+    p.name AS Name,
+    p.category_id AS CategoryId,
+    c.name AS CategoryName,
+    p.unit_id AS UnitId,
+    u.name AS UnitName,
+    p.cost_price AS Cost_price,
+    p.selling_price AS Selling_price,
+    p.stock_quantity AS Stock_quantity,
+    p.stock_alert_level AS Stock_alert_level,
+    p.image AS Image
+FROM products p
+LEFT JOIN categories c ON p.category_id = c.id
+LEFT JOIN units u ON p.unit_id = u.id;
+GO

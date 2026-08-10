@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Supermarket.Model;
+using Supermarket.DAL;
+using Supermarket.UI.Products;
 
 namespace Supermarket.UI.Products
 {
@@ -16,5 +19,20 @@ namespace Supermarket.UI.Products
         {
             InitializeComponent();
         }
+
+        ProductsDAL dal = new ProductsDAL();
+
+        private void LoadData()
+        {
+
+            displayProducts.DataSource = null;
+            displayProducts.DataSource = dal.GetAllProducts();
+        }
+
+        private void frmProductsList_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
     }
 }
