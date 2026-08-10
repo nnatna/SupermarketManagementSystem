@@ -9,7 +9,7 @@ namespace Supermarket.Model
 {
     internal class Products
     {
-        public int ProductId { get; set; }
+        public int Id { get; set; }
         public string Barcode { get; set; } = "";
         public string Name { get; set; } = "";
 
@@ -18,7 +18,7 @@ namespace Supermarket.Model
         //    get { return Categories?.CategoryId ?? 0; }
         //}
 
-        public string CategoryName
+        public string Category
         {
             get { return Categories?.CategoryName ?? ""; }
         }
@@ -28,7 +28,7 @@ namespace Supermarket.Model
         //    get { return Units?.UnitId ?? 0; }
         //}
 
-        public string UnitName
+        public string Unit
         {
             get { return Units?.UnitName ?? ""; }
         }

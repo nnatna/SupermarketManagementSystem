@@ -28,7 +28,7 @@ namespace Supermarket.DAL
                 {
                     Products product = new Products
                     {
-                        ProductId = reader["ProductId"] != DBNull.Value ? Convert.ToInt32(reader["ProductId"]) : 0,
+                        Id = reader["ProductId"] != DBNull.Value ? Convert.ToInt32(reader["ProductId"]) : 0,
                         Barcode = reader["Barcode"] != DBNull.Value ? reader["Barcode"].ToString() : string.Empty,
                         Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : string.Empty,
                         
