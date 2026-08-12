@@ -1,73 +1,213 @@
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using Supermarket.Model;
 
 namespace Supermarket.DAL
 {
     internal class ProductsDAL
     {
-        DBConnection db = new DBConnection();
+        //Using Entity Framework
 
-        //READ
+        // READ
         public List<Products> GetAllProducts()
         {
-            List<Products> list = new List<Products>();
-
-            using (SqlConnection conn = db.GetConnection())
+            try
             {
-                conn.Open();
-                string query = @"SELECT * FROM vw_Products";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                using (var db = new SupermarketContext())
                 {
-                    Products product = new Products
-                    {
-                        Id = reader["ProductId"] != DBNull.Value ? Convert.ToInt32(reader["ProductId"]) : 0,
-                        Barcode = reader["Barcode"] != DBNull.Value ? reader["Barcode"].ToString() : string.Empty,
-                        Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : string.Empty,
-                        
-                        Categories = new Categories
-                        {
-                            //CategoryId = reader["CategoryId"] != DBNull.Value ? Convert.ToInt32(reader["CategoryId"]) : 0,
-                            CategoryName = reader["CategoryName"] != DBNull.Value ? reader["CategoryName"].ToString() : string.Empty
-                        },
+                    db.Configuration.LazyLoadingEnabled = false;
+                    db.Configuration.ProxyCreationEnabled = false;
 
-                        Units = new Units
-                        {
-                            //UnitId = reader["UnitId"] != DBNull.Value ? Convert.ToInt32(reader["UnitId"]) : 0,
-                            UnitName = reader["UnitName"] != DBNull.Value ? reader["UnitName"].ToString() : string.Empty
-                        },
+                    var list = db.Products
+                                 .Include(p => p.Categories)
+                                 .Include(p => p.Units)
+                                 .AsNoTracking()
+                                 .ToList();
 
-                        Cost_price = HasColumn(reader, "Cost_price") && reader["Cost_price"] != DBNull.Value 
-                                     ? Convert.ToDecimal(reader["Cost_price"]) 
-                                     : (HasColumn(reader, "CostPrice") && reader["CostPrice"] != DBNull.Value 
-                                         ? Convert.ToDecimal(reader["CostPrice"]) 
-                                         : 0m),
-                        Selling_price = reader["Selling_price"] != DBNull.Value ? Convert.ToDecimal(reader["Selling_price"]) : 0m,
-                        Stock_quantity = reader["Stock_quantity"] != DBNull.Value ? Convert.ToInt32(reader["Stock_quantity"]) : 0,
-                        Stock_alert_level = reader["Stock_alert_level"] != DBNull.Value ? Convert.ToInt32(reader["Stock_alert_level"]) : 0,
-                        Image = reader["Image"] != DBNull.Value ? reader["Image"].ToString() : string.Empty
-                    };
-                    list.Add(product);
+                    return list;
                 }
             }
-            return list;
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    msg += "\nInner Exception: " + ex.InnerException.Message;
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        msg += "\n" + ex.InnerException.InnerException.Message;
+                    }
+                }
+                MessageBox.Show("EF Query Error: " + msg, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new List<Products>();
+            }
         }
 
-        private bool HasColumn(SqlDataReader reader, string columnName)
+        //Get By ID
+        public Products GetProductById(long productId)
         {
-            for (int i = 0; i < reader.FieldCount; i++)
+            try
             {
-                if (reader.GetName(i).Equals(columnName, StringComparison.OrdinalIgnoreCase))
-                    return true;
+                using (var db = new SupermarketContext())
+                {
+                    db.Configuration.LazyLoadingEnabled = false;
+                    db.Configuration.ProxyCreationEnabled = false;
+
+                    return db.Products
+                             .Include(p => p.Categories)
+                             .Include(p => p.Units)
+                             .FirstOrDefault(p => p.Id == productId);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("EF Query Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        //Random Barcode
+        public static string GenerateRandomBarcode()
+        {
+            Random rnd = new Random();
+            return "885" + rnd.Next(100000000, 999999999).ToString();
+        }
+
+        //Create
+        public bool AddProduct(Products product)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(product.Barcode))
+                {
+                    product.Barcode = GenerateRandomBarcode();
+                }
+                if (product.Image == null) product.Image = "";
+
+                using (var db = new SupermarketContext())
+                {
+                    db.Products.Add(product);
+                    return db.SaveChanges() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("EF Add Error: " + GetFullErrorMessage(ex), "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        //Update
+        public bool UpdateProduct(Products product)
+        {
+            try
+            {
+                using (var db = new SupermarketContext())
+                {
+                    var existing = db.Products.FirstOrDefault(p => p.Id == product.Id);
+                    if (existing != null)
+                    {
+                        existing.Name = product.Name;
+                        if (!string.IsNullOrWhiteSpace(product.Barcode))
+                        {
+                            existing.Barcode = product.Barcode;
+                        }
+                        else if (string.IsNullOrWhiteSpace(existing.Barcode))
+                        {
+                            existing.Barcode = GenerateRandomBarcode();
+                        }
+                        existing.CategoryId = product.CategoryId;
+                        existing.UnitId = product.UnitId;
+                        existing.Cost_price = product.Cost_price;
+                        existing.Selling_price = product.Selling_price;
+                        existing.Stock_quantity = product.Stock_quantity;
+                        existing.Stock_alert_level = product.Stock_alert_level;
+                        existing.Image = product.Image ?? "";
+
+                        return db.SaveChanges() > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("EF Update Error: " + GetFullErrorMessage(ex), "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return false;
         }
+
+        //Get Message 
+        private string GetFullErrorMessage(Exception ex)
+        {
+            if (ex == null) return "";
+            string msg = ex.Message;
+            Exception inner = ex.InnerException;
+            while (inner != null)
+            {
+                if (!string.IsNullOrWhiteSpace(inner.Message))
+                {
+                    msg += "\n-> " + inner.Message;
+                }
+                inner = inner.InnerException;
+            }
+            return msg;
+        }
+
+        // DELETE
+        public bool DeleteProduct(long productId)
+        {
+            try
+            {
+                using (var db = new SupermarketContext())
+                {
+                    var product = db.Products.FirstOrDefault(p => p.Id == productId);
+                    if (product != null)
+                    {
+                        db.Products.Remove(product);
+                        return db.SaveChanges() > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("EF Delete Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return false;
+        }
+
+        //Get Categroy
+        public List<Categories> GetAllCategories()
+        {
+            try
+            {
+                using (var db = new SupermarketContext())
+                {
+                    return db.Categories.AsNoTracking().ToList();
+                }
+            }
+            catch
+            {
+                return new List<Categories>();
+            }
+        }
+
+        //Get Ubit 
+        public List<Units> GetAllUnits()
+        {
+            try
+            {
+                using (var db = new SupermarketContext())
+                {
+                    return db.Units.AsNoTracking().ToList();
+                }
+            }
+            catch
+            {
+                return new List<Units>();
+            }
+        }
     }
 }
+

@@ -33,6 +33,7 @@
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
             this.inventoryTimer = new System.Windows.Forms.Timer(this.components);
             this.MenuTimer = new System.Windows.Forms.Timer(this.components);
             this.PointOfSalesTimer = new System.Windows.Forms.Timer(this.components);
@@ -40,45 +41,45 @@
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.pnlMenuAll = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pnlSalesContainer = new System.Windows.Forms.Panel();
-            this.pnlProductsContainer = new System.Windows.Forms.Panel();
-            this.pnlInventoryContainer = new System.Windows.Forms.Panel();
-            this.pnlPurchasingSuppliersContainer = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pnlReportsContainer = new System.Windows.Forms.Panel();
-            this.pnlSettingsContainer = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.ProductsTimer = new System.Windows.Forms.Timer(this.components);
-            this.PurchasingSuppliersTimer = new System.Windows.Forms.Timer(this.components);
-            this.ReportsTimer = new System.Windows.Forms.Timer(this.components);
-            this.SettingsTimer = new System.Windows.Forms.Timer(this.components);
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
-            this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlSalesContainer = new System.Windows.Forms.Panel();
             this.btnSalesHistory = new Guna.UI2.WinForms.Guna2Button();
             this.btnCashier = new Guna.UI2.WinForms.Guna2Button();
             this.btnPointOfSales = new Guna.UI2.WinForms.Guna2Button();
             this.btnSale = new Guna.UI2.WinForms.Guna2Button();
-            this.btnStockAdjustment = new Guna.UI2.WinForms.Guna2Button();
-            this.btnStock = new Guna.UI2.WinForms.Guna2Button();
-            this.btnInventory = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlProductsContainer = new System.Windows.Forms.Panel();
+            this.btnUnits = new Guna.UI2.WinForms.Guna2Button();
             this.btnCategories = new Guna.UI2.WinForms.Guna2Button();
             this.btnProducts = new Guna.UI2.WinForms.Guna2Button();
             this.btnProductsList = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlInventoryContainer = new System.Windows.Forms.Panel();
+            this.btnStockAdjustment = new Guna.UI2.WinForms.Guna2Button();
+            this.btnStock = new Guna.UI2.WinForms.Guna2Button();
+            this.btnInventory = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlPurchasingSuppliersContainer = new System.Windows.Forms.Panel();
+            this.btnGoodsReceive = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPurchasing = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPurchasingSuppliers = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSuppliers = new Guna.UI2.WinForms.Guna2Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnCustomers = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlReportsContainer = new System.Windows.Forms.Panel();
+            this.btnProfitLoss = new Guna.UI2.WinForms.Guna2Button();
+            this.btnInventoryReport = new Guna.UI2.WinForms.Guna2Button();
+            this.btnReports = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSalesReport = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlSettingsContainer = new System.Windows.Forms.Panel();
             this.btnGeneralSetting = new Guna.UI2.WinForms.Guna2Button();
             this.btnStoreInfo = new Guna.UI2.WinForms.Guna2Button();
             this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
             this.btnEmployees = new Guna.UI2.WinForms.Guna2Button();
-            this.btnProfitLoss = new Guna.UI2.WinForms.Guna2Button();
-            this.btnInventoryReport = new Guna.UI2.WinForms.Guna2Button();
-            this.btnReports = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSalesReport = new Guna.UI2.WinForms.Guna2Button();
-            this.btnGoodsReceive = new Guna.UI2.WinForms.Guna2Button();
-            this.btnPurchasing = new Guna.UI2.WinForms.Guna2Button();
-            this.btnPurchasingSuppliers = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSuppliers = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCustomers = new Guna.UI2.WinForms.Guna2Button();
-            this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
+            this.ProductsTimer = new System.Windows.Forms.Timer(this.components);
+            this.PurchasingSuppliersTimer = new System.Windows.Forms.Timer(this.components);
+            this.ReportsTimer = new System.Windows.Forms.Timer(this.components);
+            this.SettingsTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.pnlContent.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
@@ -101,9 +102,8 @@
             this.panel1.Controls.Add(this.btnMenu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1551, 66);
+            this.panel1.Size = new System.Drawing.Size(1163, 54);
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -113,13 +113,34 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(67, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(50, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(467, 37);
+            this.label1.Size = new System.Drawing.Size(356, 30);
             this.label1.TabIndex = 3;
             this.label1.Text = "Supermarket Management System ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Animated = true;
+            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.BorderRadius = 3;
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMenu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMenu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMenu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMenu.FillColor = System.Drawing.Color.Transparent;
+            this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMenu.ForeColor = System.Drawing.Color.White;
+            this.btnMenu.Image = global::Supermarket.Properties.Resources.menu1;
+            this.btnMenu.IndicateFocus = true;
+            this.btnMenu.Location = new System.Drawing.Point(12, 11);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(32, 32);
+            this.btnMenu.TabIndex = 3;
+            this.btnMenu.UseTransparentBackground = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // inventoryTimer
             // 
@@ -141,10 +162,9 @@
             this.pnlContent.BackColor = System.Drawing.SystemColors.ControlDark;
             this.pnlContent.Controls.Add(this.pnlSidebar);
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(0, 66);
-            this.pnlContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlContent.Location = new System.Drawing.Point(0, 54);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1551, 814);
+            this.pnlContent.Size = new System.Drawing.Size(1163, 661);
             this.pnlContent.TabIndex = 3;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -157,7 +177,7 @@
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Margin = new System.Windows.Forms.Padding(0);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(353, 814);
+            this.pnlSidebar.Size = new System.Drawing.Size(265, 661);
             this.pnlSidebar.TabIndex = 12;
             this.pnlSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
@@ -173,130 +193,18 @@
             this.pnlMenuAll.Controls.Add(this.panel4);
             this.pnlMenuAll.Controls.Add(this.pnlReportsContainer);
             this.pnlMenuAll.Controls.Add(this.pnlSettingsContainer);
-            this.pnlMenuAll.Location = new System.Drawing.Point(3, 1);
-            this.pnlMenuAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMenuAll.Location = new System.Drawing.Point(2, 1);
             this.pnlMenuAll.Name = "pnlMenuAll";
-            this.pnlMenuAll.Size = new System.Drawing.Size(347, 746);
+            this.pnlMenuAll.Size = new System.Drawing.Size(260, 606);
             this.pnlMenuAll.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnDashboard);
-            this.panel2.Location = new System.Drawing.Point(4, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(343, 55);
+            this.panel2.Size = new System.Drawing.Size(257, 45);
             this.panel2.TabIndex = 4;
-            // 
-            // pnlSalesContainer
-            // 
-            this.pnlSalesContainer.Controls.Add(this.btnSalesHistory);
-            this.pnlSalesContainer.Controls.Add(this.btnCashier);
-            this.pnlSalesContainer.Controls.Add(this.btnPointOfSales);
-            this.pnlSalesContainer.Controls.Add(this.btnSale);
-            this.pnlSalesContainer.Location = new System.Drawing.Point(4, 67);
-            this.pnlSalesContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlSalesContainer.Name = "pnlSalesContainer";
-            this.pnlSalesContainer.Size = new System.Drawing.Size(347, 55);
-            this.pnlSalesContainer.TabIndex = 6;
-            // 
-            // pnlProductsContainer
-            // 
-            this.pnlProductsContainer.Controls.Add(this.btnCategories);
-            this.pnlProductsContainer.Controls.Add(this.btnProducts);
-            this.pnlProductsContainer.Controls.Add(this.btnProductsList);
-            this.pnlProductsContainer.Location = new System.Drawing.Point(4, 130);
-            this.pnlProductsContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlProductsContainer.Name = "pnlProductsContainer";
-            this.pnlProductsContainer.Size = new System.Drawing.Size(347, 55);
-            this.pnlProductsContainer.TabIndex = 7;
-            // 
-            // pnlInventoryContainer
-            // 
-            this.pnlInventoryContainer.Controls.Add(this.btnStockAdjustment);
-            this.pnlInventoryContainer.Controls.Add(this.btnStock);
-            this.pnlInventoryContainer.Controls.Add(this.btnInventory);
-            this.pnlInventoryContainer.Location = new System.Drawing.Point(4, 193);
-            this.pnlInventoryContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlInventoryContainer.Name = "pnlInventoryContainer";
-            this.pnlInventoryContainer.Size = new System.Drawing.Size(347, 55);
-            this.pnlInventoryContainer.TabIndex = 5;
-            // 
-            // pnlPurchasingSuppliersContainer
-            // 
-            this.pnlPurchasingSuppliersContainer.Controls.Add(this.btnGoodsReceive);
-            this.pnlPurchasingSuppliersContainer.Controls.Add(this.btnPurchasing);
-            this.pnlPurchasingSuppliersContainer.Controls.Add(this.btnPurchasingSuppliers);
-            this.pnlPurchasingSuppliersContainer.Controls.Add(this.btnSuppliers);
-            this.pnlPurchasingSuppliersContainer.Location = new System.Drawing.Point(4, 256);
-            this.pnlPurchasingSuppliersContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlPurchasingSuppliersContainer.Name = "pnlPurchasingSuppliersContainer";
-            this.pnlPurchasingSuppliersContainer.Size = new System.Drawing.Size(347, 55);
-            this.pnlPurchasingSuppliersContainer.TabIndex = 8;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btnCustomers);
-            this.panel4.Location = new System.Drawing.Point(4, 319);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(347, 55);
-            this.panel4.TabIndex = 9;
-            // 
-            // pnlReportsContainer
-            // 
-            this.pnlReportsContainer.Controls.Add(this.btnProfitLoss);
-            this.pnlReportsContainer.Controls.Add(this.btnInventoryReport);
-            this.pnlReportsContainer.Controls.Add(this.btnReports);
-            this.pnlReportsContainer.Controls.Add(this.btnSalesReport);
-            this.pnlReportsContainer.Location = new System.Drawing.Point(4, 382);
-            this.pnlReportsContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlReportsContainer.Name = "pnlReportsContainer";
-            this.pnlReportsContainer.Size = new System.Drawing.Size(347, 55);
-            this.pnlReportsContainer.TabIndex = 11;
-            // 
-            // pnlSettingsContainer
-            // 
-            this.pnlSettingsContainer.Controls.Add(this.btnGeneralSetting);
-            this.pnlSettingsContainer.Controls.Add(this.btnStoreInfo);
-            this.pnlSettingsContainer.Controls.Add(this.btnSettings);
-            this.pnlSettingsContainer.Controls.Add(this.btnUsers);
-            this.pnlSettingsContainer.Controls.Add(this.btnEmployees);
-            this.pnlSettingsContainer.Location = new System.Drawing.Point(4, 445);
-            this.pnlSettingsContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlSettingsContainer.Name = "pnlSettingsContainer";
-            this.pnlSettingsContainer.Size = new System.Drawing.Size(347, 55);
-            this.pnlSettingsContainer.TabIndex = 10;
-            // 
-            // panel5
-            // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel5.Controls.Add(this.btnLogout);
-            this.panel5.Location = new System.Drawing.Point(7, 754);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(343, 55);
-            this.panel5.TabIndex = 11;
-            // 
-            // ProductsTimer
-            // 
-            this.ProductsTimer.Interval = 25;
-            this.ProductsTimer.Tick += new System.EventHandler(this.ProductsTimer_Tick);
-            // 
-            // PurchasingSuppliersTimer
-            // 
-            this.PurchasingSuppliersTimer.Interval = 25;
-            this.PurchasingSuppliersTimer.Tick += new System.EventHandler(this.PurchasingSuppliersTimer_Tick);
-            // 
-            // ReportsTimer
-            // 
-            this.ReportsTimer.Interval = 25;
-            this.ReportsTimer.Tick += new System.EventHandler(this.ReportsTimer_Tick);
-            // 
-            // SettingsTimer
-            // 
-            this.SettingsTimer.Interval = 25;
-            this.SettingsTimer.Tick += new System.EventHandler(this.SettingsTimer_Tick);
             // 
             // btnDashboard
             // 
@@ -321,9 +229,8 @@
             this.btnDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDashboard.IndicateFocus = true;
             this.btnDashboard.Location = new System.Drawing.Point(0, 0);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(347, 55);
+            this.btnDashboard.Size = new System.Drawing.Size(260, 45);
             this.btnDashboard.TabIndex = 3;
             this.btnDashboard.TabStop = false;
             this.btnDashboard.Text = "Dashboard";
@@ -331,37 +238,16 @@
             this.btnDashboard.UseTransparentBackground = true;
             this.btnDashboard.Click += new System.EventHandler(this.NavigationButton_Click);
             // 
-            // btnLogout
+            // pnlSalesContainer
             // 
-            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLogout.Animated = true;
-            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogout.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnLogout.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnLogout.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnLogout.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLogout.FillColor = System.Drawing.Color.LightCoral;
-            this.btnLogout.FocusedColor = System.Drawing.Color.Silver;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnLogout.ForeColor = System.Drawing.Color.Black;
-            this.btnLogout.HoverState.FillColor = System.Drawing.Color.RosyBrown;
-            this.btnLogout.Image = global::Supermarket.Properties.Resources.log_out;
-            this.btnLogout.IndicateFocus = true;
-            this.btnLogout.Location = new System.Drawing.Point(0, 0);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(347, 55);
-            this.btnLogout.TabIndex = 4;
-            this.btnLogout.TabStop = false;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseTransparentBackground = true;
+            this.pnlSalesContainer.Controls.Add(this.btnSalesHistory);
+            this.pnlSalesContainer.Controls.Add(this.btnCashier);
+            this.pnlSalesContainer.Controls.Add(this.btnPointOfSales);
+            this.pnlSalesContainer.Controls.Add(this.btnSale);
+            this.pnlSalesContainer.Location = new System.Drawing.Point(3, 54);
+            this.pnlSalesContainer.Name = "pnlSalesContainer";
+            this.pnlSalesContainer.Size = new System.Drawing.Size(260, 45);
+            this.pnlSalesContainer.TabIndex = 6;
             // 
             // btnSalesHistory
             // 
@@ -385,10 +271,9 @@
             this.btnSalesHistory.Image = global::Supermarket.Properties.Resources.sales_history;
             this.btnSalesHistory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSalesHistory.IndicateFocus = true;
-            this.btnSalesHistory.Location = new System.Drawing.Point(53, 126);
-            this.btnSalesHistory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalesHistory.Location = new System.Drawing.Point(40, 102);
             this.btnSalesHistory.Name = "btnSalesHistory";
-            this.btnSalesHistory.Size = new System.Drawing.Size(293, 55);
+            this.btnSalesHistory.Size = new System.Drawing.Size(220, 45);
             this.btnSalesHistory.TabIndex = 13;
             this.btnSalesHistory.TabStop = false;
             this.btnSalesHistory.Text = "Sales History";
@@ -418,10 +303,9 @@
             this.btnCashier.Image = global::Supermarket.Properties.Resources.chashier1;
             this.btnCashier.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCashier.IndicateFocus = true;
-            this.btnCashier.Location = new System.Drawing.Point(53, 188);
-            this.btnCashier.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCashier.Location = new System.Drawing.Point(40, 153);
             this.btnCashier.Name = "btnCashier";
-            this.btnCashier.Size = new System.Drawing.Size(293, 55);
+            this.btnCashier.Size = new System.Drawing.Size(220, 45);
             this.btnCashier.TabIndex = 6;
             this.btnCashier.TabStop = false;
             this.btnCashier.Text = "Cashier ";
@@ -451,9 +335,8 @@
             this.btnPointOfSales.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPointOfSales.IndicateFocus = true;
             this.btnPointOfSales.Location = new System.Drawing.Point(0, 0);
-            this.btnPointOfSales.Margin = new System.Windows.Forms.Padding(4);
             this.btnPointOfSales.Name = "btnPointOfSales";
-            this.btnPointOfSales.Size = new System.Drawing.Size(347, 55);
+            this.btnPointOfSales.Size = new System.Drawing.Size(260, 45);
             this.btnPointOfSales.TabIndex = 3;
             this.btnPointOfSales.TabStop = false;
             this.btnPointOfSales.Text = "Point of Sale";
@@ -483,10 +366,9 @@
             this.btnSale.Image = global::Supermarket.Properties.Resources.sale;
             this.btnSale.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSale.IndicateFocus = true;
-            this.btnSale.Location = new System.Drawing.Point(53, 63);
-            this.btnSale.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSale.Location = new System.Drawing.Point(40, 51);
             this.btnSale.Name = "btnSale";
-            this.btnSale.Size = new System.Drawing.Size(293, 55);
+            this.btnSale.Size = new System.Drawing.Size(220, 45);
             this.btnSale.TabIndex = 7;
             this.btnSale.TabStop = false;
             this.btnSale.Text = "Sales";
@@ -494,101 +376,48 @@
             this.btnSale.UseTransparentBackground = true;
             this.btnSale.Click += new System.EventHandler(this.NavigationButton_Click);
             // 
-            // btnStockAdjustment
+            // pnlProductsContainer
             // 
-            this.btnStockAdjustment.Animated = true;
-            this.btnStockAdjustment.BackColor = System.Drawing.Color.Transparent;
-            this.btnStockAdjustment.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnStockAdjustment.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnStockAdjustment.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnStockAdjustment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStockAdjustment.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnStockAdjustment.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnStockAdjustment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnStockAdjustment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnStockAdjustment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnStockAdjustment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnStockAdjustment.FillColor = System.Drawing.Color.White;
-            this.btnStockAdjustment.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnStockAdjustment.ForeColor = System.Drawing.Color.Black;
-            this.btnStockAdjustment.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnStockAdjustment.Image = global::Supermarket.Properties.Resources.stock2;
-            this.btnStockAdjustment.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnStockAdjustment.IndicateFocus = true;
-            this.btnStockAdjustment.Location = new System.Drawing.Point(53, 126);
-            this.btnStockAdjustment.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStockAdjustment.Name = "btnStockAdjustment";
-            this.btnStockAdjustment.Size = new System.Drawing.Size(293, 55);
-            this.btnStockAdjustment.TabIndex = 7;
-            this.btnStockAdjustment.TabStop = false;
-            this.btnStockAdjustment.Text = "Stock Adjustment";
-            this.btnStockAdjustment.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnStockAdjustment.UseTransparentBackground = true;
-            this.btnStockAdjustment.Click += new System.EventHandler(this.NavigationButton_Click);
+            this.pnlProductsContainer.Controls.Add(this.btnUnits);
+            this.pnlProductsContainer.Controls.Add(this.btnCategories);
+            this.pnlProductsContainer.Controls.Add(this.btnProducts);
+            this.pnlProductsContainer.Controls.Add(this.btnProductsList);
+            this.pnlProductsContainer.Location = new System.Drawing.Point(3, 105);
+            this.pnlProductsContainer.Name = "pnlProductsContainer";
+            this.pnlProductsContainer.Size = new System.Drawing.Size(260, 45);
+            this.pnlProductsContainer.TabIndex = 7;
             // 
-            // btnStock
+            // btnUnits
             // 
-            this.btnStock.Animated = true;
-            this.btnStock.BackColor = System.Drawing.Color.Transparent;
-            this.btnStock.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnStock.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnStock.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnStock.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStock.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnStock.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnStock.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnStock.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnStock.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnStock.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnStock.FillColor = System.Drawing.Color.White;
-            this.btnStock.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnStock.ForeColor = System.Drawing.Color.Black;
-            this.btnStock.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnStock.Image = global::Supermarket.Properties.Resources.stock_alert;
-            this.btnStock.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnStock.IndicateFocus = true;
-            this.btnStock.Location = new System.Drawing.Point(53, 63);
-            this.btnStock.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(293, 55);
-            this.btnStock.TabIndex = 6;
-            this.btnStock.TabStop = false;
-            this.btnStock.Text = "Stock Alert";
-            this.btnStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnStock.UseTransparentBackground = true;
-            this.btnStock.Click += new System.EventHandler(this.NavigationButton_Click);
-            // 
-            // btnInventory
-            // 
-            this.btnInventory.Animated = true;
-            this.btnInventory.BackColor = System.Drawing.Color.Transparent;
-            this.btnInventory.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnInventory.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnInventory.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnInventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInventory.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnInventory.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnInventory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnInventory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnInventory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnInventory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnInventory.FillColor = System.Drawing.Color.White;
-            this.btnInventory.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnInventory.ForeColor = System.Drawing.Color.Black;
-            this.btnInventory.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnInventory.Image = global::Supermarket.Properties.Resources.inventory3;
-            this.btnInventory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnInventory.IndicateFocus = true;
-            this.btnInventory.Location = new System.Drawing.Point(0, 0);
-            this.btnInventory.Margin = new System.Windows.Forms.Padding(4);
-            this.btnInventory.Name = "btnInventory";
-            this.btnInventory.Size = new System.Drawing.Size(347, 55);
-            this.btnInventory.TabIndex = 3;
-            this.btnInventory.TabStop = false;
-            this.btnInventory.Text = "Inventory";
-            this.btnInventory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnInventory.UseTransparentBackground = true;
-            this.btnInventory.Click += new System.EventHandler(this.NavigationButton_Click);
+            this.btnUnits.Animated = true;
+            this.btnUnits.BackColor = System.Drawing.Color.Transparent;
+            this.btnUnits.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnUnits.Checked = true;
+            this.btnUnits.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnUnits.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnUnits.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUnits.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnUnits.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnUnits.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUnits.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUnits.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUnits.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUnits.FillColor = System.Drawing.Color.White;
+            this.btnUnits.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnUnits.ForeColor = System.Drawing.Color.Black;
+            this.btnUnits.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnUnits.Image = global::Supermarket.Properties.Resources.unit;
+            this.btnUnits.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUnits.IndicateFocus = true;
+            this.btnUnits.Location = new System.Drawing.Point(40, 153);
+            this.btnUnits.Name = "btnUnits";
+            this.btnUnits.Size = new System.Drawing.Size(220, 45);
+            this.btnUnits.TabIndex = 8;
+            this.btnUnits.TabStop = false;
+            this.btnUnits.Text = "Units";
+            this.btnUnits.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUnits.UseTransparentBackground = true;
+            this.btnUnits.Click += new System.EventHandler(this.NavigationButton_Click);
             // 
             // btnCategories
             // 
@@ -612,13 +441,12 @@
             this.btnCategories.Image = global::Supermarket.Properties.Resources.categories;
             this.btnCategories.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCategories.IndicateFocus = true;
-            this.btnCategories.Location = new System.Drawing.Point(53, 126);
-            this.btnCategories.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCategories.Location = new System.Drawing.Point(40, 102);
             this.btnCategories.Name = "btnCategories";
-            this.btnCategories.Size = new System.Drawing.Size(293, 55);
+            this.btnCategories.Size = new System.Drawing.Size(220, 45);
             this.btnCategories.TabIndex = 6;
             this.btnCategories.TabStop = false;
-            this.btnCategories.Text = "Categories / Units";
+            this.btnCategories.Text = "Categories";
             this.btnCategories.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCategories.UseTransparentBackground = true;
             this.btnCategories.Click += new System.EventHandler(this.NavigationButton_Click);
@@ -645,9 +473,8 @@
             this.btnProducts.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnProducts.IndicateFocus = true;
             this.btnProducts.Location = new System.Drawing.Point(0, 0);
-            this.btnProducts.Margin = new System.Windows.Forms.Padding(4);
             this.btnProducts.Name = "btnProducts";
-            this.btnProducts.Size = new System.Drawing.Size(347, 55);
+            this.btnProducts.Size = new System.Drawing.Size(260, 45);
             this.btnProducts.TabIndex = 3;
             this.btnProducts.TabStop = false;
             this.btnProducts.Text = "Products";
@@ -677,10 +504,9 @@
             this.btnProductsList.Image = global::Supermarket.Properties.Resources.products_list;
             this.btnProductsList.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnProductsList.IndicateFocus = true;
-            this.btnProductsList.Location = new System.Drawing.Point(53, 63);
-            this.btnProductsList.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProductsList.Location = new System.Drawing.Point(40, 51);
             this.btnProductsList.Name = "btnProductsList";
-            this.btnProductsList.Size = new System.Drawing.Size(293, 55);
+            this.btnProductsList.Size = new System.Drawing.Size(220, 45);
             this.btnProductsList.TabIndex = 7;
             this.btnProductsList.TabStop = false;
             this.btnProductsList.Text = "Products List";
@@ -688,300 +514,119 @@
             this.btnProductsList.UseTransparentBackground = true;
             this.btnProductsList.Click += new System.EventHandler(this.NavigationButton_Click);
             // 
-            // btnGeneralSetting
+            // pnlInventoryContainer
             // 
-            this.btnGeneralSetting.Animated = true;
-            this.btnGeneralSetting.BackColor = System.Drawing.Color.Transparent;
-            this.btnGeneralSetting.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnGeneralSetting.Checked = true;
-            this.btnGeneralSetting.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnGeneralSetting.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnGeneralSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGeneralSetting.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnGeneralSetting.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnGeneralSetting.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnGeneralSetting.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnGeneralSetting.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnGeneralSetting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGeneralSetting.FillColor = System.Drawing.Color.White;
-            this.btnGeneralSetting.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnGeneralSetting.ForeColor = System.Drawing.Color.Black;
-            this.btnGeneralSetting.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnGeneralSetting.Image = global::Supermarket.Properties.Resources.general;
-            this.btnGeneralSetting.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnGeneralSetting.IndicateFocus = true;
-            this.btnGeneralSetting.Location = new System.Drawing.Point(53, 251);
-            this.btnGeneralSetting.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGeneralSetting.Name = "btnGeneralSetting";
-            this.btnGeneralSetting.Size = new System.Drawing.Size(293, 55);
-            this.btnGeneralSetting.TabIndex = 11;
-            this.btnGeneralSetting.TabStop = false;
-            this.btnGeneralSetting.Text = "General Settings";
-            this.btnGeneralSetting.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnGeneralSetting.UseTransparentBackground = true;
-            this.btnGeneralSetting.Click += new System.EventHandler(this.NavigationButton_Click);
+            this.pnlInventoryContainer.Controls.Add(this.btnStockAdjustment);
+            this.pnlInventoryContainer.Controls.Add(this.btnStock);
+            this.pnlInventoryContainer.Controls.Add(this.btnInventory);
+            this.pnlInventoryContainer.Location = new System.Drawing.Point(3, 156);
+            this.pnlInventoryContainer.Name = "pnlInventoryContainer";
+            this.pnlInventoryContainer.Size = new System.Drawing.Size(260, 45);
+            this.pnlInventoryContainer.TabIndex = 5;
             // 
-            // btnStoreInfo
+            // btnStockAdjustment
             // 
-            this.btnStoreInfo.Animated = true;
-            this.btnStoreInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnStoreInfo.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnStoreInfo.Checked = true;
-            this.btnStoreInfo.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnStoreInfo.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnStoreInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStoreInfo.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnStoreInfo.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnStoreInfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnStoreInfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnStoreInfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnStoreInfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnStoreInfo.FillColor = System.Drawing.Color.White;
-            this.btnStoreInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnStoreInfo.ForeColor = System.Drawing.Color.Black;
-            this.btnStoreInfo.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnStoreInfo.Image = global::Supermarket.Properties.Resources.store;
-            this.btnStoreInfo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnStoreInfo.IndicateFocus = true;
-            this.btnStoreInfo.Location = new System.Drawing.Point(53, 188);
-            this.btnStoreInfo.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStoreInfo.Name = "btnStoreInfo";
-            this.btnStoreInfo.Size = new System.Drawing.Size(293, 55);
-            this.btnStoreInfo.TabIndex = 6;
-            this.btnStoreInfo.TabStop = false;
-            this.btnStoreInfo.Text = "Store Info";
-            this.btnStoreInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnStoreInfo.UseTransparentBackground = true;
-            this.btnStoreInfo.Click += new System.EventHandler(this.NavigationButton_Click);
+            this.btnStockAdjustment.Animated = true;
+            this.btnStockAdjustment.BackColor = System.Drawing.Color.Transparent;
+            this.btnStockAdjustment.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnStockAdjustment.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnStockAdjustment.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnStockAdjustment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStockAdjustment.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnStockAdjustment.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnStockAdjustment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStockAdjustment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStockAdjustment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStockAdjustment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStockAdjustment.FillColor = System.Drawing.Color.White;
+            this.btnStockAdjustment.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnStockAdjustment.ForeColor = System.Drawing.Color.Black;
+            this.btnStockAdjustment.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnStockAdjustment.Image = global::Supermarket.Properties.Resources.stock2;
+            this.btnStockAdjustment.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnStockAdjustment.IndicateFocus = true;
+            this.btnStockAdjustment.Location = new System.Drawing.Point(40, 102);
+            this.btnStockAdjustment.Name = "btnStockAdjustment";
+            this.btnStockAdjustment.Size = new System.Drawing.Size(220, 45);
+            this.btnStockAdjustment.TabIndex = 7;
+            this.btnStockAdjustment.TabStop = false;
+            this.btnStockAdjustment.Text = "Stock Adjustment";
+            this.btnStockAdjustment.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnStockAdjustment.UseTransparentBackground = true;
+            this.btnStockAdjustment.Click += new System.EventHandler(this.NavigationButton_Click);
             // 
-            // btnSettings
+            // btnStock
             // 
-            this.btnSettings.Animated = true;
-            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
-            this.btnSettings.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnSettings.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnSettings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSettings.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnSettings.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSettings.FillColor = System.Drawing.Color.White;
-            this.btnSettings.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnSettings.ForeColor = System.Drawing.Color.Black;
-            this.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnSettings.Image = global::Supermarket.Properties.Resources.settings;
-            this.btnSettings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSettings.IndicateFocus = true;
-            this.btnSettings.Location = new System.Drawing.Point(0, 0);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(347, 55);
-            this.btnSettings.TabIndex = 3;
-            this.btnSettings.TabStop = false;
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSettings.UseTransparentBackground = true;
-            this.btnSettings.Click += new System.EventHandler(this.NavigationButton_Click);
+            this.btnStock.Animated = true;
+            this.btnStock.BackColor = System.Drawing.Color.Transparent;
+            this.btnStock.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnStock.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnStock.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnStock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStock.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnStock.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnStock.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStock.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStock.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStock.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStock.FillColor = System.Drawing.Color.White;
+            this.btnStock.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnStock.ForeColor = System.Drawing.Color.Black;
+            this.btnStock.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnStock.Image = global::Supermarket.Properties.Resources.stock_alert;
+            this.btnStock.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnStock.IndicateFocus = true;
+            this.btnStock.Location = new System.Drawing.Point(40, 51);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(220, 45);
+            this.btnStock.TabIndex = 6;
+            this.btnStock.TabStop = false;
+            this.btnStock.Text = "Stock Alert";
+            this.btnStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnStock.UseTransparentBackground = true;
+            this.btnStock.Click += new System.EventHandler(this.NavigationButton_Click);
             // 
-            // btnUsers
+            // btnInventory
             // 
-            this.btnUsers.Animated = true;
-            this.btnUsers.BackColor = System.Drawing.Color.Transparent;
-            this.btnUsers.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnUsers.Checked = true;
-            this.btnUsers.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnUsers.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUsers.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnUsers.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnUsers.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnUsers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnUsers.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnUsers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUsers.FillColor = System.Drawing.Color.White;
-            this.btnUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnUsers.ForeColor = System.Drawing.Color.Black;
-            this.btnUsers.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnUsers.Image = global::Supermarket.Properties.Resources.users;
-            this.btnUsers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUsers.IndicateFocus = true;
-            this.btnUsers.Location = new System.Drawing.Point(53, 126);
-            this.btnUsers.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(293, 55);
-            this.btnUsers.TabIndex = 9;
-            this.btnUsers.TabStop = false;
-            this.btnUsers.Text = "Users";
-            this.btnUsers.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUsers.UseTransparentBackground = true;
-            this.btnUsers.Click += new System.EventHandler(this.NavigationButton_Click);
+            this.btnInventory.Animated = true;
+            this.btnInventory.BackColor = System.Drawing.Color.Transparent;
+            this.btnInventory.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnInventory.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnInventory.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnInventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInventory.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnInventory.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnInventory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnInventory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnInventory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInventory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnInventory.FillColor = System.Drawing.Color.White;
+            this.btnInventory.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnInventory.ForeColor = System.Drawing.Color.Black;
+            this.btnInventory.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnInventory.Image = global::Supermarket.Properties.Resources.inventory3;
+            this.btnInventory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInventory.IndicateFocus = true;
+            this.btnInventory.Location = new System.Drawing.Point(0, 0);
+            this.btnInventory.Name = "btnInventory";
+            this.btnInventory.Size = new System.Drawing.Size(260, 45);
+            this.btnInventory.TabIndex = 3;
+            this.btnInventory.TabStop = false;
+            this.btnInventory.Text = "Inventory";
+            this.btnInventory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInventory.UseTransparentBackground = true;
+            this.btnInventory.Click += new System.EventHandler(this.NavigationButton_Click);
             // 
-            // btnEmployees
+            // pnlPurchasingSuppliersContainer
             // 
-            this.btnEmployees.Animated = true;
-            this.btnEmployees.BackColor = System.Drawing.Color.Transparent;
-            this.btnEmployees.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnEmployees.Checked = true;
-            this.btnEmployees.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnEmployees.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnEmployees.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmployees.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnEmployees.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnEmployees.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEmployees.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEmployees.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEmployees.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEmployees.FillColor = System.Drawing.Color.White;
-            this.btnEmployees.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnEmployees.ForeColor = System.Drawing.Color.Black;
-            this.btnEmployees.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnEmployees.Image = global::Supermarket.Properties.Resources.employees;
-            this.btnEmployees.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnEmployees.IndicateFocus = true;
-            this.btnEmployees.Location = new System.Drawing.Point(53, 63);
-            this.btnEmployees.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEmployees.Name = "btnEmployees";
-            this.btnEmployees.Size = new System.Drawing.Size(293, 55);
-            this.btnEmployees.TabIndex = 7;
-            this.btnEmployees.TabStop = false;
-            this.btnEmployees.Text = "Employees";
-            this.btnEmployees.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnEmployees.UseTransparentBackground = true;
-            this.btnEmployees.Click += new System.EventHandler(this.NavigationButton_Click);
-            // 
-            // btnProfitLoss
-            // 
-            this.btnProfitLoss.Animated = true;
-            this.btnProfitLoss.BackColor = System.Drawing.Color.Transparent;
-            this.btnProfitLoss.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnProfitLoss.Checked = true;
-            this.btnProfitLoss.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnProfitLoss.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnProfitLoss.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProfitLoss.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnProfitLoss.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnProfitLoss.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnProfitLoss.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnProfitLoss.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnProfitLoss.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnProfitLoss.FillColor = System.Drawing.Color.White;
-            this.btnProfitLoss.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnProfitLoss.ForeColor = System.Drawing.Color.Black;
-            this.btnProfitLoss.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnProfitLoss.Image = global::Supermarket.Properties.Resources.profit_loss;
-            this.btnProfitLoss.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnProfitLoss.IndicateFocus = true;
-            this.btnProfitLoss.Location = new System.Drawing.Point(53, 188);
-            this.btnProfitLoss.Margin = new System.Windows.Forms.Padding(4);
-            this.btnProfitLoss.Name = "btnProfitLoss";
-            this.btnProfitLoss.Size = new System.Drawing.Size(293, 55);
-            this.btnProfitLoss.TabIndex = 9;
-            this.btnProfitLoss.TabStop = false;
-            this.btnProfitLoss.Text = "Profit / Loss";
-            this.btnProfitLoss.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnProfitLoss.UseTransparentBackground = true;
-            this.btnProfitLoss.Click += new System.EventHandler(this.NavigationButton_Click);
-            // 
-            // btnInventoryReport
-            // 
-            this.btnInventoryReport.Animated = true;
-            this.btnInventoryReport.BackColor = System.Drawing.Color.Transparent;
-            this.btnInventoryReport.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnInventoryReport.Checked = true;
-            this.btnInventoryReport.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnInventoryReport.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnInventoryReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInventoryReport.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnInventoryReport.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnInventoryReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnInventoryReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnInventoryReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnInventoryReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnInventoryReport.FillColor = System.Drawing.Color.White;
-            this.btnInventoryReport.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnInventoryReport.ForeColor = System.Drawing.Color.Black;
-            this.btnInventoryReport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnInventoryReport.Image = global::Supermarket.Properties.Resources.inventory3;
-            this.btnInventoryReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnInventoryReport.IndicateFocus = true;
-            this.btnInventoryReport.Location = new System.Drawing.Point(53, 126);
-            this.btnInventoryReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnInventoryReport.Name = "btnInventoryReport";
-            this.btnInventoryReport.Size = new System.Drawing.Size(293, 55);
-            this.btnInventoryReport.TabIndex = 6;
-            this.btnInventoryReport.TabStop = false;
-            this.btnInventoryReport.Text = "Inventory Report";
-            this.btnInventoryReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnInventoryReport.UseTransparentBackground = true;
-            this.btnInventoryReport.Click += new System.EventHandler(this.NavigationButton_Click);
-            // 
-            // btnReports
-            // 
-            this.btnReports.Animated = true;
-            this.btnReports.BackColor = System.Drawing.Color.Transparent;
-            this.btnReports.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnReports.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnReports.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnReports.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReports.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnReports.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnReports.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnReports.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnReports.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnReports.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnReports.FillColor = System.Drawing.Color.White;
-            this.btnReports.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnReports.ForeColor = System.Drawing.Color.Black;
-            this.btnReports.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnReports.Image = global::Supermarket.Properties.Resources.reports;
-            this.btnReports.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnReports.IndicateFocus = true;
-            this.btnReports.Location = new System.Drawing.Point(0, 0);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(347, 55);
-            this.btnReports.TabIndex = 3;
-            this.btnReports.TabStop = false;
-            this.btnReports.Text = "Reports";
-            this.btnReports.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnReports.UseTransparentBackground = true;
-            this.btnReports.Click += new System.EventHandler(this.NavigationButton_Click);
-            // 
-            // btnSalesReport
-            // 
-            this.btnSalesReport.Animated = true;
-            this.btnSalesReport.BackColor = System.Drawing.Color.Transparent;
-            this.btnSalesReport.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnSalesReport.Checked = true;
-            this.btnSalesReport.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnSalesReport.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnSalesReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalesReport.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnSalesReport.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnSalesReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSalesReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSalesReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSalesReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSalesReport.FillColor = System.Drawing.Color.White;
-            this.btnSalesReport.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnSalesReport.ForeColor = System.Drawing.Color.Black;
-            this.btnSalesReport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnSalesReport.Image = global::Supermarket.Properties.Resources.sales;
-            this.btnSalesReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSalesReport.IndicateFocus = true;
-            this.btnSalesReport.Location = new System.Drawing.Point(53, 63);
-            this.btnSalesReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSalesReport.Name = "btnSalesReport";
-            this.btnSalesReport.Size = new System.Drawing.Size(293, 55);
-            this.btnSalesReport.TabIndex = 7;
-            this.btnSalesReport.TabStop = false;
-            this.btnSalesReport.Text = "Sales Report";
-            this.btnSalesReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSalesReport.UseTransparentBackground = true;
-            this.btnSalesReport.Click += new System.EventHandler(this.NavigationButton_Click);
+            this.pnlPurchasingSuppliersContainer.Controls.Add(this.btnGoodsReceive);
+            this.pnlPurchasingSuppliersContainer.Controls.Add(this.btnPurchasing);
+            this.pnlPurchasingSuppliersContainer.Controls.Add(this.btnPurchasingSuppliers);
+            this.pnlPurchasingSuppliersContainer.Controls.Add(this.btnSuppliers);
+            this.pnlPurchasingSuppliersContainer.Location = new System.Drawing.Point(3, 207);
+            this.pnlPurchasingSuppliersContainer.Name = "pnlPurchasingSuppliersContainer";
+            this.pnlPurchasingSuppliersContainer.Size = new System.Drawing.Size(260, 45);
+            this.pnlPurchasingSuppliersContainer.TabIndex = 8;
             // 
             // btnGoodsReceive
             // 
@@ -1005,10 +650,9 @@
             this.btnGoodsReceive.Image = global::Supermarket.Properties.Resources.goods_receive;
             this.btnGoodsReceive.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGoodsReceive.IndicateFocus = true;
-            this.btnGoodsReceive.Location = new System.Drawing.Point(53, 188);
-            this.btnGoodsReceive.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGoodsReceive.Location = new System.Drawing.Point(40, 153);
             this.btnGoodsReceive.Name = "btnGoodsReceive";
-            this.btnGoodsReceive.Size = new System.Drawing.Size(293, 55);
+            this.btnGoodsReceive.Size = new System.Drawing.Size(220, 45);
             this.btnGoodsReceive.TabIndex = 9;
             this.btnGoodsReceive.TabStop = false;
             this.btnGoodsReceive.Text = "Goods Receive";
@@ -1038,10 +682,9 @@
             this.btnPurchasing.Image = global::Supermarket.Properties.Resources.purchase;
             this.btnPurchasing.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPurchasing.IndicateFocus = true;
-            this.btnPurchasing.Location = new System.Drawing.Point(53, 126);
-            this.btnPurchasing.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPurchasing.Location = new System.Drawing.Point(40, 102);
             this.btnPurchasing.Name = "btnPurchasing";
-            this.btnPurchasing.Size = new System.Drawing.Size(293, 55);
+            this.btnPurchasing.Size = new System.Drawing.Size(220, 45);
             this.btnPurchasing.TabIndex = 6;
             this.btnPurchasing.TabStop = false;
             this.btnPurchasing.Text = "Purchase Orders";
@@ -1071,9 +714,8 @@
             this.btnPurchasingSuppliers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPurchasingSuppliers.IndicateFocus = true;
             this.btnPurchasingSuppliers.Location = new System.Drawing.Point(0, 0);
-            this.btnPurchasingSuppliers.Margin = new System.Windows.Forms.Padding(4);
             this.btnPurchasingSuppliers.Name = "btnPurchasingSuppliers";
-            this.btnPurchasingSuppliers.Size = new System.Drawing.Size(347, 55);
+            this.btnPurchasingSuppliers.Size = new System.Drawing.Size(260, 45);
             this.btnPurchasingSuppliers.TabIndex = 3;
             this.btnPurchasingSuppliers.TabStop = false;
             this.btnPurchasingSuppliers.Text = "Purchasing / Suppliers";
@@ -1103,16 +745,23 @@
             this.btnSuppliers.Image = global::Supermarket.Properties.Resources.suppliers;
             this.btnSuppliers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSuppliers.IndicateFocus = true;
-            this.btnSuppliers.Location = new System.Drawing.Point(53, 63);
-            this.btnSuppliers.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSuppliers.Location = new System.Drawing.Point(40, 51);
             this.btnSuppliers.Name = "btnSuppliers";
-            this.btnSuppliers.Size = new System.Drawing.Size(293, 55);
+            this.btnSuppliers.Size = new System.Drawing.Size(220, 45);
             this.btnSuppliers.TabIndex = 7;
             this.btnSuppliers.TabStop = false;
             this.btnSuppliers.Text = "Suppliers";
             this.btnSuppliers.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSuppliers.UseTransparentBackground = true;
             this.btnSuppliers.Click += new System.EventHandler(this.NavigationButton_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnCustomers);
+            this.panel4.Location = new System.Drawing.Point(3, 258);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(260, 45);
+            this.panel4.TabIndex = 9;
             // 
             // btnCustomers
             // 
@@ -1136,9 +785,8 @@
             this.btnCustomers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCustomers.IndicateFocus = true;
             this.btnCustomers.Location = new System.Drawing.Point(0, 0);
-            this.btnCustomers.Margin = new System.Windows.Forms.Padding(4);
             this.btnCustomers.Name = "btnCustomers";
-            this.btnCustomers.Size = new System.Drawing.Size(347, 55);
+            this.btnCustomers.Size = new System.Drawing.Size(260, 45);
             this.btnCustomers.TabIndex = 3;
             this.btnCustomers.TabStop = false;
             this.btnCustomers.Text = "Customers";
@@ -1146,38 +794,384 @@
             this.btnCustomers.UseTransparentBackground = true;
             this.btnCustomers.Click += new System.EventHandler(this.NavigationButton_Click);
             // 
-            // btnMenu
+            // pnlReportsContainer
             // 
-            this.btnMenu.Animated = true;
-            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenu.BorderRadius = 3;
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMenu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMenu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMenu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMenu.FillColor = System.Drawing.Color.Transparent;
-            this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Image = global::Supermarket.Properties.Resources.menu1;
-            this.btnMenu.IndicateFocus = true;
-            this.btnMenu.Location = new System.Drawing.Point(16, 14);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(43, 39);
-            this.btnMenu.TabIndex = 3;
-            this.btnMenu.UseTransparentBackground = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            this.pnlReportsContainer.Controls.Add(this.btnProfitLoss);
+            this.pnlReportsContainer.Controls.Add(this.btnInventoryReport);
+            this.pnlReportsContainer.Controls.Add(this.btnReports);
+            this.pnlReportsContainer.Controls.Add(this.btnSalesReport);
+            this.pnlReportsContainer.Location = new System.Drawing.Point(3, 309);
+            this.pnlReportsContainer.Name = "pnlReportsContainer";
+            this.pnlReportsContainer.Size = new System.Drawing.Size(260, 45);
+            this.pnlReportsContainer.TabIndex = 11;
+            // 
+            // btnProfitLoss
+            // 
+            this.btnProfitLoss.Animated = true;
+            this.btnProfitLoss.BackColor = System.Drawing.Color.Transparent;
+            this.btnProfitLoss.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnProfitLoss.Checked = true;
+            this.btnProfitLoss.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnProfitLoss.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnProfitLoss.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProfitLoss.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnProfitLoss.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnProfitLoss.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnProfitLoss.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnProfitLoss.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnProfitLoss.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnProfitLoss.FillColor = System.Drawing.Color.White;
+            this.btnProfitLoss.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnProfitLoss.ForeColor = System.Drawing.Color.Black;
+            this.btnProfitLoss.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnProfitLoss.Image = global::Supermarket.Properties.Resources.profit_loss;
+            this.btnProfitLoss.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnProfitLoss.IndicateFocus = true;
+            this.btnProfitLoss.Location = new System.Drawing.Point(40, 153);
+            this.btnProfitLoss.Name = "btnProfitLoss";
+            this.btnProfitLoss.Size = new System.Drawing.Size(220, 45);
+            this.btnProfitLoss.TabIndex = 9;
+            this.btnProfitLoss.TabStop = false;
+            this.btnProfitLoss.Text = "Profit / Loss";
+            this.btnProfitLoss.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnProfitLoss.UseTransparentBackground = true;
+            this.btnProfitLoss.Click += new System.EventHandler(this.NavigationButton_Click);
+            // 
+            // btnInventoryReport
+            // 
+            this.btnInventoryReport.Animated = true;
+            this.btnInventoryReport.BackColor = System.Drawing.Color.Transparent;
+            this.btnInventoryReport.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnInventoryReport.Checked = true;
+            this.btnInventoryReport.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnInventoryReport.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnInventoryReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInventoryReport.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnInventoryReport.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnInventoryReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnInventoryReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnInventoryReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInventoryReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnInventoryReport.FillColor = System.Drawing.Color.White;
+            this.btnInventoryReport.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnInventoryReport.ForeColor = System.Drawing.Color.Black;
+            this.btnInventoryReport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnInventoryReport.Image = global::Supermarket.Properties.Resources.inventory3;
+            this.btnInventoryReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInventoryReport.IndicateFocus = true;
+            this.btnInventoryReport.Location = new System.Drawing.Point(40, 102);
+            this.btnInventoryReport.Name = "btnInventoryReport";
+            this.btnInventoryReport.Size = new System.Drawing.Size(220, 45);
+            this.btnInventoryReport.TabIndex = 6;
+            this.btnInventoryReport.TabStop = false;
+            this.btnInventoryReport.Text = "Inventory Report";
+            this.btnInventoryReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInventoryReport.UseTransparentBackground = true;
+            this.btnInventoryReport.Click += new System.EventHandler(this.NavigationButton_Click);
+            // 
+            // btnReports
+            // 
+            this.btnReports.Animated = true;
+            this.btnReports.BackColor = System.Drawing.Color.Transparent;
+            this.btnReports.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnReports.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnReports.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnReports.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReports.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnReports.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnReports.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReports.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReports.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReports.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReports.FillColor = System.Drawing.Color.White;
+            this.btnReports.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnReports.ForeColor = System.Drawing.Color.Black;
+            this.btnReports.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnReports.Image = global::Supermarket.Properties.Resources.reports;
+            this.btnReports.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReports.IndicateFocus = true;
+            this.btnReports.Location = new System.Drawing.Point(0, 0);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(260, 45);
+            this.btnReports.TabIndex = 3;
+            this.btnReports.TabStop = false;
+            this.btnReports.Text = "Reports";
+            this.btnReports.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReports.UseTransparentBackground = true;
+            this.btnReports.Click += new System.EventHandler(this.NavigationButton_Click);
+            // 
+            // btnSalesReport
+            // 
+            this.btnSalesReport.Animated = true;
+            this.btnSalesReport.BackColor = System.Drawing.Color.Transparent;
+            this.btnSalesReport.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnSalesReport.Checked = true;
+            this.btnSalesReport.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnSalesReport.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnSalesReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalesReport.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnSalesReport.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnSalesReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSalesReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSalesReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSalesReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSalesReport.FillColor = System.Drawing.Color.White;
+            this.btnSalesReport.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnSalesReport.ForeColor = System.Drawing.Color.Black;
+            this.btnSalesReport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnSalesReport.Image = global::Supermarket.Properties.Resources.sales;
+            this.btnSalesReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSalesReport.IndicateFocus = true;
+            this.btnSalesReport.Location = new System.Drawing.Point(40, 51);
+            this.btnSalesReport.Name = "btnSalesReport";
+            this.btnSalesReport.Size = new System.Drawing.Size(220, 45);
+            this.btnSalesReport.TabIndex = 7;
+            this.btnSalesReport.TabStop = false;
+            this.btnSalesReport.Text = "Sales Report";
+            this.btnSalesReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSalesReport.UseTransparentBackground = true;
+            this.btnSalesReport.Click += new System.EventHandler(this.NavigationButton_Click);
+            // 
+            // pnlSettingsContainer
+            // 
+            this.pnlSettingsContainer.Controls.Add(this.btnGeneralSetting);
+            this.pnlSettingsContainer.Controls.Add(this.btnStoreInfo);
+            this.pnlSettingsContainer.Controls.Add(this.btnSettings);
+            this.pnlSettingsContainer.Controls.Add(this.btnUsers);
+            this.pnlSettingsContainer.Controls.Add(this.btnEmployees);
+            this.pnlSettingsContainer.Location = new System.Drawing.Point(3, 360);
+            this.pnlSettingsContainer.Name = "pnlSettingsContainer";
+            this.pnlSettingsContainer.Size = new System.Drawing.Size(260, 45);
+            this.pnlSettingsContainer.TabIndex = 10;
+            // 
+            // btnGeneralSetting
+            // 
+            this.btnGeneralSetting.Animated = true;
+            this.btnGeneralSetting.BackColor = System.Drawing.Color.Transparent;
+            this.btnGeneralSetting.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnGeneralSetting.Checked = true;
+            this.btnGeneralSetting.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnGeneralSetting.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnGeneralSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGeneralSetting.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnGeneralSetting.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnGeneralSetting.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnGeneralSetting.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnGeneralSetting.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnGeneralSetting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnGeneralSetting.FillColor = System.Drawing.Color.White;
+            this.btnGeneralSetting.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnGeneralSetting.ForeColor = System.Drawing.Color.Black;
+            this.btnGeneralSetting.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnGeneralSetting.Image = global::Supermarket.Properties.Resources.general;
+            this.btnGeneralSetting.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGeneralSetting.IndicateFocus = true;
+            this.btnGeneralSetting.Location = new System.Drawing.Point(40, 204);
+            this.btnGeneralSetting.Name = "btnGeneralSetting";
+            this.btnGeneralSetting.Size = new System.Drawing.Size(220, 45);
+            this.btnGeneralSetting.TabIndex = 11;
+            this.btnGeneralSetting.TabStop = false;
+            this.btnGeneralSetting.Text = "General Settings";
+            this.btnGeneralSetting.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGeneralSetting.UseTransparentBackground = true;
+            this.btnGeneralSetting.Click += new System.EventHandler(this.NavigationButton_Click);
+            // 
+            // btnStoreInfo
+            // 
+            this.btnStoreInfo.Animated = true;
+            this.btnStoreInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnStoreInfo.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnStoreInfo.Checked = true;
+            this.btnStoreInfo.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnStoreInfo.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnStoreInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStoreInfo.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnStoreInfo.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnStoreInfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStoreInfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStoreInfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStoreInfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStoreInfo.FillColor = System.Drawing.Color.White;
+            this.btnStoreInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnStoreInfo.ForeColor = System.Drawing.Color.Black;
+            this.btnStoreInfo.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnStoreInfo.Image = global::Supermarket.Properties.Resources.store;
+            this.btnStoreInfo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnStoreInfo.IndicateFocus = true;
+            this.btnStoreInfo.Location = new System.Drawing.Point(40, 153);
+            this.btnStoreInfo.Name = "btnStoreInfo";
+            this.btnStoreInfo.Size = new System.Drawing.Size(220, 45);
+            this.btnStoreInfo.TabIndex = 6;
+            this.btnStoreInfo.TabStop = false;
+            this.btnStoreInfo.Text = "Store Info";
+            this.btnStoreInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnStoreInfo.UseTransparentBackground = true;
+            this.btnStoreInfo.Click += new System.EventHandler(this.NavigationButton_Click);
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Animated = true;
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnSettings.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnSettings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnSettings.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSettings.FillColor = System.Drawing.Color.White;
+            this.btnSettings.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnSettings.ForeColor = System.Drawing.Color.Black;
+            this.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnSettings.Image = global::Supermarket.Properties.Resources.settings;
+            this.btnSettings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSettings.IndicateFocus = true;
+            this.btnSettings.Location = new System.Drawing.Point(0, 0);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(260, 45);
+            this.btnSettings.TabIndex = 3;
+            this.btnSettings.TabStop = false;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSettings.UseTransparentBackground = true;
+            this.btnSettings.Click += new System.EventHandler(this.NavigationButton_Click);
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.Animated = true;
+            this.btnUsers.BackColor = System.Drawing.Color.Transparent;
+            this.btnUsers.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnUsers.Checked = true;
+            this.btnUsers.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnUsers.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsers.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnUsers.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnUsers.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUsers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUsers.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUsers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUsers.FillColor = System.Drawing.Color.White;
+            this.btnUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnUsers.ForeColor = System.Drawing.Color.Black;
+            this.btnUsers.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnUsers.Image = global::Supermarket.Properties.Resources.users;
+            this.btnUsers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUsers.IndicateFocus = true;
+            this.btnUsers.Location = new System.Drawing.Point(40, 102);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(220, 45);
+            this.btnUsers.TabIndex = 9;
+            this.btnUsers.TabStop = false;
+            this.btnUsers.Text = "Users";
+            this.btnUsers.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUsers.UseTransparentBackground = true;
+            this.btnUsers.Click += new System.EventHandler(this.NavigationButton_Click);
+            // 
+            // btnEmployees
+            // 
+            this.btnEmployees.Animated = true;
+            this.btnEmployees.BackColor = System.Drawing.Color.Transparent;
+            this.btnEmployees.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnEmployees.Checked = true;
+            this.btnEmployees.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnEmployees.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnEmployees.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmployees.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnEmployees.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnEmployees.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEmployees.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEmployees.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEmployees.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEmployees.FillColor = System.Drawing.Color.White;
+            this.btnEmployees.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnEmployees.ForeColor = System.Drawing.Color.Black;
+            this.btnEmployees.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnEmployees.Image = global::Supermarket.Properties.Resources.employees;
+            this.btnEmployees.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnEmployees.IndicateFocus = true;
+            this.btnEmployees.Location = new System.Drawing.Point(40, 51);
+            this.btnEmployees.Name = "btnEmployees";
+            this.btnEmployees.Size = new System.Drawing.Size(220, 45);
+            this.btnEmployees.TabIndex = 7;
+            this.btnEmployees.TabStop = false;
+            this.btnEmployees.Text = "Employees";
+            this.btnEmployees.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnEmployees.UseTransparentBackground = true;
+            this.btnEmployees.Click += new System.EventHandler(this.NavigationButton_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel5.Controls.Add(this.btnLogout);
+            this.panel5.Location = new System.Drawing.Point(5, 613);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(257, 45);
+            this.panel5.TabIndex = 11;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLogout.Animated = true;
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.BorderRadius = 5;
+            this.btnLogout.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnLogout.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnLogout.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnLogout.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogout.FillColor = System.Drawing.Color.LightCoral;
+            this.btnLogout.FocusedColor = System.Drawing.Color.Silver;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnLogout.ForeColor = System.Drawing.Color.Black;
+            this.btnLogout.HoverState.FillColor = System.Drawing.Color.RosyBrown;
+            this.btnLogout.Image = global::Supermarket.Properties.Resources.log_out;
+            this.btnLogout.IndicateFocus = true;
+            this.btnLogout.Location = new System.Drawing.Point(0, 0);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(254, 45);
+            this.btnLogout.TabIndex = 4;
+            this.btnLogout.TabStop = false;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseTransparentBackground = true;
+            // 
+            // ProductsTimer
+            // 
+            this.ProductsTimer.Interval = 25;
+            this.ProductsTimer.Tick += new System.EventHandler(this.ProductsTimer_Tick);
+            // 
+            // PurchasingSuppliersTimer
+            // 
+            this.PurchasingSuppliersTimer.Interval = 25;
+            this.PurchasingSuppliersTimer.Tick += new System.EventHandler(this.PurchasingSuppliersTimer_Tick);
+            // 
+            // ReportsTimer
+            // 
+            this.ReportsTimer.Interval = 25;
+            this.ReportsTimer.Tick += new System.EventHandler(this.ReportsTimer_Tick);
+            // 
+            // SettingsTimer
+            // 
+            this.SettingsTimer.Interval = 25;
+            this.SettingsTimer.Tick += new System.EventHandler(this.SettingsTimer_Tick);
             // 
             // FramMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1551, 880);
+            this.ClientSize = new System.Drawing.Size(1163, 715);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FramMain";
             this.Text = "Supermarket Management System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1251,6 +1245,7 @@
         private Guna.UI2.WinForms.Guna2Button btnLogout;
         private System.Windows.Forms.Panel pnlSidebar;
         private Guna.UI2.WinForms.Guna2Button btnSalesHistory;
+        private Guna.UI2.WinForms.Guna2Button btnUnits;
     }
 }
 

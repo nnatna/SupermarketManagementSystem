@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -35,11 +36,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CodeFirstStoreFunctions, Version=1.2.0.0, Culture=neutral, PublicKeyToken=46c4868af4307d2c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.CodeFirstStoreFunctions.1.2.0\lib\net45\CodeFirstStoreFunctions.dll</HintPath>
+    </Reference>
     <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.4.4.0\lib\net462\ControlzEx.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.1.79\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
@@ -139,8 +149,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\CategoriesDAL.cs" />
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\ProductsDAL.cs" />
+    <Compile Include="DAL\SupermarketContext.cs" />
+    <Compile Include="DAL\UnitsDAL.cs" />
     <Compile Include="FramMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +177,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="SupermarketManagementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SupermarketManagementDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UI\Customers\frmCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,17 +224,41 @@
     <Compile Include="UI\Point of sale\frmSales.Designer.cs">
       <DependentUpon>frmSales.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Products\frmCategoriesUnits.cs">
+    <Compile Include="UI\Products\frmAddEditCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Products\frmCategoriesUnits.Designer.cs">
-      <DependentUpon>frmCategoriesUnits.cs</DependentUpon>
+    <Compile Include="UI\Products\frmAddEditCategory.Designer.cs">
+      <DependentUpon>frmAddEditCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Products\frmAddEditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Products\frmAddEditProduct.Designer.cs">
+      <DependentUpon>frmAddEditProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Products\frmAddEditUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Products\frmAddEditUnit.Designer.cs">
+      <DependentUpon>frmAddEditUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Products\frmCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Products\frmCategories.Designer.cs">
+      <DependentUpon>frmCategories.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Products\frmProductsList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Products\frmProductsList.Designer.cs">
       <DependentUpon>frmProductsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Products\frmUnits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Products\frmUnits.Designer.cs">
+      <DependentUpon>frmUnits.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Purchasing and Suppliers\frmPurchaseOrders.cs">
       <SubType>Form</SubType>
@@ -306,11 +348,23 @@
     <EmbeddedResource Include="UI\Point of sale\frmSales.resx">
       <DependentUpon>frmSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Products\frmCategoriesUnits.resx">
-      <DependentUpon>frmCategoriesUnits.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Products\frmAddEditCategory.resx">
+      <DependentUpon>frmAddEditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Products\frmAddEditProduct.resx">
+      <DependentUpon>frmAddEditProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Products\frmAddEditUnit.resx">
+      <DependentUpon>frmAddEditUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Products\frmCategories.resx">
+      <DependentUpon>frmCategories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Products\frmProductsList.resx">
       <DependentUpon>frmProductsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Products\frmUnits.resx">
+      <DependentUpon>frmUnits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Purchasing and Suppliers\frmPurchaseOrders.resx">
       <DependentUpon>frmPurchaseOrders.cs</DependentUpon>
@@ -371,6 +425,17 @@
     <None Include="Resources\Roboto\RobotoCondensed-Light.ttf" />
     <None Include="Resources\Roboto\RobotoCondensed-LightItalic.ttf" />
     <None Include="Resources\Roboto\RobotoCondensed-Regular.ttf" />
+    <None Include="SupermarketManagementDataSet.xsc">
+      <DependentUpon>SupermarketManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SupermarketManagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SupermarketManagementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SupermarketManagementDataSet.xss">
+      <DependentUpon>SupermarketManagementDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -432,6 +497,13 @@
     <None Include="Resources\general.png" />
     <None Include="Resources\log-out.png" />
     <None Include="Resources\sales-history.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\LinkFile.png" />
+    <None Include="Resources\sort.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\unit.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -454,5 +526,8 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\MaterialDesignThemes.5.3.2\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.5.3.2\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
 </Project>

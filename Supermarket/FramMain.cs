@@ -34,6 +34,23 @@ namespace Supermarket
         public FramMain()
         {
             InitializeComponent();
+            EnableDoubleBuffering(this);
+        }
+
+        private void EnableDoubleBuffering(Control control)
+        {
+            if (control == null) return;
+            try
+            {
+                typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                    ?.SetValue(control, true, null);
+            }
+            catch { }
+
+            foreach (Control child in control.Controls)
+            {
+                EnableDoubleBuffering(child);
+            }
         }
 
         private Form activeForm = null;
@@ -42,15 +59,18 @@ namespace Supermarket
             btnDashboard.Checked = true;
             btnInventory.Checked = false;
             btnPointOfSales.Checked = false;
+            openChildForrm(new frrmDashoard());
 
             this.ActiveControl = null;
         }
 
         private void openChildForrm(Form childForm)
         {
+            pnlContent.SuspendLayout();
             if (activeForm != null)
             {
                 activeForm.Close();
+                activeForm.Dispose();
             }
 
             activeForm = childForm;
@@ -62,6 +82,7 @@ namespace Supermarket
             pnlContent.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+            pnlContent.ResumeLayout(true);
         }
 
         private void closeDropdowns()
@@ -118,8 +139,6 @@ namespace Supermarket
                     clickedButton.Checked = true;
                 }
 
-                //Open Form
-
                 //Dasboard
                 if(sender == btnDashboard)
                 {
@@ -158,11 +177,15 @@ namespace Supermarket
                 //Product
                 if (sender == btnCategories)
                 {
-                    openChildForrm(new frmCategoriesUnits());
+                    openChildForrm(new frmCategories());
                 }
                 if (sender == btnProductsList)
                 {
                     openChildForrm(new frmProductsList());
+                }
+                if (sender == btnUnits)
+                {
+                    openChildForrm(new frmUnits());
                 }
 
                 //Purchasing & Suppliers
@@ -271,7 +294,7 @@ namespace Supermarket
             if (isInventoryCollapsed)
             {
                 closeMenu();
-                pnlInventoryContainer.Height += 10;
+                pnlInventoryContainer.Height += 25;
                 if (pnlInventoryContainer.Height >= 150)
                 {
                     pnlInventoryContainer.Height = 150;
@@ -281,7 +304,7 @@ namespace Supermarket
             }
             else
             {
-                pnlInventoryContainer.Height -= 10;
+                pnlInventoryContainer.Height -= 25;
                 if (pnlInventoryContainer.Height <= 45)
                 {
                     pnlInventoryContainer.Height = 45;
@@ -297,7 +320,7 @@ namespace Supermarket
             if (isSalesCollapsed)
             {
                 closeMenu();
-                pnlSalesContainer.Height += 10;
+                pnlSalesContainer.Height += 25;
                 if (pnlSalesContainer.Height >= 200)
                 {
                     pnlSalesContainer.Height = 200;
@@ -307,7 +330,7 @@ namespace Supermarket
             }
             else
             {
-                pnlSalesContainer.Height -= 10;
+                pnlSalesContainer.Height -= 25;
                 if (pnlSalesContainer.Height <= 45)
                 {
                     pnlSalesContainer.Height = 45;
@@ -324,7 +347,7 @@ namespace Supermarket
             {
                 btnLogout.ImageAlign = HorizontalAlignment.Center;
                 btnLogout.TextAlign = HorizontalAlignment.Center;
-                pnlSidebar.Width += 10;
+                pnlSidebar.Width += 30;
                 if (pnlSidebar.Width >= 265)
                 {
                     pnlSidebar.Width = 265;
@@ -334,18 +357,14 @@ namespace Supermarket
             }
             else
             {
-                closeDropdowns();
                 btnLogout.ImageAlign = HorizontalAlignment.Left;
                 btnLogout.TextAlign = HorizontalAlignment.Left;
-                pnlSidebar.Width -= 10;
+                pnlSidebar.Width -= 30;
                 if (pnlSidebar.Width <= 44)
                 {
                     pnlSidebar.Width = 44;
                     MenuTimer.Stop();
                     isMenuCollapsed = true;
-
-
-
                 }
             }
         }
@@ -353,6 +372,10 @@ namespace Supermarket
         // Button Menu Click Event
         private void btnMenu_Click(object sender, EventArgs e)
         {
+            if (!isMenuCollapsed)
+            {
+                closeDropdowns();
+            }
             MenuTimer.Start();
         }
 
@@ -362,17 +385,17 @@ namespace Supermarket
             if(isProductsCollapsed)
             {
                 closeMenu();
-                pnlProductsContainer.Height += 10;
-                if(pnlProductsContainer.Height >= 150)
+                pnlProductsContainer.Height += 25;
+                if(pnlProductsContainer.Height >= 200)
                 {
-                    pnlProductsContainer.Height = 150;
+                    pnlProductsContainer.Height = 200;
                     ProductsTimer.Stop();
                     isProductsCollapsed = false;
                 }
             }
             else
             {
-                pnlProductsContainer.Height -= 10;
+                pnlProductsContainer.Height -= 25;
                 if(pnlProductsContainer.Height <= 45)
                 {
                     pnlProductsContainer.Height = 45;
@@ -393,7 +416,7 @@ namespace Supermarket
             if (isPurchasingSuppliersCollapsed)
             {
                 closeMenu();
-                pnlPurchasingSuppliersContainer.Height += 10;
+                pnlPurchasingSuppliersContainer.Height += 25;
                 if (pnlPurchasingSuppliersContainer.Height >= 200)
                 {
                     pnlPurchasingSuppliersContainer.Height = 200;
@@ -404,7 +427,7 @@ namespace Supermarket
             }
             else
             {
-                pnlPurchasingSuppliersContainer.Height -= 10;
+                pnlPurchasingSuppliersContainer.Height -= 25;
                 if (pnlPurchasingSuppliersContainer.Height <= 45)
                 {
                     pnlPurchasingSuppliersContainer.Height = 45;
@@ -420,7 +443,7 @@ namespace Supermarket
             if (isReportsCollapsed)
             {
                 closeMenu();
-                pnlReportsContainer.Height += 10;
+                pnlReportsContainer.Height += 25;
                 if (pnlReportsContainer.Height >= 200)
                 {
                     pnlReportsContainer.Height = 200;
@@ -430,7 +453,7 @@ namespace Supermarket
             }
             else
             {
-                pnlReportsContainer.Height -= 10;
+                pnlReportsContainer.Height -= 25;
                 if (pnlReportsContainer.Height <= 45)
                 {
                     pnlReportsContainer.Height = 45;
@@ -445,7 +468,7 @@ namespace Supermarket
             if (isSettingsCollapsed)
             {
                 closeMenu();
-                pnlSettingsContainer.Height += 10;
+                pnlSettingsContainer.Height += 30;
                 if (pnlSettingsContainer.Height >= 255)
                 {
                     pnlSettingsContainer.Height = 255;
@@ -455,7 +478,7 @@ namespace Supermarket
             }
             else
             {
-                pnlSettingsContainer.Height -= 10;
+                pnlSettingsContainer.Height -= 30;
                 if (pnlSettingsContainer.Height <= 45)
                 {
                     pnlSettingsContainer.Height = 45;
