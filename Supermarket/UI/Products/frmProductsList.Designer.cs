@@ -28,15 +28,15 @@ namespace Supermarket.UI.Products
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.displayProducts = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductImage = new System.Windows.Forms.DataGridViewImageColumn();
@@ -49,18 +49,18 @@ namespace Supermarket.UI.Products
             this.Stock_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock_alert_level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnSort = new Guna.UI2.WinForms.Guna2Button();
             this.pnlButton = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.cmbSortColumn = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnSort = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRefesh = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.displayProducts)).BeginInit();
-            this.pnlButton.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.pnlButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // displayProducts
@@ -68,20 +68,20 @@ namespace Supermarket.UI.Products
             this.displayProducts.AllowDrop = true;
             this.displayProducts.AllowUserToAddRows = false;
             this.displayProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.displayProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.displayProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.displayProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.displayProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.displayProducts.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.displayProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.displayProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.displayProducts.ColumnHeadersHeight = 45;
             this.displayProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.displayProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -95,27 +95,27 @@ namespace Supermarket.UI.Products
             this.Selling_price,
             this.Stock_quantity,
             this.Stock_alert_level});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.displayProducts.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.displayProducts.DefaultCellStyle = dataGridViewCellStyle17;
             this.displayProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.displayProducts.Location = new System.Drawing.Point(12, 121);
             this.displayProducts.Name = "displayProducts";
             this.displayProducts.ReadOnly = true;
             this.displayProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.displayProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.displayProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.displayProducts.RowHeadersVisible = false;
             this.displayProducts.RowHeadersWidth = 45;
             this.displayProducts.RowTemplate.Height = 60;
@@ -136,8 +136,8 @@ namespace Supermarket.UI.Products
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Id.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Id.DefaultCellStyle = dataGridViewCellStyle12;
             this.Id.FillWeight = 40F;
             this.Id.HeaderText = "ID";
             this.Id.MinimumWidth = 45;
@@ -206,9 +206,9 @@ namespace Supermarket.UI.Products
             // 
             this.Cost_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Cost_price.DataPropertyName = "Cost_price";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Cost_price.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Format = "C2";
+            dataGridViewCellStyle13.NullValue = null;
+            this.Cost_price.DefaultCellStyle = dataGridViewCellStyle13;
             this.Cost_price.FillWeight = 90F;
             this.Cost_price.HeaderText = "Cost Price";
             this.Cost_price.MinimumWidth = 80;
@@ -221,9 +221,9 @@ namespace Supermarket.UI.Products
             // 
             this.Selling_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Selling_price.DataPropertyName = "Selling_price";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Selling_price.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Format = "C2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.Selling_price.DefaultCellStyle = dataGridViewCellStyle14;
             this.Selling_price.FillWeight = 90F;
             this.Selling_price.HeaderText = "Selling Price";
             this.Selling_price.MinimumWidth = 80;
@@ -236,8 +236,8 @@ namespace Supermarket.UI.Products
             // 
             this.Stock_quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Stock_quantity.DataPropertyName = "Stock_quantity";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Stock_quantity.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Stock_quantity.DefaultCellStyle = dataGridViewCellStyle15;
             this.Stock_quantity.FillWeight = 90F;
             this.Stock_quantity.HeaderText = "Stock Quantity";
             this.Stock_quantity.MinimumWidth = 80;
@@ -248,8 +248,8 @@ namespace Supermarket.UI.Products
             // 
             this.Stock_alert_level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Stock_alert_level.DataPropertyName = "Stock_alert_level";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Stock_alert_level.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Stock_alert_level.DefaultCellStyle = dataGridViewCellStyle16;
             this.Stock_alert_level.FillWeight = 90F;
             this.Stock_alert_level.HeaderText = "Stock Alert";
             this.Stock_alert_level.MinimumWidth = 80;
@@ -266,165 +266,19 @@ namespace Supermarket.UI.Products
             this.guna2HtmlLabel1.TabIndex = 10;
             this.guna2HtmlLabel1.Text = "Products Manage";
             // 
-            // pnlButton
-            // 
-            this.pnlButton.Controls.Add(this.btnAdd);
-            this.pnlButton.Controls.Add(this.btnEdit);
-            this.pnlButton.Controls.Add(this.btnDelete);
-            this.pnlButton.Controls.Add(this.cmbSortColumn);
-            this.pnlButton.Controls.Add(this.guna2Button1);
-            this.pnlButton.Location = new System.Drawing.Point(12, 67);
-            this.pnlButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(677, 40);
-            this.pnlButton.TabIndex = 12;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Animated = true;
-            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.BorderRadius = 5;
-            this.btnAdd.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnAdd.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnAdd.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAdd.FillColor = System.Drawing.Color.White;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnAdd.ForeColor = System.Drawing.Color.Black;
-            this.btnAdd.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnAdd.Image = global::Supermarket.Properties.Resources.plus;
-            this.btnAdd.IndicateFocus = true;
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(122, 36);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.TabStop = false;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseTransparentBackground = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Animated = true;
-            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BorderRadius = 5;
-            this.btnEdit.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnEdit.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnEdit.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEdit.FillColor = System.Drawing.Color.White;
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnEdit.Image = global::Supermarket.Properties.Resources.edit;
-            this.btnEdit.IndicateFocus = true;
-            this.btnEdit.Location = new System.Drawing.Point(131, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(122, 36);
-            this.btnEdit.TabIndex = 4;
-            this.btnEdit.TabStop = false;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseTransparentBackground = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Animated = true;
-            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.BorderRadius = 5;
-            this.btnDelete.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnDelete.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnDelete.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDelete.FillColor = System.Drawing.Color.White;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnDelete.Image = global::Supermarket.Properties.Resources.delete;
-            this.btnDelete.IndicateFocus = true;
-            this.btnDelete.Location = new System.Drawing.Point(259, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(122, 36);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.TabStop = false;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseTransparentBackground = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // cmbSortColumn
-            // 
-            this.cmbSortColumn.BackColor = System.Drawing.Color.Transparent;
-            this.cmbSortColumn.BorderRadius = 5;
-            this.cmbSortColumn.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbSortColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSortColumn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbSortColumn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbSortColumn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSortColumn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbSortColumn.ItemHeight = 30;
-            this.cmbSortColumn.Location = new System.Drawing.Point(387, 3);
-            this.cmbSortColumn.Name = "cmbSortColumn";
-            this.cmbSortColumn.Size = new System.Drawing.Size(154, 36);
-            this.cmbSortColumn.TabIndex = 6;
-            this.cmbSortColumn.SelectedIndexChanged += new System.EventHandler(this.cmbSortColumn_SelectedIndexChanged);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 5;
-            this.guna2Button1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button1.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.Image = global::Supermarket.Properties.Resources.refresh;
-            this.guna2Button1.IndicateFocus = true;
-            this.guna2Button1.Location = new System.Drawing.Point(547, 3);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(122, 36);
-            this.guna2Button1.TabIndex = 7;
-            this.guna2Button1.TabStop = false;
-            this.guna2Button1.Text = "Refresh";
-            this.guna2Button1.UseTransparentBackground = true;
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.Controls.Add(this.txtSearch);
             this.flowLayoutPanel2.Controls.Add(this.btnSort);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(726, 67);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(721, 67);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(494, 40);
-            this.flowLayoutPanel2.TabIndex = 13;
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(499, 48);
+            this.flowLayoutPanel2.TabIndex = 19;
             // 
             // txtSearch
             // 
-            this.txtSearch.BorderRadius = 5;
+            this.txtSearch.BorderRadius = 8;
             this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSearch.DefaultText = "";
             this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -439,15 +293,15 @@ namespace Supermarket.UI.Products
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(444, 36);
+            this.txtSearch.Size = new System.Drawing.Size(444, 40);
             this.txtSearch.TabIndex = 14;
-            this.txtSearch.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // btnSort
             // 
             this.btnSort.Animated = true;
             this.btnSort.BackColor = System.Drawing.Color.Transparent;
-            this.btnSort.BorderRadius = 5;
+            this.btnSort.BorderRadius = 8;
             this.btnSort.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.btnSort.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
             this.btnSort.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
@@ -466,11 +320,157 @@ namespace Supermarket.UI.Products
             this.btnSort.IndicateFocus = true;
             this.btnSort.Location = new System.Drawing.Point(455, 3);
             this.btnSort.Name = "btnSort";
-            this.btnSort.Size = new System.Drawing.Size(36, 36);
+            this.btnSort.Size = new System.Drawing.Size(40, 40);
             this.btnSort.TabIndex = 15;
             this.btnSort.TabStop = false;
             this.btnSort.UseTransparentBackground = true;
-            this.btnSort.Click += new System.EventHandler(this.guna2Button3_Click);
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
+            // 
+            // pnlButton
+            // 
+            this.pnlButton.Controls.Add(this.btnAdd);
+            this.pnlButton.Controls.Add(this.btnEdit);
+            this.pnlButton.Controls.Add(this.btnDelete);
+            this.pnlButton.Controls.Add(this.cmbSortColumn);
+            this.pnlButton.Controls.Add(this.btnRefesh);
+            this.pnlButton.Location = new System.Drawing.Point(12, 67);
+            this.pnlButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pnlButton.Name = "pnlButton";
+            this.pnlButton.Size = new System.Drawing.Size(677, 48);
+            this.pnlButton.TabIndex = 18;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Animated = true;
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.BorderRadius = 8;
+            this.btnAdd.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnAdd.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnAdd.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdd.FillColor = System.Drawing.Color.White;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.ForeColor = System.Drawing.Color.Black;
+            this.btnAdd.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnAdd.Image = global::Supermarket.Properties.Resources.plus;
+            this.btnAdd.IndicateFocus = true;
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(122, 40);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.TabStop = false;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseTransparentBackground = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Animated = true;
+            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.BorderRadius = 8;
+            this.btnEdit.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnEdit.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnEdit.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEdit.FillColor = System.Drawing.Color.White;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnEdit.ForeColor = System.Drawing.Color.Black;
+            this.btnEdit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnEdit.Image = global::Supermarket.Properties.Resources.edit;
+            this.btnEdit.IndicateFocus = true;
+            this.btnEdit.Location = new System.Drawing.Point(131, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(122, 40);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.TabStop = false;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseTransparentBackground = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Animated = true;
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BorderRadius = 8;
+            this.btnDelete.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnDelete.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnDelete.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDelete.FillColor = System.Drawing.Color.White;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnDelete.Image = global::Supermarket.Properties.Resources.delete;
+            this.btnDelete.IndicateFocus = true;
+            this.btnDelete.Location = new System.Drawing.Point(259, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(122, 40);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.TabStop = false;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseTransparentBackground = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // cmbSortColumn
+            // 
+            this.cmbSortColumn.BackColor = System.Drawing.Color.Transparent;
+            this.cmbSortColumn.BorderRadius = 8;
+            this.cmbSortColumn.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbSortColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSortColumn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSortColumn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSortColumn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSortColumn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbSortColumn.ItemHeight = 34;
+            this.cmbSortColumn.Location = new System.Drawing.Point(387, 3);
+            this.cmbSortColumn.Name = "cmbSortColumn";
+            this.cmbSortColumn.Size = new System.Drawing.Size(154, 40);
+            this.cmbSortColumn.TabIndex = 6;
+            this.cmbSortColumn.SelectedIndexChanged += new System.EventHandler(this.cmbSortColumn_SelectedIndexChanged);
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.Animated = true;
+            this.btnRefesh.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefesh.BorderRadius = 8;
+            this.btnRefesh.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnRefesh.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnRefesh.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnRefesh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefesh.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnRefesh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefesh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefesh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRefesh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefesh.FillColor = System.Drawing.Color.White;
+            this.btnRefesh.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnRefesh.ForeColor = System.Drawing.Color.Black;
+            this.btnRefesh.HoverState.FillColor = System.Drawing.Color.DarkGray;
+            this.btnRefesh.Image = global::Supermarket.Properties.Resources.refresh;
+            this.btnRefesh.IndicateFocus = true;
+            this.btnRefesh.Location = new System.Drawing.Point(547, 3);
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Size = new System.Drawing.Size(122, 40);
+            this.btnRefesh.TabIndex = 7;
+            this.btnRefesh.TabStop = false;
+            this.btnRefesh.Text = "Refresh";
+            this.btnRefesh.UseTransparentBackground = true;
+            this.btnRefesh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // frmProductsList
             // 
@@ -486,8 +486,8 @@ namespace Supermarket.UI.Products
             this.Text = "frmProductsList";
             this.Load += new System.EventHandler(this.frmProductsList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.displayProducts)).EndInit();
-            this.pnlButton.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.pnlButton.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,13 +497,6 @@ namespace Supermarket.UI.Products
 
         private Guna.UI2.WinForms.Guna2DataGridView displayProducts;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2Button btnAdd;
-        private Guna.UI2.WinForms.Guna2Button btnEdit;
-        private System.Windows.Forms.FlowLayoutPanel pnlButton;
-        private Guna.UI2.WinForms.Guna2Button btnDelete;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
-        private Guna.UI2.WinForms.Guna2Button btnSort;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewImageColumn ProductImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
@@ -514,7 +507,14 @@ namespace Supermarket.UI.Products
         private System.Windows.Forms.DataGridViewTextBoxColumn Selling_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock_quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock_alert_level;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
+        private Guna.UI2.WinForms.Guna2Button btnSort;
+        private System.Windows.Forms.FlowLayoutPanel pnlButton;
+        private Guna.UI2.WinForms.Guna2Button btnAdd;
+        private Guna.UI2.WinForms.Guna2Button btnEdit;
+        private Guna.UI2.WinForms.Guna2Button btnDelete;
         private Guna.UI2.WinForms.Guna2ComboBox cmbSortColumn;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnRefesh;
     }
 }

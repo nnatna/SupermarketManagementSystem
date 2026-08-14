@@ -99,11 +99,6 @@ namespace Supermarket.UI.Products
             }
         }
 
-        private async void btnRefresh_Click(object sender, EventArgs e)
-        {
-            await LoadProductsAsync();
-        }
-
         private long GetSelectedProductId()
         {
             if (displayProducts.CurrentRow != null)
@@ -223,12 +218,12 @@ namespace Supermarket.UI.Products
             }
         }
 
-        private void guna2Button3_Click(object sender, EventArgs e)
+        private void btnSort_Click(object sender, EventArgs e)
         {
             ApplyFilterAndSort();
         }
 
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             ApplyFilterAndSort();
         }
@@ -274,7 +269,7 @@ namespace Supermarket.UI.Products
             }
         }
 
-        private async void guna2Button1_Click(object sender, EventArgs e)
+        private async void btnRefresh_Click(object sender, EventArgs e)
         {
             txtSearch.Text = string.Empty;
             txtSearch.PlaceholderText = "Search by Product...";
@@ -285,5 +280,7 @@ namespace Supermarket.UI.Products
             btnSort.Checked = false;
             await LoadProductsAsync();
         }
+
+
     }
 }

@@ -43,7 +43,7 @@ namespace Supermarket.UI.Products
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.cmbSortColumn = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRefesh = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.displayCategories = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,14 +59,14 @@ namespace Supermarket.UI.Products
             this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.Controls.Add(this.txtSearch);
             this.flowLayoutPanel2.Controls.Add(this.btnSort);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(726, 64);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(721, 66);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(494, 40);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(499, 48);
             this.flowLayoutPanel2.TabIndex = 17;
             // 
             // txtSearch
             // 
-            this.txtSearch.BorderRadius = 5;
+            this.txtSearch.BorderRadius = 8;
             this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSearch.DefaultText = "";
             this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -81,7 +81,7 @@ namespace Supermarket.UI.Products
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(444, 36);
+            this.txtSearch.Size = new System.Drawing.Size(444, 40);
             this.txtSearch.TabIndex = 14;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -89,7 +89,7 @@ namespace Supermarket.UI.Products
             // 
             this.btnSort.Animated = true;
             this.btnSort.BackColor = System.Drawing.Color.Transparent;
-            this.btnSort.BorderRadius = 5;
+            this.btnSort.BorderRadius = 8;
             this.btnSort.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.btnSort.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
             this.btnSort.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
@@ -108,7 +108,7 @@ namespace Supermarket.UI.Products
             this.btnSort.IndicateFocus = true;
             this.btnSort.Location = new System.Drawing.Point(455, 3);
             this.btnSort.Name = "btnSort";
-            this.btnSort.Size = new System.Drawing.Size(36, 36);
+            this.btnSort.Size = new System.Drawing.Size(40, 40);
             this.btnSort.TabIndex = 15;
             this.btnSort.TabStop = false;
             this.btnSort.UseTransparentBackground = true;
@@ -120,18 +120,18 @@ namespace Supermarket.UI.Products
             this.pnlButton.Controls.Add(this.btnEdit);
             this.pnlButton.Controls.Add(this.btnDelete);
             this.pnlButton.Controls.Add(this.cmbSortColumn);
-            this.pnlButton.Controls.Add(this.guna2Button1);
-            this.pnlButton.Location = new System.Drawing.Point(12, 64);
+            this.pnlButton.Controls.Add(this.btnRefesh);
+            this.pnlButton.Location = new System.Drawing.Point(12, 66);
             this.pnlButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(677, 40);
+            this.pnlButton.Size = new System.Drawing.Size(677, 48);
             this.pnlButton.TabIndex = 16;
             // 
             // btnAdd
             // 
             this.btnAdd.Animated = true;
             this.btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.BorderRadius = 5;
+            this.btnAdd.BorderRadius = 8;
             this.btnAdd.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.btnAdd.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
             this.btnAdd.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -149,7 +149,7 @@ namespace Supermarket.UI.Products
             this.btnAdd.IndicateFocus = true;
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(122, 36);
+            this.btnAdd.Size = new System.Drawing.Size(122, 40);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.TabStop = false;
             this.btnAdd.Text = "Add";
@@ -160,7 +160,7 @@ namespace Supermarket.UI.Products
             // 
             this.btnEdit.Animated = true;
             this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BorderRadius = 5;
+            this.btnEdit.BorderRadius = 8;
             this.btnEdit.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.btnEdit.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
             this.btnEdit.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -178,7 +178,7 @@ namespace Supermarket.UI.Products
             this.btnEdit.IndicateFocus = true;
             this.btnEdit.Location = new System.Drawing.Point(131, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(122, 36);
+            this.btnEdit.Size = new System.Drawing.Size(122, 40);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Edit";
@@ -189,7 +189,7 @@ namespace Supermarket.UI.Products
             // 
             this.btnDelete.Animated = true;
             this.btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.BorderRadius = 5;
+            this.btnDelete.BorderRadius = 8;
             this.btnDelete.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.btnDelete.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
             this.btnDelete.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -207,7 +207,7 @@ namespace Supermarket.UI.Products
             this.btnDelete.IndicateFocus = true;
             this.btnDelete.Location = new System.Drawing.Point(259, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(122, 36);
+            this.btnDelete.Size = new System.Drawing.Size(122, 40);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.TabStop = false;
             this.btnDelete.Text = "Delete";
@@ -217,48 +217,48 @@ namespace Supermarket.UI.Products
             // cmbSortColumn
             // 
             this.cmbSortColumn.BackColor = System.Drawing.Color.Transparent;
-            this.cmbSortColumn.BorderRadius = 5;
+            this.cmbSortColumn.BorderRadius = 8;
             this.cmbSortColumn.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbSortColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSortColumn.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbSortColumn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbSortColumn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSortColumn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbSortColumn.ItemHeight = 30;
+            this.cmbSortColumn.ItemHeight = 34;
             this.cmbSortColumn.Location = new System.Drawing.Point(387, 3);
             this.cmbSortColumn.Name = "cmbSortColumn";
-            this.cmbSortColumn.Size = new System.Drawing.Size(154, 36);
+            this.cmbSortColumn.Size = new System.Drawing.Size(154, 40);
             this.cmbSortColumn.TabIndex = 6;
             this.cmbSortColumn.SelectedIndexChanged += new System.EventHandler(this.cmbSortColumn_SelectedIndexChanged);
             // 
-            // guna2Button1
+            // btnRefesh
             // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 5;
-            this.guna2Button1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button1.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.Image = global::Supermarket.Properties.Resources.refresh;
-            this.guna2Button1.IndicateFocus = true;
-            this.guna2Button1.Location = new System.Drawing.Point(547, 3);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(122, 36);
-            this.guna2Button1.TabIndex = 7;
-            this.guna2Button1.TabStop = false;
-            this.guna2Button1.Text = "Refresh";
-            this.guna2Button1.UseTransparentBackground = true;
-            this.guna2Button1.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnRefesh.Animated = true;
+            this.btnRefesh.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefesh.BorderRadius = 8;
+            this.btnRefesh.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnRefesh.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnRefesh.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnRefesh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefesh.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnRefesh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefesh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefesh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRefesh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefesh.FillColor = System.Drawing.Color.White;
+            this.btnRefesh.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnRefesh.ForeColor = System.Drawing.Color.Black;
+            this.btnRefesh.HoverState.FillColor = System.Drawing.Color.DarkGray;
+            this.btnRefesh.Image = global::Supermarket.Properties.Resources.refresh;
+            this.btnRefesh.IndicateFocus = true;
+            this.btnRefesh.Location = new System.Drawing.Point(547, 3);
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Size = new System.Drawing.Size(122, 40);
+            this.btnRefesh.TabIndex = 7;
+            this.btnRefesh.TabStop = false;
+            this.btnRefesh.Text = "Refresh";
+            this.btnRefesh.UseTransparentBackground = true;
+            this.btnRefesh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // guna2HtmlLabel1
             // 
@@ -304,7 +304,7 @@ namespace Supermarket.UI.Products
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.displayCategories.DefaultCellStyle = dataGridViewCellStyle5;
             this.displayCategories.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.displayCategories.Location = new System.Drawing.Point(12, 118);
+            this.displayCategories.Location = new System.Drawing.Point(12, 120);
             this.displayCategories.Name = "displayCategories";
             this.displayCategories.ReadOnly = true;
             this.displayCategories.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -401,7 +401,7 @@ namespace Supermarket.UI.Products
         private Guna.UI2.WinForms.Guna2Button btnEdit;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
         private Guna.UI2.WinForms.Guna2ComboBox cmbSortColumn;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnRefesh;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2DataGridView displayCategories;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;

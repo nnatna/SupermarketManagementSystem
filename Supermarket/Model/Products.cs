@@ -9,7 +9,7 @@ using System.IO;
 namespace Supermarket.Model
 {
     [Table("products")]
-    internal class Products
+    public class Products
     {
         [Key]
         [Column("id")]

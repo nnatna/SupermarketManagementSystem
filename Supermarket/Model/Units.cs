@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Supermarket.Model
 {
     [Table("units")]
-    internal class Units
+    public class Units
     {
         [Key]
         [Column("id")]
