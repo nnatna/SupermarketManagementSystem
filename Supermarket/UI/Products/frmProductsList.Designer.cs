@@ -28,26 +28,16 @@ namespace Supermarket.UI.Products
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.displayProducts = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categories = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Units = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Selling_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock_alert_level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
@@ -58,6 +48,17 @@ namespace Supermarket.UI.Products
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.cmbSortColumn = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnRefesh = new Guna.UI2.WinForms.Guna2Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categories = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Units = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Selling_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock_alert_level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.displayProducts)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.pnlButton.SuspendLayout();
@@ -68,20 +69,20 @@ namespace Supermarket.UI.Products
             this.displayProducts.AllowDrop = true;
             this.displayProducts.AllowUserToAddRows = false;
             this.displayProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.displayProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.displayProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.displayProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.displayProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.displayProducts.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.displayProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.displayProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.displayProducts.ColumnHeadersHeight = 45;
             this.displayProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.displayProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -89,37 +90,38 @@ namespace Supermarket.UI.Products
             this.ProductImage,
             this.colProductName,
             this.Barcode,
+            this.Supplier,
             this.Categories,
             this.Units,
             this.Cost_price,
             this.Selling_price,
             this.Stock_quantity,
             this.Stock_alert_level});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.displayProducts.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.displayProducts.DefaultCellStyle = dataGridViewCellStyle8;
             this.displayProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.displayProducts.Location = new System.Drawing.Point(12, 121);
+            this.displayProducts.Location = new System.Drawing.Point(12, 105);
             this.displayProducts.Name = "displayProducts";
             this.displayProducts.ReadOnly = true;
             this.displayProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.displayProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.displayProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.displayProducts.RowHeadersVisible = false;
             this.displayProducts.RowHeadersWidth = 45;
             this.displayProducts.RowTemplate.Height = 60;
-            this.displayProducts.Size = new System.Drawing.Size(1208, 484);
+            this.displayProducts.Size = new System.Drawing.Size(1208, 500);
             this.displayProducts.TabIndex = 9;
             this.displayProducts.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.displayProducts.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -132,135 +134,11 @@ namespace Supermarket.UI.Products
             this.displayProducts.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.displayProducts.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.displayProducts_CellFormatting);
             // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Id.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Id.FillWeight = 40F;
-            this.Id.HeaderText = "ID";
-            this.Id.MinimumWidth = 45;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 45;
-            // 
-            // ProductImage
-            // 
-            this.ProductImage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ProductImage.DataPropertyName = "ProductImage";
-            this.ProductImage.FillWeight = 40F;
-            this.ProductImage.HeaderText = "Image";
-            this.ProductImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.ProductImage.MinimumWidth = 45;
-            this.ProductImage.Name = "ProductImage";
-            this.ProductImage.ReadOnly = true;
-            this.ProductImage.Width = 45;
-            // 
-            // colProductName
-            // 
-            this.colProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colProductName.DataPropertyName = "Name";
-            this.colProductName.FillWeight = 160F;
-            this.colProductName.HeaderText = "Name";
-            this.colProductName.MinimumWidth = 120;
-            this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
-            this.colProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Barcode
-            // 
-            this.Barcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Barcode.DataPropertyName = "Barcode";
-            this.Barcode.FillWeight = 110F;
-            this.Barcode.HeaderText = "Barcode";
-            this.Barcode.MinimumWidth = 100;
-            this.Barcode.Name = "Barcode";
-            this.Barcode.ReadOnly = true;
-            // 
-            // Categories
-            // 
-            this.Categories.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Categories.DataPropertyName = "Category";
-            this.Categories.FillWeight = 110F;
-            this.Categories.HeaderText = "Category";
-            this.Categories.MinimumWidth = 90;
-            this.Categories.Name = "Categories";
-            this.Categories.ReadOnly = true;
-            this.Categories.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Categories.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Units
-            // 
-            this.Units.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Units.DataPropertyName = "Unit";
-            this.Units.FillWeight = 80F;
-            this.Units.HeaderText = "Unit";
-            this.Units.MinimumWidth = 70;
-            this.Units.Name = "Units";
-            this.Units.ReadOnly = true;
-            this.Units.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Units.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Cost_price
-            // 
-            this.Cost_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Cost_price.DataPropertyName = "Cost_price";
-            dataGridViewCellStyle13.Format = "C2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.Cost_price.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Cost_price.FillWeight = 90F;
-            this.Cost_price.HeaderText = "Cost Price";
-            this.Cost_price.MinimumWidth = 80;
-            this.Cost_price.Name = "Cost_price";
-            this.Cost_price.ReadOnly = true;
-            this.Cost_price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Cost_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Selling_price
-            // 
-            this.Selling_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Selling_price.DataPropertyName = "Selling_price";
-            dataGridViewCellStyle14.Format = "C2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.Selling_price.DefaultCellStyle = dataGridViewCellStyle14;
-            this.Selling_price.FillWeight = 90F;
-            this.Selling_price.HeaderText = "Selling Price";
-            this.Selling_price.MinimumWidth = 80;
-            this.Selling_price.Name = "Selling_price";
-            this.Selling_price.ReadOnly = true;
-            this.Selling_price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Selling_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Stock_quantity
-            // 
-            this.Stock_quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Stock_quantity.DataPropertyName = "Stock_quantity";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Stock_quantity.DefaultCellStyle = dataGridViewCellStyle15;
-            this.Stock_quantity.FillWeight = 90F;
-            this.Stock_quantity.HeaderText = "Stock Quantity";
-            this.Stock_quantity.MinimumWidth = 80;
-            this.Stock_quantity.Name = "Stock_quantity";
-            this.Stock_quantity.ReadOnly = true;
-            // 
-            // Stock_alert_level
-            // 
-            this.Stock_alert_level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Stock_alert_level.DataPropertyName = "Stock_alert_level";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Stock_alert_level.DefaultCellStyle = dataGridViewCellStyle16;
-            this.Stock_alert_level.FillWeight = 90F;
-            this.Stock_alert_level.HeaderText = "Stock Alert";
-            this.Stock_alert_level.MinimumWidth = 80;
-            this.Stock_alert_level.Name = "Stock_alert_level";
-            this.Stock_alert_level.ReadOnly = true;
-            // 
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(12, 17);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(12, 12);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(160, 27);
             this.guna2HtmlLabel1.TabIndex = 10;
@@ -271,7 +149,7 @@ namespace Supermarket.UI.Products
             this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.Controls.Add(this.txtSearch);
             this.flowLayoutPanel2.Controls.Add(this.btnSort);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(721, 67);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(721, 54);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(499, 48);
             this.flowLayoutPanel2.TabIndex = 19;
@@ -333,7 +211,7 @@ namespace Supermarket.UI.Products
             this.pnlButton.Controls.Add(this.btnDelete);
             this.pnlButton.Controls.Add(this.cmbSortColumn);
             this.pnlButton.Controls.Add(this.btnRefesh);
-            this.pnlButton.Location = new System.Drawing.Point(12, 67);
+            this.pnlButton.Location = new System.Drawing.Point(12, 54);
             this.pnlButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.pnlButton.Name = "pnlButton";
             this.pnlButton.Size = new System.Drawing.Size(677, 48);
@@ -472,6 +350,152 @@ namespace Supermarket.UI.Products
             this.btnRefesh.UseTransparentBackground = true;
             this.btnRefesh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Id.DataPropertyName = "Id";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Id.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Id.FillWeight = 40F;
+            this.Id.HeaderText = "ID";
+            this.Id.MinimumWidth = 45;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 45;
+            // 
+            // ProductImage
+            // 
+            this.ProductImage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ProductImage.DataPropertyName = "ProductImage";
+            this.ProductImage.FillWeight = 40F;
+            this.ProductImage.HeaderText = "Image";
+            this.ProductImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ProductImage.MinimumWidth = 60;
+            this.ProductImage.Name = "ProductImage";
+            this.ProductImage.ReadOnly = true;
+            this.ProductImage.Width = 60;
+            // 
+            // colProductName
+            // 
+            this.colProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colProductName.DataPropertyName = "Name";
+            this.colProductName.FillWeight = 160F;
+            this.colProductName.HeaderText = "Name";
+            this.colProductName.MinimumWidth = 120;
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
+            this.colProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Barcode
+            // 
+            this.Barcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Barcode.DataPropertyName = "Barcode";
+            this.Barcode.FillWeight = 110F;
+            this.Barcode.HeaderText = "Barcode";
+            this.Barcode.MinimumWidth = 100;
+            this.Barcode.Name = "Barcode";
+            this.Barcode.ReadOnly = true;
+            // 
+            // Supplier
+            // 
+            this.Supplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Supplier.DataPropertyName = "Supplier";
+            this.Supplier.FillWeight = 110F;
+            this.Supplier.HeaderText = "Supplier";
+            this.Supplier.MinimumWidth = 90;
+            this.Supplier.Name = "Supplier";
+            this.Supplier.ReadOnly = true;
+            this.Supplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Supplier.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Categories
+            // 
+            this.Categories.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Categories.DataPropertyName = "Category";
+            this.Categories.FillWeight = 110F;
+            this.Categories.HeaderText = "Category";
+            this.Categories.MinimumWidth = 90;
+            this.Categories.Name = "Categories";
+            this.Categories.ReadOnly = true;
+            this.Categories.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Categories.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Units
+            // 
+            this.Units.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Units.DataPropertyName = "Unit";
+            this.Units.FillWeight = 80F;
+            this.Units.HeaderText = "Unit";
+            this.Units.MinimumWidth = 70;
+            this.Units.Name = "Units";
+            this.Units.ReadOnly = true;
+            this.Units.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Units.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Units.Width = 80;
+            // 
+            // Cost_price
+            // 
+            this.Cost_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Cost_price.DataPropertyName = "Cost_price";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Cost_price.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Cost_price.FillWeight = 90F;
+            this.Cost_price.HeaderText = "Cost Price";
+            this.Cost_price.MinimumWidth = 80;
+            this.Cost_price.Name = "Cost_price";
+            this.Cost_price.ReadOnly = true;
+            this.Cost_price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Cost_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Cost_price.Width = 120;
+            // 
+            // Selling_price
+            // 
+            this.Selling_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Selling_price.DataPropertyName = "Selling_price";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Selling_price.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Selling_price.FillWeight = 90F;
+            this.Selling_price.HeaderText = "Selling Price";
+            this.Selling_price.MinimumWidth = 80;
+            this.Selling_price.Name = "Selling_price";
+            this.Selling_price.ReadOnly = true;
+            this.Selling_price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Selling_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Selling_price.Width = 120;
+            // 
+            // Stock_quantity
+            // 
+            this.Stock_quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Stock_quantity.DataPropertyName = "Stock_quantity";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Stock_quantity.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Stock_quantity.FillWeight = 90F;
+            this.Stock_quantity.HeaderText = "Stock Quantity";
+            this.Stock_quantity.MinimumWidth = 80;
+            this.Stock_quantity.Name = "Stock_quantity";
+            this.Stock_quantity.ReadOnly = true;
+            this.Stock_quantity.Width = 150;
+            // 
+            // Stock_alert_level
+            // 
+            this.Stock_alert_level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Stock_alert_level.DataPropertyName = "Stock_alert_level";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Stock_alert_level.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Stock_alert_level.FillWeight = 90F;
+            this.Stock_alert_level.HeaderText = "Stock Alert";
+            this.Stock_alert_level.MinimumWidth = 80;
+            this.Stock_alert_level.Name = "Stock_alert_level";
+            this.Stock_alert_level.ReadOnly = true;
+            this.Stock_alert_level.Width = 120;
+            // 
             // frmProductsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,16 +521,6 @@ namespace Supermarket.UI.Products
 
         private Guna.UI2.WinForms.Guna2DataGridView displayProducts;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewImageColumn ProductImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categories;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Units;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cost_price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Selling_price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock_quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock_alert_level;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private Guna.UI2.WinForms.Guna2Button btnSort;
@@ -516,5 +530,16 @@ namespace Supermarket.UI.Products
         private Guna.UI2.WinForms.Guna2Button btnDelete;
         private Guna.UI2.WinForms.Guna2ComboBox cmbSortColumn;
         private Guna.UI2.WinForms.Guna2Button btnRefesh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewImageColumn ProductImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Supplier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categories;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Units;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cost_price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Selling_price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock_quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock_alert_level;
     }
 }

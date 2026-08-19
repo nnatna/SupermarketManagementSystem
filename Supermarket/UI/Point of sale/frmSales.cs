@@ -234,55 +234,13 @@ namespace Supermarket.UI.Point_of_sale
             decimal discount = 0.00m;
             decimal grandTotal = Math.Max(0, subtotal - discount);
 
-            var confirmResult = MessageBox.Show(
-                $"Proceed with payment for total amount of ${grandTotal:N2}?\nTotal Items: {cartItems.Sum(ci => ci.Quantity)}",
-                "Confirm Payment",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (confirmResult != DialogResult.Yes) return;
-
-            Sales sale = new Sales
+            using (frmPayment paymentForm = new frmPayment(cartItems, subtotal, discount, grandTotal))
             {
-                Invoice_number = SalesDAL.GenerateInvoiceNumber(),
-                Subtotal = subtotal,
-                Discount_amount = discount,
-                Grand_total = grandTotal,
-                Paid_amount = grandTotal,
-                Change_amount = 0,
-                Payment_method = "cash",
-                Sale_date = DateTime.Now
-            };
-
-            List<SalesDetails> details = new List<SalesDetails>();
-            foreach (var item in cartItems)
-            {
-                details.Add(new SalesDetails
+                if (paymentForm.ShowDialog(this) == DialogResult.OK)
                 {
-                    Product_id = item.Product.Id,
-                    Quantity = item.Quantity,
-                    Unit_price = item.Product.Selling_price,
-                    Subtotal = item.Subtotal
-                });
-            }
-
-            string errorMessage = string.Empty;
-            bool success = await Task.Run(() => _salesDAL.CreateSale(sale, details, out errorMessage));
-
-            if (success)
-            {
-                MessageBox.Show(
-                    $"Payment successful!\n\nInvoice Number: {sale.Invoice_number}\nTotal Amount: ${grandTotal:N2}",
-                    "Sale Completed",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-
-                ClearOrderCart();
-                await LoadProductsAsync(); // Refresh product cards and stock levels
-            }
-            else
-            {
-                MessageBox.Show($"Failed to complete sale: {errorMessage}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ClearOrderCart();
+                    await LoadProductsAsync(); // Refresh product cards and stock levels
+                }
             }
         }
     }

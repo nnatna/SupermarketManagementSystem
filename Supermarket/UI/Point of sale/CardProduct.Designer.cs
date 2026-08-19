@@ -117,7 +117,6 @@ namespace Supermarket.UI.Point_of_sale
             this.image.CustomizableEdges.BottomRight = false;
             this.image.FillColor = System.Drawing.Color.Transparent;
             this.image.Image = global::Supermarket.Properties.Resources.coca_cola;
-            this.image.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Horizontal;
             this.image.ImageRotate = 0F;
             this.image.Location = new System.Drawing.Point(3, 3);
             this.image.Name = "image";

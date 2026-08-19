@@ -145,6 +145,7 @@ CREATE TABLE products (
     stock_alert_level INT NOT NULL DEFAULT 5,
     image VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT GETDATE(),
+    supplier_id BIGINT NULL,
 
     CONSTRAINT FK_products_categories
         FOREIGN KEY (category_id)
@@ -152,7 +153,11 @@ CREATE TABLE products (
 
     CONSTRAINT FK_products_units
         FOREIGN KEY (unit_id)
-        REFERENCES units(id)
+        REFERENCES units(id),
+
+    CONSTRAINT FK_Products_Suppliers 
+    FOREIGN KEY (supplier_id) 
+    REFERENCES suppliers(id)
 );
 GO
 
@@ -231,20 +236,16 @@ GO
    ===================================================== */
 CREATE TABLE sales (
     id BIGINT IDENTITY(1,1) PRIMARY KEY,
-    invoice_number VARCHAR(50) NOT NULL UNIQUE,
+
     customer_id BIGINT NULL,
     user_id BIGINT NOT NULL,
     promotion_id BIGINT NULL,
-
     subtotal DECIMAL(10,2),
     discount_amount DECIMAL(10,2),
     grand_total DECIMAL(10,2),
-    paid_amount DECIMAL(10,2),
-    change_amount DECIMAL(10,2),
-
     payment_method VARCHAR(10) NOT NULL,
-
     sale_date DATETIME NOT NULL DEFAULT GETDATE(),
+    status VARCHAR(20) DEFAULT 'Completed',
 
     CONSTRAINT FK_sales_customers
         FOREIGN KEY (customer_id)
@@ -259,7 +260,7 @@ CREATE TABLE sales (
         REFERENCES promotions(id),
 
     CONSTRAINT CK_sales_payment_method
-        CHECK (payment_method IN ('cash', 'card', 'qr'))
+        CHECK (payment_method IN ('Cash', 'Credit Card', 'KHQR'))
 );
 GO
 
@@ -269,6 +270,7 @@ GO
    ===================================================== */
 CREATE TABLE sale_details (
     id BIGINT IDENTITY(1,1) PRIMARY KEY,
+    invoice_number VARCHAR(50) NOT NULL UNIQUE,
     sale_id BIGINT NOT NULL,
     product_id BIGINT NOT NULL,
     quantity INT NOT NULL,
@@ -312,7 +314,7 @@ CREATE TABLE stock_adjustments (
 GO
 
 /* =====================================================
-   16. VIEWS
+   16. VIEWS PRODUCTS
    ===================================================== */
 CREATE VIEW vw_Products AS
 SELECT 
@@ -332,3 +334,185 @@ FROM products p
 LEFT JOIN categories c ON p.category_id = c.id
 LEFT JOIN units u ON p.unit_id = u.id;
 GO
+/*  ========================================
+    17. VIEW SALE HISTORY
+    ========================================*/
+
+ALTER VIEW vw_SaleHistory AS
+SELECT 
+    sd.id AS SaleHistoryID,
+    sd.sale_id,
+    sd.invoice_number,
+    s.sale_date,
+    sd.product_id,
+    p.name AS product_name,
+    sd.quantity,
+    sd.unit_price,
+    sd.subtotal,
+    s.payment_method,
+    s.status
+FROM sale_details sd
+LEFT JOIN sales s ON sd.sale_id = s.id
+LEFT JOIN products p ON sd.product_id = p.id;
+GO
+/*  ========================================
+    18. VIEW STOCK ADJUSTMENT
+    ========================================*/
+
+CREATE VIEW vw_Stock_adjustments AS 
+SELECT 
+    sa.id AS StockId,
+    sa.product_id,
+    p.name AS product_name,
+    sa.user_id,
+    u.username,
+    sa.type,
+    sa.quantity,
+    sa.reason,
+    sa.adjusted_at
+FROM stock_adjustments sa
+LEFT JOIN products p ON sa.product_id = p.id
+LEFT JOIN users u ON sa.user_id = u.id;
+GO
+
+----------------------------
+-- Create Sale
+--------------------------
+CREATE PROCEDURE sp_CreateSale
+    @UserId BIGINT,
+    @InvoiceNumber VARCHAR(50),
+    @SaleDate DATETIME,
+    @PaymentMethod VARCHAR(50),
+    @Status VARCHAR(20),
+    @DetailsJSON NVARCHAR(MAX), -- We pass the list of items as a JSON string
+    @NewSaleId BIGINT OUTPUT,   -- To return the newly generated Sale ID to C#
+    @IsSuccess BIT OUTPUT,
+    @ErrorMessage NVARCHAR(MAX) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- 1. Insert into the main 'sales' table
+        INSERT INTO sales (user_id, sale_date, payment_method, status)
+        VALUES (@UserId, @SaleDate, @PaymentMethod, @Status);
+
+        -- Get the newly generated ID
+        SET @NewSaleId = SCOPE_IDENTITY();
+
+        -- 2. Insert into 'sale_details' by reading the JSON string
+        INSERT INTO sale_details (sale_id, invoice_number, product_id, quantity, unit_price, subtotal)
+        SELECT 
+            @NewSaleId, 
+            COALESCE(invoice_number, @InvoiceNumber),
+            product_id, 
+            quantity, 
+            unit_price, 
+            subtotal
+        FROM OPENJSON(@DetailsJSON)
+        WITH (
+            invoice_number VARCHAR(50) '$.Invoice_number',
+            product_id INT '$.Product_id',
+            quantity INT '$.Quantity',
+            unit_price DECIMAL(18,2) '$.Unit_price',
+            subtotal DECIMAL(18,2) '$.Subtotal'
+        );
+
+        -- 3. Deduct stock quantity in the 'products' table
+        UPDATE p
+        SET p.stock_quantity = CASE 
+                                  WHEN p.stock_quantity - d.quantity < 0 THEN 0 
+                                  ELSE p.stock_quantity - d.quantity 
+                               END
+        FROM products p
+        INNER JOIN OPENJSON(@DetailsJSON)
+        WITH (
+            product_id INT '$.Product_id',
+            quantity INT '$.Quantity'
+        ) d ON p.id = d.product_id;
+
+        -- Commit if everything succeeds
+        COMMIT TRANSACTION;
+        
+        SET @IsSuccess = 1;
+        SET @ErrorMessage = N'';
+
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+
+        SET @IsSuccess = 0;
+        SET @ErrorMessage = ERROR_MESSAGE();
+    END CATCH
+END;
+GO
+
+--------------------------
+-- Cance lSale
+---------------------------
+CREATE PROCEDURE sp_CancelSale
+    @SaleId BIGINT,                   -- The Sale ID you want to cancel
+    @IsSuccess BIT OUTPUT,            -- To return the result to C# (1 = Success, 0 = Failed)
+    @ErrorMessage NVARCHAR(MAX) OUTPUT -- To return the error message to C#
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @CurrentStatus VARCHAR(20);
+
+    -- 1. Check if the sale exists and get its current status
+    SELECT @CurrentStatus = status 
+    FROM sales 
+    WHERE id = @SaleId;
+
+    IF @CurrentStatus IS NULL
+    BEGIN
+        SET @IsSuccess = 0;
+        SET @ErrorMessage = N'Sale not found in the system.';
+        RETURN;
+    END
+
+    IF @CurrentStatus = 'Canceled'
+    BEGIN
+        SET @IsSuccess = 0;
+        SET @ErrorMessage = N'This sale has already been canceled.';
+        RETURN;
+    END
+
+    -- Start Transaction
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- 2. Update sale status to 'Canceled'
+        UPDATE sales
+        SET status = 'Canceled'
+        WHERE id = @SaleId;
+
+        -- 3. Return stock quantity (by joining with sale_details)
+        UPDATE p
+        SET p.stock_quantity = p.stock_quantity + sd.quantity
+        FROM products p
+        INNER JOIN sale_details sd ON p.id = sd.product_id
+        WHERE sd.sale_id = @SaleId;
+
+        -- Commit Transaction on success
+        COMMIT TRANSACTION;
+        
+        SET @IsSuccess = 1;
+        SET @ErrorMessage = N'';
+        
+    END TRY
+    BEGIN CATCH
+        -- Rollback data if any error occurs
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+
+        SET @IsSuccess = 0;
+        SET @ErrorMessage = ERROR_MESSAGE(); -- Get the error message from SQL Server
+    END CATCH
+END;
+GO
+

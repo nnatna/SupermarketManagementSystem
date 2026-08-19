@@ -30,6 +30,10 @@ namespace Supermarket.Model
         [Column("unit_id")]
         public int? UnitId { get; set; }
 
+        [Browsable(false)]
+        [Column("supplier_id")]
+        public long? SupplierId { get; set; }
+
         [Column("cost_price")]
         public decimal Cost_price { get; set; }
 
@@ -55,11 +59,18 @@ namespace Supermarket.Model
         [ForeignKey("UnitId")]
         public virtual Units Units { get; set; }
 
+        [Browsable(false)]
+        [ForeignKey("SupplierId")]
+        public virtual Suppliers Suppliers { get; set; }
+
         [NotMapped]
         public string Category => Categories?.CategoryName ?? "";
 
         [NotMapped]
         public string Unit => Units?.UnitName ?? "";
+
+        [NotMapped]
+        public string Supplier => Suppliers?.CompanyName ?? "";
 
         [NotMapped]
         [DisplayName("Image")]

@@ -14,6 +14,12 @@ namespace Supermarket.Model
         [Column("sale_id")]
         public long Sale_id { get; set; }
 
+        [Column("invoice_number")]
+        public string Invoice_number { get; set; } = "";
+
+        [NotMapped]
+        public string InvoiceNumber => Invoice_number;
+
         [Column("product_id")]
         public long Product_id { get; set; }
 
@@ -34,4 +40,3 @@ namespace Supermarket.Model
         public virtual Products Products { get; set; }
     }
 }
-

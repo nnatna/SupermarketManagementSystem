@@ -28,6 +28,7 @@ namespace Supermarket.UI.Products
             cmbSortColumn.Items.Clear();
             cmbSortColumn.Items.Add("Id");
             cmbSortColumn.Items.Add("Name");
+            cmbSortColumn.Items.Add("Supplier");
             cmbSortColumn.Items.Add("Barcode");
             cmbSortColumn.Items.Add("Category");
             cmbSortColumn.Items.Add("Unit");
@@ -151,7 +152,8 @@ namespace Supermarket.UI.Products
                 query = query.Where(p =>
                     (p.Name != null && p.Name.ToLower().Contains(keyword)) ||
                     (p.Barcode != null && p.Barcode.ToLower().Contains(keyword)) ||
-                    (p.Category != null && p.Category.ToLower().Contains(keyword))
+                    (p.Category != null && p.Category.ToLower().Contains(keyword)) ||
+                    (p.Supplier != null && p.Supplier.ToLower().Contains(keyword))
                 );
             }
 
@@ -163,6 +165,9 @@ namespace Supermarket.UI.Products
             {
                 case "Name":
                     query = isDescending ? query.OrderByDescending(p => p.Name) : query.OrderBy(p => p.Name);
+                    break;
+                case "Supplier":
+                    query = isDescending ? query.OrderByDescending(p => p.Supplier) : query.OrderBy(p => p.Supplier);
                     break;
                 case "Barcode":
                     query = isDescending ? query.OrderByDescending(p => p.Barcode) : query.OrderBy(p => p.Barcode);
@@ -201,6 +206,7 @@ namespace Supermarket.UI.Products
                 "ProductImage",
                 "colProductName",
                 "Barcode",
+                "Supplier",
                 "Categories",
                 "Units",
                 "Cost_price",

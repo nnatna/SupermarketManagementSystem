@@ -59,7 +59,7 @@ namespace Supermarket.UI.Products
             this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.Controls.Add(this.txtSearch);
             this.flowLayoutPanel2.Controls.Add(this.btnSort);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(721, 66);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(721, 54);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(499, 48);
             this.flowLayoutPanel2.TabIndex = 17;
@@ -121,7 +121,7 @@ namespace Supermarket.UI.Products
             this.pnlButton.Controls.Add(this.btnDelete);
             this.pnlButton.Controls.Add(this.cmbSortColumn);
             this.pnlButton.Controls.Add(this.btnRefesh);
-            this.pnlButton.Location = new System.Drawing.Point(12, 66);
+            this.pnlButton.Location = new System.Drawing.Point(12, 54);
             this.pnlButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.pnlButton.Name = "pnlButton";
             this.pnlButton.Size = new System.Drawing.Size(677, 48);
@@ -304,7 +304,7 @@ namespace Supermarket.UI.Products
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.displayCategories.DefaultCellStyle = dataGridViewCellStyle5;
             this.displayCategories.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.displayCategories.Location = new System.Drawing.Point(12, 120);
+            this.displayCategories.Location = new System.Drawing.Point(12, 105);
             this.displayCategories.Name = "displayCategories";
             this.displayCategories.ReadOnly = true;
             this.displayCategories.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -321,7 +321,7 @@ namespace Supermarket.UI.Products
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayCategories.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.displayCategories.RowTemplate.Height = 45;
-            this.displayCategories.Size = new System.Drawing.Size(1208, 484);
+            this.displayCategories.Size = new System.Drawing.Size(1208, 499);
             this.displayCategories.TabIndex = 14;
             this.displayCategories.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.displayCategories.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

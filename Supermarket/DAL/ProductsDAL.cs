@@ -24,6 +24,7 @@ namespace Supermarket.DAL
                     var list = db.Products
                                  .Include(p => p.Categories)
                                  .Include(p => p.Units)
+                                 .Include(p => p.Suppliers)
                                  .AsNoTracking()
                                  .ToList();
 
@@ -59,6 +60,7 @@ namespace Supermarket.DAL
                     return db.Products
                              .Include(p => p.Categories)
                              .Include(p => p.Units)
+                             .Include(p => p.Suppliers)
                              .FirstOrDefault(p => p.Id == productId);
                 }
             }
@@ -119,6 +121,7 @@ namespace Supermarket.DAL
                         {
                             existing.Barcode = GenerateRandomBarcode();
                         }
+                        existing.SupplierId = product.SupplierId;
                         existing.CategoryId = product.CategoryId;
                         existing.UnitId = product.UnitId;
                         existing.Cost_price = product.Cost_price;
@@ -206,6 +209,22 @@ namespace Supermarket.DAL
             catch
             {
                 return new List<Units>();
+            }
+        }
+
+        //Get Suppliers
+        public List<Suppliers> GetAllSuppliers()
+        {
+            try
+            {
+                using (var db = new SupermarketContext())
+                {
+                    return db.Suppliers.AsNoTracking().ToList();
+                }
+            }
+            catch
+            {
+                return new List<Suppliers>();
             }
         }
     }

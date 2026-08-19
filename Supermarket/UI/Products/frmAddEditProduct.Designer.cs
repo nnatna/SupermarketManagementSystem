@@ -31,6 +31,8 @@ namespace Supermarket.UI.Products
             this.components = new System.ComponentModel.Container();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnlLabel = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -51,6 +53,7 @@ namespace Supermarket.UI.Products
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cmbSupplier = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtStockAlertLevel = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnPath = new Guna.UI2.WinForms.Guna2Button();
             this.txtImagePath = new Guna.UI2.WinForms.Guna2TextBox();
@@ -76,6 +79,8 @@ namespace Supermarket.UI.Products
             // 
             // pnlLabel
             // 
+            this.pnlLabel.Controls.Add(this.guna2HtmlLabel19);
+            this.pnlLabel.Controls.Add(this.guna2HtmlLabel18);
             this.pnlLabel.Controls.Add(this.guna2HtmlLabel17);
             this.pnlLabel.Controls.Add(this.guna2HtmlLabel13);
             this.pnlLabel.Controls.Add(this.guna2HtmlLabel3);
@@ -94,14 +99,36 @@ namespace Supermarket.UI.Products
             this.pnlLabel.Controls.Add(this.guna2HtmlLabel7);
             this.pnlLabel.Location = new System.Drawing.Point(12, 59);
             this.pnlLabel.Name = "pnlLabel";
-            this.pnlLabel.Size = new System.Drawing.Size(143, 497);
+            this.pnlLabel.Size = new System.Drawing.Size(143, 557);
             this.pnlLabel.TabIndex = 1;
+            // 
+            // guna2HtmlLabel19
+            // 
+            this.guna2HtmlLabel19.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel19.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel19.Location = new System.Drawing.Point(121, 73);
+            this.guna2HtmlLabel19.Margin = new System.Windows.Forms.Padding(10);
+            this.guna2HtmlLabel19.Name = "guna2HtmlLabel19";
+            this.guna2HtmlLabel19.Size = new System.Drawing.Size(7, 23);
+            this.guna2HtmlLabel19.TabIndex = 16;
+            this.guna2HtmlLabel19.Text = ":";
+            // 
+            // guna2HtmlLabel18
+            // 
+            this.guna2HtmlLabel18.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel18.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel18.Location = new System.Drawing.Point(7, 73);
+            this.guna2HtmlLabel18.Margin = new System.Windows.Forms.Padding(20);
+            this.guna2HtmlLabel18.Name = "guna2HtmlLabel18";
+            this.guna2HtmlLabel18.Size = new System.Drawing.Size(64, 23);
+            this.guna2HtmlLabel18.TabIndex = 15;
+            this.guna2HtmlLabel18.Text = "Supplier";
             // 
             // guna2HtmlLabel17
             // 
             this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel17.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel17.Location = new System.Drawing.Point(121, 451);
+            this.guna2HtmlLabel17.Location = new System.Drawing.Point(121, 513);
             this.guna2HtmlLabel17.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
             this.guna2HtmlLabel17.Size = new System.Drawing.Size(7, 23);
@@ -112,7 +139,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel13.Location = new System.Drawing.Point(121, 262);
+            this.guna2HtmlLabel13.Location = new System.Drawing.Point(121, 324);
             this.guna2HtmlLabel13.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             this.guna2HtmlLabel13.Size = new System.Drawing.Size(7, 23);
@@ -134,7 +161,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel16.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel16.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel16.Location = new System.Drawing.Point(7, 388);
+            this.guna2HtmlLabel16.Location = new System.Drawing.Point(7, 450);
             this.guna2HtmlLabel16.Margin = new System.Windows.Forms.Padding(20);
             this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
             this.guna2HtmlLabel16.Size = new System.Drawing.Size(84, 23);
@@ -145,7 +172,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel15.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel15.Location = new System.Drawing.Point(121, 388);
+            this.guna2HtmlLabel15.Location = new System.Drawing.Point(121, 450);
             this.guna2HtmlLabel15.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
             this.guna2HtmlLabel15.Size = new System.Drawing.Size(7, 23);
@@ -156,7 +183,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(121, 325);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(121, 387);
             this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(7, 23);
@@ -167,7 +194,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(121, 136);
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(121, 198);
             this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             this.guna2HtmlLabel11.Size = new System.Drawing.Size(7, 23);
@@ -178,7 +205,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel9.Location = new System.Drawing.Point(7, 451);
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(7, 513);
             this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(20);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             this.guna2HtmlLabel9.Size = new System.Drawing.Size(49, 23);
@@ -189,7 +216,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(7, 73);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(7, 135);
             this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(20);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(70, 23);
@@ -200,7 +227,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(7, 136);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(7, 198);
             this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(20);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(33, 23);
@@ -211,7 +238,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel12.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel12.Location = new System.Drawing.Point(121, 199);
+            this.guna2HtmlLabel12.Location = new System.Drawing.Point(121, 261);
             this.guna2HtmlLabel12.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             this.guna2HtmlLabel12.Size = new System.Drawing.Size(7, 23);
@@ -222,7 +249,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(121, 73);
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(121, 135);
             this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(10);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             this.guna2HtmlLabel10.Size = new System.Drawing.Size(7, 23);
@@ -233,7 +260,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(7, 325);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(7, 387);
             this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(20);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(110, 23);
@@ -255,7 +282,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(7, 199);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(7, 261);
             this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(20);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(76, 23);
@@ -266,7 +293,7 @@ namespace Supermarket.UI.Products
             // 
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(7, 262);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(7, 324);
             this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(20);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(92, 23);
@@ -285,7 +312,7 @@ namespace Supermarket.UI.Products
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.IndicateFocus = true;
-            this.btnSave.Location = new System.Drawing.Point(363, 563);
+            this.btnSave.Location = new System.Drawing.Point(360, 623);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 40);
@@ -307,14 +334,14 @@ namespace Supermarket.UI.Products
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.IndicateFocus = true;
-            this.btnCancel.Location = new System.Drawing.Point(261, 563);
+            this.btnCancel.Location = new System.Drawing.Point(258, 623);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(94, 40);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseTransparentBackground = true;
-            this.btnCancel.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // guna2BorderlessForm1
             // 
@@ -326,6 +353,7 @@ namespace Supermarket.UI.Products
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.cmbSupplier);
             this.guna2Panel1.Controls.Add(this.txtStockAlertLevel);
             this.guna2Panel1.Controls.Add(this.btnPath);
             this.guna2Panel1.Controls.Add(this.txtImagePath);
@@ -337,8 +365,25 @@ namespace Supermarket.UI.Products
             this.guna2Panel1.Controls.Add(this.txtName);
             this.guna2Panel1.Location = new System.Drawing.Point(161, 59);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(300, 497);
-            this.guna2Panel1.TabIndex = 7;
+            this.guna2Panel1.Size = new System.Drawing.Size(300, 557);
+            this.guna2Panel1.TabIndex = 2;
+            // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.BackColor = System.Drawing.Color.Transparent;
+            this.cmbSupplier.BorderRadius = 8;
+            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSupplier.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSupplier.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSupplier.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.cmbSupplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbSupplier.ItemHeight = 34;
+            this.cmbSupplier.Location = new System.Drawing.Point(4, 64);
+            this.cmbSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(289, 40);
+            this.cmbSupplier.TabIndex = 16;
             // 
             // txtStockAlertLevel
             // 
@@ -352,12 +397,12 @@ namespace Supermarket.UI.Products
             this.txtStockAlertLevel.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtStockAlertLevel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.txtStockAlertLevel.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStockAlertLevel.Location = new System.Drawing.Point(7, 379);
+            this.txtStockAlertLevel.Location = new System.Drawing.Point(4, 440);
             this.txtStockAlertLevel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtStockAlertLevel.Name = "txtStockAlertLevel";
-            this.txtStockAlertLevel.PlaceholderText = "Enter the level  for stock alert ";
+            this.txtStockAlertLevel.PlaceholderText = "Enter the stock alert.";
             this.txtStockAlertLevel.SelectedText = "";
-            this.txtStockAlertLevel.Size = new System.Drawing.Size(286, 40);
+            this.txtStockAlertLevel.Size = new System.Drawing.Size(289, 40);
             this.txtStockAlertLevel.TabIndex = 15;
             // 
             // btnPath
@@ -375,11 +420,12 @@ namespace Supermarket.UI.Products
             this.btnPath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.btnPath.Image = global::Supermarket.Properties.Resources.LinkFile;
             this.btnPath.IndicateFocus = true;
-            this.btnPath.Location = new System.Drawing.Point(252, 442);
+            this.btnPath.Location = new System.Drawing.Point(4, 504);
             this.btnPath.Name = "btnPath";
             this.btnPath.Size = new System.Drawing.Size(40, 40);
             this.btnPath.TabIndex = 14;
             this.btnPath.UseTransparentBackground = true;
+            this.btnPath.Click += new System.EventHandler(this.btnPath_Click);
             // 
             // txtImagePath
             // 
@@ -393,12 +439,12 @@ namespace Supermarket.UI.Products
             this.txtImagePath.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtImagePath.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.txtImagePath.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtImagePath.Location = new System.Drawing.Point(7, 442);
+            this.txtImagePath.Location = new System.Drawing.Point(51, 504);
             this.txtImagePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtImagePath.Name = "txtImagePath";
-            this.txtImagePath.PlaceholderText = "Enter the image path";
+            this.txtImagePath.PlaceholderText = "Enter the image path.";
             this.txtImagePath.SelectedText = "";
-            this.txtImagePath.Size = new System.Drawing.Size(239, 40);
+            this.txtImagePath.Size = new System.Drawing.Size(242, 40);
             this.txtImagePath.TabIndex = 13;
             // 
             // cmbUnit
@@ -412,9 +458,10 @@ namespace Supermarket.UI.Products
             this.cmbUnit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.cmbUnit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbUnit.ItemHeight = 34;
-            this.cmbUnit.Location = new System.Drawing.Point(7, 127);
+            this.cmbUnit.Location = new System.Drawing.Point(4, 188);
+            this.cmbUnit.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(286, 40);
+            this.cmbUnit.Size = new System.Drawing.Size(289, 40);
             this.cmbUnit.TabIndex = 12;
             // 
             // UnitCateroy
@@ -428,7 +475,8 @@ namespace Supermarket.UI.Products
             this.UnitCateroy.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.UnitCateroy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.UnitCateroy.ItemHeight = 34;
-            this.UnitCateroy.Location = new System.Drawing.Point(4, 64);
+            this.UnitCateroy.Location = new System.Drawing.Point(4, 125);
+            this.UnitCateroy.Margin = new System.Windows.Forms.Padding(4);
             this.UnitCateroy.Name = "UnitCateroy";
             this.UnitCateroy.Size = new System.Drawing.Size(289, 40);
             this.UnitCateroy.TabIndex = 10;
@@ -442,15 +490,16 @@ namespace Supermarket.UI.Products
             this.txtStockQuantity.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtStockQuantity.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStockQuantity.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtStockQuantity.Enabled = false;
             this.txtStockQuantity.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtStockQuantity.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.txtStockQuantity.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStockQuantity.Location = new System.Drawing.Point(7, 316);
+            this.txtStockQuantity.Location = new System.Drawing.Point(4, 377);
             this.txtStockQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtStockQuantity.Name = "txtStockQuantity";
-            this.txtStockQuantity.PlaceholderText = "Enter the  stock  quantity ";
+            this.txtStockQuantity.PlaceholderText = "Please order items via Purchases.";
             this.txtStockQuantity.SelectedText = "";
-            this.txtStockQuantity.Size = new System.Drawing.Size(286, 40);
+            this.txtStockQuantity.Size = new System.Drawing.Size(289, 40);
             this.txtStockQuantity.TabIndex = 11;
             // 
             // txtSellingPrice
@@ -465,12 +514,12 @@ namespace Supermarket.UI.Products
             this.txtSellingPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSellingPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.txtSellingPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSellingPrice.Location = new System.Drawing.Point(7, 253);
+            this.txtSellingPrice.Location = new System.Drawing.Point(4, 314);
             this.txtSellingPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSellingPrice.Name = "txtSellingPrice";
-            this.txtSellingPrice.PlaceholderText = "Enter the selling  price ";
+            this.txtSellingPrice.PlaceholderText = "Enter the selling  price.";
             this.txtSellingPrice.SelectedText = "";
-            this.txtSellingPrice.Size = new System.Drawing.Size(286, 40);
+            this.txtSellingPrice.Size = new System.Drawing.Size(289, 40);
             this.txtSellingPrice.TabIndex = 9;
             // 
             // txtCostPrice
@@ -485,12 +534,12 @@ namespace Supermarket.UI.Products
             this.txtCostPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCostPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.txtCostPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCostPrice.Location = new System.Drawing.Point(7, 190);
+            this.txtCostPrice.Location = new System.Drawing.Point(4, 251);
             this.txtCostPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCostPrice.Name = "txtCostPrice";
-            this.txtCostPrice.PlaceholderText = "Enter the cost price ";
+            this.txtCostPrice.PlaceholderText = "Enter the cost price.";
             this.txtCostPrice.SelectedText = "";
-            this.txtCostPrice.Size = new System.Drawing.Size(286, 40);
+            this.txtCostPrice.Size = new System.Drawing.Size(289, 40);
             this.txtCostPrice.TabIndex = 8;
             // 
             // txtName
@@ -508,16 +557,16 @@ namespace Supermarket.UI.Products
             this.txtName.Location = new System.Drawing.Point(4, 4);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.PlaceholderText = "Enter the product name";
+            this.txtName.PlaceholderText = "Enter the product name.";
             this.txtName.SelectedText = "";
-            this.txtName.Size = new System.Drawing.Size(292, 40);
+            this.txtName.Size = new System.Drawing.Size(289, 40);
             this.txtName.TabIndex = 7;
             // 
             // frmAddEditProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 621);
+            this.ClientSize = new System.Drawing.Size(473, 680);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -569,5 +618,8 @@ namespace Supermarket.UI.Products
         private Guna.UI2.WinForms.Guna2TextBox txtSellingPrice;
         private Guna.UI2.WinForms.Guna2TextBox txtCostPrice;
         private Guna.UI2.WinForms.Guna2TextBox txtName;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel19;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel18;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbSupplier;
     }
 }

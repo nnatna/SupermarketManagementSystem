@@ -44,7 +44,6 @@
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSalesContainer = new System.Windows.Forms.Panel();
             this.btnSalesHistory = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCashier = new Guna.UI2.WinForms.Guna2Button();
             this.btnPointOfSales = new Guna.UI2.WinForms.Guna2Button();
             this.btnSale = new Guna.UI2.WinForms.Guna2Button();
             this.pnlProductsContainer = new System.Windows.Forms.Panel();
@@ -241,7 +240,6 @@
             // pnlSalesContainer
             // 
             this.pnlSalesContainer.Controls.Add(this.btnSalesHistory);
-            this.pnlSalesContainer.Controls.Add(this.btnCashier);
             this.pnlSalesContainer.Controls.Add(this.btnPointOfSales);
             this.pnlSalesContainer.Controls.Add(this.btnSale);
             this.pnlSalesContainer.Location = new System.Drawing.Point(3, 54);
@@ -280,38 +278,6 @@
             this.btnSalesHistory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSalesHistory.UseTransparentBackground = true;
             this.btnSalesHistory.Click += new System.EventHandler(this.NavigationButton_Click);
-            // 
-            // btnCashier
-            // 
-            this.btnCashier.Animated = true;
-            this.btnCashier.BackColor = System.Drawing.Color.Transparent;
-            this.btnCashier.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnCashier.Checked = true;
-            this.btnCashier.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnCashier.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnCashier.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCashier.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnCashier.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnCashier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCashier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCashier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCashier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCashier.FillColor = System.Drawing.Color.White;
-            this.btnCashier.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnCashier.ForeColor = System.Drawing.Color.Black;
-            this.btnCashier.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnCashier.Image = global::Supermarket.Properties.Resources.chashier1;
-            this.btnCashier.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCashier.IndicateFocus = true;
-            this.btnCashier.Location = new System.Drawing.Point(40, 153);
-            this.btnCashier.Name = "btnCashier";
-            this.btnCashier.Size = new System.Drawing.Size(220, 45);
-            this.btnCashier.TabIndex = 6;
-            this.btnCashier.TabStop = false;
-            this.btnCashier.Text = "Cashier ";
-            this.btnCashier.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCashier.UseTransparentBackground = true;
-            this.btnCashier.Click += new System.EventHandler(this.NavigationButton_Click);
             // 
             // btnPointOfSales
             // 
@@ -1211,7 +1177,6 @@
         private Guna.UI2.WinForms.Guna2Button btnInventory;
         private Guna.UI2.WinForms.Guna2Button btnStockAdjustment;
         private System.Windows.Forms.Panel pnlSalesContainer;
-        private Guna.UI2.WinForms.Guna2Button btnCashier;
         private Guna.UI2.WinForms.Guna2Button btnPointOfSales;
         private Guna.UI2.WinForms.Guna2Button btnSale;
         private System.Windows.Forms.Panel pnlProductsContainer;

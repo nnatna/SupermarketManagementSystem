@@ -161,11 +161,6 @@ namespace Supermarket
                 }
 
                 //Point Of Sales
-                if (sender == btnCashier)
-                {
-                    openChildForrm(new frmChashier());
-
-                }
                 if (sender == btnSale)
                 {
                     openChildForrm(new frmSales());
@@ -240,6 +235,7 @@ namespace Supermarket
                 {
                     ProductsTimer.Start();
                     closeDropdowns();
+                    openChildForrm(new frmProductsList());
                     
 
                 }
@@ -247,6 +243,7 @@ namespace Supermarket
                 {
                     PointOfSalesTimer.Start();
                     closeDropdowns();
+                    openChildForrm(new frmSales());
                 }
                 else if (sender == btnPurchasingSuppliers)
                 {
@@ -321,9 +318,9 @@ namespace Supermarket
             {
                 closeMenu();
                 pnlSalesContainer.Height += 25;
-                if (pnlSalesContainer.Height >= 200)
+                if (pnlSalesContainer.Height >= 150)
                 {
-                    pnlSalesContainer.Height = 200;
+                    pnlSalesContainer.Height = 150;
                     PointOfSalesTimer.Stop();
                     isSalesCollapsed = false;
                 }

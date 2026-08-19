@@ -38,6 +38,9 @@ namespace Supermarket.UI.Point_of_sale
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.flpnlCurrentOrder = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtSubtotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -45,9 +48,6 @@ namespace Supermarket.UI.Point_of_sale
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtTotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnPay = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -74,7 +74,7 @@ namespace Supermarket.UI.Point_of_sale
             this.splitContainer1.Panel2.Controls.Add(this.pnlCurrentOrdor);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(10);
             this.splitContainer1.Size = new System.Drawing.Size(1200, 680);
-            this.splitContainer1.SplitterDistance = 885;
+            this.splitContainer1.SplitterDistance = 891;
             this.splitContainer1.TabIndex = 0;
             // 
             // flpnlShowProduct
@@ -85,7 +85,7 @@ namespace Supermarket.UI.Point_of_sale
             this.flpnlShowProduct.Location = new System.Drawing.Point(10, 60);
             this.flpnlShowProduct.Name = "flpnlShowProduct";
             this.flpnlShowProduct.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.flpnlShowProduct.Size = new System.Drawing.Size(865, 610);
+            this.flpnlShowProduct.Size = new System.Drawing.Size(871, 610);
             this.flpnlShowProduct.TabIndex = 1;
             // 
             // pnlFilterHeader
@@ -95,7 +95,7 @@ namespace Supermarket.UI.Point_of_sale
             this.pnlFilterHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFilterHeader.Location = new System.Drawing.Point(10, 10);
             this.pnlFilterHeader.Name = "pnlFilterHeader";
-            this.pnlFilterHeader.Size = new System.Drawing.Size(865, 50);
+            this.pnlFilterHeader.Size = new System.Drawing.Size(871, 50);
             this.pnlFilterHeader.TabIndex = 0;
             // 
             // txtSearch
@@ -112,7 +112,7 @@ namespace Supermarket.UI.Point_of_sale
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "Search product by name or barcode...";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(625, 40);
+            this.txtSearch.Size = new System.Drawing.Size(631, 40);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -127,7 +127,7 @@ namespace Supermarket.UI.Point_of_sale
             this.cmbCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbCategory.ItemHeight = 34;
-            this.cmbCategory.Location = new System.Drawing.Point(635, 5);
+            this.cmbCategory.Location = new System.Drawing.Point(641, 5);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(230, 40);
             this.cmbCategory.TabIndex = 1;
@@ -146,7 +146,7 @@ namespace Supermarket.UI.Point_of_sale
             this.pnlCurrentOrdor.Controls.Add(this.guna2Panel2);
             this.pnlCurrentOrdor.Location = new System.Drawing.Point(13, 10);
             this.pnlCurrentOrdor.Name = "pnlCurrentOrdor";
-            this.pnlCurrentOrdor.Size = new System.Drawing.Size(286, 660);
+            this.pnlCurrentOrdor.Size = new System.Drawing.Size(280, 660);
             this.pnlCurrentOrdor.TabIndex = 0;
             // 
             // guna2HtmlLabel1
@@ -170,7 +170,7 @@ namespace Supermarket.UI.Point_of_sale
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.guna2Button1.ForeColor = System.Drawing.Color.Red;
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.guna2Button1.Location = new System.Drawing.Point(186, 8);
+            this.guna2Button1.Location = new System.Drawing.Point(180, 8);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(85, 34);
             this.guna2Button1.TabIndex = 1;
@@ -188,7 +188,7 @@ namespace Supermarket.UI.Point_of_sale
             this.flpnlCurrentOrder.BackColor = System.Drawing.Color.White;
             this.flpnlCurrentOrder.Location = new System.Drawing.Point(10, 48);
             this.flpnlCurrentOrder.Name = "flpnlCurrentOrder";
-            this.flpnlCurrentOrder.Size = new System.Drawing.Size(266, 432);
+            this.flpnlCurrentOrder.Size = new System.Drawing.Size(260, 432);
             this.flpnlCurrentOrder.TabIndex = 2;
             this.flpnlCurrentOrder.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flpnlCurrentOrder_ControlAdded);
             this.flpnlCurrentOrder.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.flpnlCurrentOrder_ControlRemoved);
@@ -215,8 +215,41 @@ namespace Supermarket.UI.Point_of_sale
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.guna2Panel2.Location = new System.Drawing.Point(10, 490);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(266, 160);
+            this.guna2Panel2.Size = new System.Drawing.Size(260, 160);
             this.guna2Panel2.TabIndex = 3;
+            // 
+            // guna2HtmlLabel7
+            // 
+            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(77, 66);
+            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(7, 22);
+            this.guna2HtmlLabel7.TabIndex = 9;
+            this.guna2HtmlLabel7.Text = ":";
+            // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.Gray;
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(77, 36);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(6, 19);
+            this.guna2HtmlLabel6.TabIndex = 8;
+            this.guna2HtmlLabel6.Text = ":";
+            // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.Gray;
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(77, 12);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(6, 19);
+            this.guna2HtmlLabel5.TabIndex = 7;
+            this.guna2HtmlLabel5.Text = ":";
             // 
             // guna2HtmlLabel2
             // 
@@ -235,7 +268,7 @@ namespace Supermarket.UI.Point_of_sale
             this.txtSubtotal.BackColor = System.Drawing.Color.Transparent;
             this.txtSubtotal.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtSubtotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.txtSubtotal.Location = new System.Drawing.Point(186, 12);
+            this.txtSubtotal.Location = new System.Drawing.Point(180, 12);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(34, 19);
             this.txtSubtotal.TabIndex = 1;
@@ -258,7 +291,7 @@ namespace Supermarket.UI.Point_of_sale
             this.txtDiscount.BackColor = System.Drawing.Color.Transparent;
             this.txtDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.txtDiscount.Location = new System.Drawing.Point(186, 36);
+            this.txtDiscount.Location = new System.Drawing.Point(180, 36);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(34, 19);
             this.txtDiscount.TabIndex = 3;
@@ -281,7 +314,7 @@ namespace Supermarket.UI.Point_of_sale
             this.txtTotal.BackColor = System.Drawing.Color.Transparent;
             this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.txtTotal.Location = new System.Drawing.Point(186, 64);
+            this.txtTotal.Location = new System.Drawing.Point(180, 64);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(52, 27);
             this.txtTotal.TabIndex = 5;
@@ -298,43 +331,10 @@ namespace Supermarket.UI.Point_of_sale
             this.btnPay.ForeColor = System.Drawing.Color.White;
             this.btnPay.Location = new System.Drawing.Point(15, 100);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(236, 45);
+            this.btnPay.Size = new System.Drawing.Size(230, 45);
             this.btnPay.TabIndex = 6;
             this.btnPay.Text = "PROCEED TO PAY";
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
-            // 
-            // guna2HtmlLabel5
-            // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(77, 12);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(6, 19);
-            this.guna2HtmlLabel5.TabIndex = 7;
-            this.guna2HtmlLabel5.Text = ":";
-            // 
-            // guna2HtmlLabel6
-            // 
-            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(77, 36);
-            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(6, 19);
-            this.guna2HtmlLabel6.TabIndex = 8;
-            this.guna2HtmlLabel6.Text = ":";
-            // 
-            // guna2HtmlLabel7
-            // 
-            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(77, 66);
-            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(7, 22);
-            this.guna2HtmlLabel7.TabIndex = 9;
-            this.guna2HtmlLabel7.Text = ":";
             // 
             // frmSales
             // 
