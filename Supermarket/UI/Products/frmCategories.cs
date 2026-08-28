@@ -1,3 +1,4 @@
+﻿using Supermarket.Utils;
 using Supermarket.DAL;
 using Supermarket.Model;
 using System;
@@ -21,6 +22,7 @@ namespace Supermarket.UI.Products
         public frmCategories()
         {
             InitializeComponent();
+            UIThemeHelper.ApplyModernGridStyle(displayCategories);
         }
 
         private void PopulateSortColumns()
@@ -36,7 +38,6 @@ namespace Supermarket.UI.Products
         {
             PopulateSortColumns();
             displayCategories.AutoGenerateColumns = false;
-            txtSearch.PlaceholderText = "Search by Category...";
             txtSearch.PlaceholderForeColor = Color.Gray;
             await LoadCategoriesAsync();
         }
@@ -201,3 +202,4 @@ namespace Supermarket.UI.Products
         }
     }
 }
+

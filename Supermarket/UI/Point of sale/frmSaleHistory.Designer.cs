@@ -28,21 +28,21 @@ namespace Supermarket.UI.Point_of_sale
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSort = new Guna.UI2.WinForms.Guna2Button();
             this.pnlButton = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.cmbSortColumn = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnRefesh = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.dtpStartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.dtpEndDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnRefesh = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPrintInvoice = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.displayProducts = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,8 +55,6 @@ namespace Supermarket.UI.Point_of_sale
             this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.flowLayoutPanel2.SuspendLayout();
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayProducts)).BeginInit();
@@ -87,10 +85,11 @@ namespace Supermarket.UI.Point_of_sale
             this.txtSearch.Location = new System.Drawing.Point(4, 4);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PlaceholderText = "";
+            this.txtSearch.PlaceholderText = "Search by Product, Invoice Number...";
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(444, 40);
             this.txtSearch.TabIndex = 14;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // btnSort
             // 
@@ -108,7 +107,7 @@ namespace Supermarket.UI.Point_of_sale
             this.btnSort.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSort.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSort.FillColor = System.Drawing.Color.White;
-            this.btnSort.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnSort.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSort.ForeColor = System.Drawing.Color.Black;
             this.btnSort.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.btnSort.Image = global::Supermarket.Properties.Resources.sort;
@@ -119,47 +118,20 @@ namespace Supermarket.UI.Point_of_sale
             this.btnSort.TabIndex = 15;
             this.btnSort.TabStop = false;
             this.btnSort.UseTransparentBackground = true;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // pnlButton
             // 
-            this.pnlButton.Controls.Add(this.btnEdit);
             this.pnlButton.Controls.Add(this.cmbSortColumn);
-            this.pnlButton.Controls.Add(this.btnRefesh);
+            this.pnlButton.Controls.Add(this.btnCancel);
             this.pnlButton.Controls.Add(this.dtpStartDate);
-            this.pnlButton.Controls.Add(this.dtpEndDate);
+            this.pnlButton.Controls.Add(this.btnRefesh);
+            this.pnlButton.Controls.Add(this.btnPrintInvoice);
             this.pnlButton.Location = new System.Drawing.Point(12, 54);
             this.pnlButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(675, 48);
+            this.pnlButton.Size = new System.Drawing.Size(946, 48);
             this.pnlButton.TabIndex = 22;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Animated = true;
-            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BorderRadius = 8;
-            this.btnEdit.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnEdit.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnEdit.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEdit.FillColor = System.Drawing.Color.White;
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnEdit.Image = global::Supermarket.Properties.Resources.edit;
-            this.btnEdit.IndicateFocus = true;
-            this.btnEdit.Location = new System.Drawing.Point(3, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(110, 40);
-            this.btnEdit.TabIndex = 4;
-            this.btnEdit.TabStop = false;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseTransparentBackground = true;
             // 
             // cmbSortColumn
             // 
@@ -172,10 +144,67 @@ namespace Supermarket.UI.Point_of_sale
             this.cmbSortColumn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSortColumn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbSortColumn.ItemHeight = 34;
-            this.cmbSortColumn.Location = new System.Drawing.Point(119, 3);
+            this.cmbSortColumn.Location = new System.Drawing.Point(3, 3);
             this.cmbSortColumn.Name = "cmbSortColumn";
             this.cmbSortColumn.Size = new System.Drawing.Size(140, 40);
             this.cmbSortColumn.TabIndex = 6;
+            this.cmbSortColumn.SelectedIndexChanged += new System.EventHandler(this.cmbSortColumn_SelectedIndexChanged);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Animated = true;
+            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.BorderRadius = 8;
+            this.btnCancel.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnCancel.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnCancel.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancel.FillColor = System.Drawing.Color.White;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnCancel.Image = global::Supermarket.Properties.Resources.delete;
+            this.btnCancel.IndicateFocus = true;
+            this.btnCancel.Location = new System.Drawing.Point(149, 3);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(120, 40);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.TabStop = false;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseTransparentBackground = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.Animated = true;
+            this.dtpStartDate.BackColor = System.Drawing.Color.Transparent;
+            this.dtpStartDate.BorderColor = System.Drawing.Color.White;
+            this.dtpStartDate.BorderRadius = 8;
+            this.dtpStartDate.Checked = true;
+            this.dtpStartDate.CheckedState.FillColor = System.Drawing.Color.White;
+            this.dtpStartDate.CheckedState.ForeColor = System.Drawing.Color.Black;
+            this.dtpStartDate.CustomFormat = "dd/MM/yyyy";
+            this.dtpStartDate.FillColor = System.Drawing.Color.White;
+            this.dtpStartDate.FocusedColor = System.Drawing.Color.Transparent;
+            this.dtpStartDate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStartDate.ForeColor = System.Drawing.Color.Black;
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartDate.HoverState.FillColor = System.Drawing.Color.White;
+            this.dtpStartDate.IndicateFocus = true;
+            this.dtpStartDate.Location = new System.Drawing.Point(275, 3);
+            this.dtpStartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpStartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(135, 40);
+            this.dtpStartDate.TabIndex = 8;
+            this.dtpStartDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dtpStartDate.Value = new System.DateTime(2026, 8, 18, 0, 0, 0, 0);
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpDateFilter_ValueChanged);
             // 
             // btnRefesh
             // 
@@ -192,70 +221,48 @@ namespace Supermarket.UI.Point_of_sale
             this.btnRefesh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRefesh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRefesh.FillColor = System.Drawing.Color.White;
-            this.btnRefesh.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnRefesh.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefesh.ForeColor = System.Drawing.Color.Black;
             this.btnRefesh.HoverState.FillColor = System.Drawing.Color.DarkGray;
             this.btnRefesh.Image = global::Supermarket.Properties.Resources.refresh;
             this.btnRefesh.IndicateFocus = true;
-            this.btnRefesh.Location = new System.Drawing.Point(265, 3);
+            this.btnRefesh.Location = new System.Drawing.Point(416, 3);
             this.btnRefesh.Name = "btnRefesh";
             this.btnRefesh.Size = new System.Drawing.Size(122, 40);
             this.btnRefesh.TabIndex = 7;
             this.btnRefesh.TabStop = false;
             this.btnRefesh.Text = "Refresh";
             this.btnRefesh.UseTransparentBackground = true;
+            this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
             // 
-            // dtpStartDate
+            // btnPrintInvoice
             // 
-            this.dtpStartDate.Animated = true;
-            this.dtpStartDate.BackColor = System.Drawing.Color.Transparent;
-            this.dtpStartDate.BorderColor = System.Drawing.Color.White;
-            this.dtpStartDate.BorderRadius = 8;
-            this.dtpStartDate.Checked = true;
-            this.dtpStartDate.CheckedState.FillColor = System.Drawing.Color.White;
-            this.dtpStartDate.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.dtpStartDate.CustomFormat = "dd/MM/yyyy";
-            this.dtpStartDate.FillColor = System.Drawing.Color.White;
-            this.dtpStartDate.FocusedColor = System.Drawing.Color.Transparent;
-            this.dtpStartDate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.dtpStartDate.ForeColor = System.Drawing.Color.Black;
-            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.HoverState.FillColor = System.Drawing.Color.White;
-            this.dtpStartDate.IndicateFocus = true;
-            this.dtpStartDate.Location = new System.Drawing.Point(393, 3);
-            this.dtpStartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpStartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(135, 40);
-            this.dtpStartDate.TabIndex = 8;
-            this.dtpStartDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dtpStartDate.Value = new System.DateTime(2026, 8, 18, 0, 0, 0, 0);
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Animated = true;
-            this.dtpEndDate.BackColor = System.Drawing.Color.Transparent;
-            this.dtpEndDate.BorderColor = System.Drawing.Color.White;
-            this.dtpEndDate.BorderRadius = 8;
-            this.dtpEndDate.Checked = true;
-            this.dtpEndDate.CheckedState.FillColor = System.Drawing.Color.White;
-            this.dtpEndDate.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.dtpEndDate.CustomFormat = "dd/MM/yyyy";
-            this.dtpEndDate.FillColor = System.Drawing.Color.White;
-            this.dtpEndDate.FocusedColor = System.Drawing.Color.Transparent;
-            this.dtpEndDate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.dtpEndDate.ForeColor = System.Drawing.Color.Black;
-            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDate.HoverState.FillColor = System.Drawing.Color.White;
-            this.dtpEndDate.IndicateFocus = true;
-            this.dtpEndDate.Location = new System.Drawing.Point(534, 3);
-            this.dtpEndDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpEndDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(135, 40);
-            this.dtpEndDate.TabIndex = 9;
-            this.dtpEndDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dtpEndDate.Value = new System.DateTime(2026, 8, 18, 23, 59, 59, 0);
+            this.btnPrintInvoice.Animated = true;
+            this.btnPrintInvoice.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrintInvoice.BorderRadius = 8;
+            this.btnPrintInvoice.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnPrintInvoice.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnPrintInvoice.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnPrintInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintInvoice.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnPrintInvoice.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintInvoice.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintInvoice.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrintInvoice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrintInvoice.FillColor = System.Drawing.Color.White;
+            this.btnPrintInvoice.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintInvoice.ForeColor = System.Drawing.Color.Black;
+            this.btnPrintInvoice.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnPrintInvoice.Image = global::Supermarket.Properties.Resources.printer;
+            this.btnPrintInvoice.IndicateFocus = true;
+            this.btnPrintInvoice.Location = new System.Drawing.Point(544, 3);
+            this.btnPrintInvoice.Name = "btnPrintInvoice";
+            this.btnPrintInvoice.Size = new System.Drawing.Size(145, 40);
+            this.btnPrintInvoice.TabIndex = 10;
+            this.btnPrintInvoice.TabStop = false;
+            this.btnPrintInvoice.Text = "Print Invoice";
+            this.btnPrintInvoice.UseTransparentBackground = true;
+            this.btnPrintInvoice.Click += new System.EventHandler(this.btnPrintInvoice_Click);
             // 
             // guna2HtmlLabel1
             // 
@@ -263,28 +270,32 @@ namespace Supermarket.UI.Point_of_sale
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(12, 14);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(109, 27);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(133, 27);
             this.guna2HtmlLabel1.TabIndex = 21;
-            this.guna2HtmlLabel1.Text = "Sale History";
+            this.guna2HtmlLabel1.Text = "SALE HISTORY";
             // 
             // displayProducts
             // 
             this.displayProducts.AllowDrop = true;
             this.displayProducts.AllowUserToAddRows = false;
             this.displayProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.displayProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.displayProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.displayProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.displayProducts.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.displayProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.displayProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.displayProducts.ColumnHeadersHeight = 45;
             this.displayProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.displayProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -298,35 +309,43 @@ namespace Supermarket.UI.Point_of_sale
             this.Discount,
             this.Total,
             this.Status});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.displayProducts.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.displayProducts.DefaultCellStyle = dataGridViewCellStyle4;
             this.displayProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.displayProducts.Location = new System.Drawing.Point(12, 105);
             this.displayProducts.Name = "displayProducts";
             this.displayProducts.ReadOnly = true;
             this.displayProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.displayProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.displayProducts.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.displayProducts_CellFormatting);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.displayProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.displayProducts.RowHeadersVisible = false;
             this.displayProducts.RowHeadersWidth = 45;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayProducts.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.displayProducts.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.displayProducts.RowTemplate.Height = 45;
             this.displayProducts.Size = new System.Drawing.Size(1208, 500);
             this.displayProducts.TabIndex = 20;
             this.displayProducts.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.displayProducts.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayProducts.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.displayProducts.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.displayProducts.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.displayProducts.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.displayProducts.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Gray;
             this.displayProducts.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -340,9 +359,9 @@ namespace Supermarket.UI.Point_of_sale
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Id.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Id.DefaultCellStyle = dataGridViewCellStyle3;
             this.Id.FillWeight = 40F;
             this.Id.Frozen = true;
             this.Id.HeaderText = "ID";
@@ -420,34 +439,12 @@ namespace Supermarket.UI.Point_of_sale
             this.Status.ReadOnly = true;
             this.Status.Width = 120;
             // 
-            // guna2HtmlLabel2
-            // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(405, 32);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(43, 19);
-            this.guna2HtmlLabel2.TabIndex = 10;
-            this.guna2HtmlLabel2.Text = "START";
-            // 
-            // guna2HtmlLabel3
-            // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(546, 32);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(30, 19);
-            this.guna2HtmlLabel3.TabIndex = 11;
-            this.guna2HtmlLabel3.Text = "END";
-            // 
             // frmSaleHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1232, 617);
-            this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.pnlButton);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.displayProducts);
@@ -455,6 +452,7 @@ namespace Supermarket.UI.Point_of_sale
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSaleHistory";
             this.Text = "frmSaleHistory";
+            this.Load += new System.EventHandler(this.frmSaleHistory_Load);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.pnlButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.displayProducts)).EndInit();
@@ -469,7 +467,7 @@ namespace Supermarket.UI.Point_of_sale
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private Guna.UI2.WinForms.Guna2Button btnSort;
         private System.Windows.Forms.FlowLayoutPanel pnlButton;
-        private Guna.UI2.WinForms.Guna2Button btnEdit;
+        private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2ComboBox cmbSortColumn;
         private Guna.UI2.WinForms.Guna2Button btnRefesh;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
@@ -485,8 +483,6 @@ namespace Supermarket.UI.Point_of_sale
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpStartDate;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpEndDate;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2Button btnPrintInvoice;
     }
 }

@@ -14,25 +14,39 @@ namespace Supermarket.UI.Point_of_sale
     public partial class frmPayment : Form
     {
         private readonly SalesDAL _salesDAL = new SalesDAL();
+        private readonly CustomersDAL _customersDAL = new CustomersDAL();
         private readonly List<CartItemControl> _cartItems;
         private readonly decimal _subtotal;
         private readonly decimal _discount;
         private readonly decimal _total;
+        private readonly long? _promotionId;
+
+        private class CustomerComboItem
+        {
+            public long Id { get; set; }
+            public string DisplayText { get; set; }
+            public int Points { get; set; }
+            public override string ToString() => DisplayText;
+        }
+
+        private readonly long _initialCustomerId = 0;
 
         public frmPayment()
         {
             InitializeComponent();
         }
 
-        public frmPayment(List<CartItemControl> cartItems, decimal subtotal, decimal discount, decimal total) : this()
+        public frmPayment(List<CartItemControl> cartItems, decimal subtotal, decimal discount, decimal total, long initialCustomerId = 0, long? promotionId = null) : this()
         {
             _cartItems = cartItems ?? new List<CartItemControl>();
             _subtotal = subtotal;
             _discount = discount;
             _total = total;
+            _initialCustomerId = initialCustomerId;
+            _promotionId = promotionId;
         }
 
-        private void frmPayment_Load(object sender, EventArgs e)
+        private async void frmPayment_Load(object sender, EventArgs e)
         {
             StartPosition = FormStartPosition.CenterParent;
 
@@ -46,9 +60,62 @@ namespace Supermarket.UI.Point_of_sale
             txtDiscount.Text = $"${_discount:N2}";
             txtTotal.Text = $"${_total:N2}";
 
-            // Default Paid Amount to total
+            // Load Customers
+            await LoadCustomersAsync(_initialCustomerId);
         }
 
+        private async Task LoadCustomersAsync(long selectCustomerId = 0)
+        {
+            var customers = await Task.Run(() => _customersDAL.GetAllCustomers());
+
+            cmbCustomer.Items.Clear();
+            cmbCustomer.Items.Add(new CustomerComboItem
+            {
+                Id = 0,
+                DisplayText = "General / Walk-in Customer",
+                Points = 0
+            });
+
+            int selectedIndex = 0;
+            int currentIndex = 1;
+
+            if (customers != null)
+            {
+                foreach (var c in customers)
+                {
+                    string phoneText = string.IsNullOrWhiteSpace(c.Phone) ? "" : $" ({c.Phone})";
+                    var item = new CustomerComboItem
+                    {
+                        Id = c.Id,
+                        DisplayText = $"{c.Name}{phoneText} [Pts: {c.Points}]",
+                        Points = c.Points
+                    };
+                    cmbCustomer.Items.Add(item);
+
+                    if (selectCustomerId > 0 && c.Id == selectCustomerId)
+                    {
+                        selectedIndex = currentIndex;
+                    }
+                    currentIndex++;
+                }
+            }
+
+            cmbCustomer.SelectedIndex = selectedIndex;
+        }
+
+        private async void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            using (var frm = new Customers.frmAddEditCustomer(0))
+            {
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    // Reload customers and select the most recently added customer
+                    var latestCustomers = await Task.Run(() => _customersDAL.GetAllCustomers());
+                    long newCustId = latestCustomers != null && latestCustomers.Count > 0 ? latestCustomers.First().Id : 0;
+                    await LoadCustomersAsync(newCustId);
+                }
+            }
+        }
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
@@ -60,10 +127,21 @@ namespace Supermarket.UI.Point_of_sale
 
             btnSave.Enabled = false;
             btnCancel.Enabled = false;
+            btnAddCustomer.Enabled = false;
+
+            long? customerId = null;
+            string customerDisplayName = "General Customer";
+            if (cmbCustomer.SelectedItem is CustomerComboItem selectedCust && selectedCust.Id > 0)
+            {
+                customerId = selectedCust.Id;
+                customerDisplayName = selectedCust.DisplayText;
+            }
 
             Sales sale = new Sales
             {
                 Invoice_number = SalesDAL.GenerateInvoiceNumber(),
+                Customer_id = customerId,
+                Promotion_id = _promotionId,
                 Subtotal = _subtotal,
                 Discount_amount = _discount,
                 Grand_total = _total,
@@ -92,8 +170,11 @@ namespace Supermarket.UI.Point_of_sale
 
             if (success)
             {
+                int earnedPoints = customerId.HasValue ? (int)Math.Floor(_total) : 0;
+                string pointsInfo = earnedPoints > 0 ? $"\nLoyalty Points Earned: +{earnedPoints}" : "";
+
                 MessageBox.Show(
-                    $"Payment completed successfully!\n\nInvoice Number: {sale.Invoice_number}\nPayment Method: {sale.Payment_method}\nTotal Amount: ${_total:N2}",
+                    $"Payment completed successfully!\n\nInvoice Number: {sale.Invoice_number}\nCustomer: {customerDisplayName}\nPayment Method: {sale.Payment_method}\nTotal Amount: ${_total:N2}{pointsInfo}",
                     "Sale Completed",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -105,6 +186,7 @@ namespace Supermarket.UI.Point_of_sale
             {
                 btnSave.Enabled = true;
                 btnCancel.Enabled = true;
+                btnAddCustomer.Enabled = true;
                 MessageBox.Show($"Failed to complete payment: {errorMessage}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -116,4 +198,3 @@ namespace Supermarket.UI.Point_of_sale
         }
     }
 }
-

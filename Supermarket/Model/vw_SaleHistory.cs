@@ -72,7 +72,7 @@ namespace Supermarket.Model
         public decimal Subtotal => subtotal ?? 0m;
 
         [NotMapped]
-        public decimal Discount => 0m;
+        public decimal Discount => Math.Max(0, (UnitPrice * Quantity) - Subtotal);
 
         [NotMapped]
         public decimal Total => subtotal ?? 0m;

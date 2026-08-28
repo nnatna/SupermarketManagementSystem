@@ -17,14 +17,14 @@ namespace Supermarket.DAL
             {
                 using (var db = new SupermarketContext())
                 {
-                    // បិទ Lazy Loading ដើម្បីឱ្យការទាញទិន្នន័យកាន់តែលឿន
+                    //Lazy Loading
                     db.Configuration.LazyLoadingEnabled = false;
                     db.Configuration.ProxyCreationEnabled = false;
 
-                    // ទាញទិន្នន័យពី View ផ្ទាល់តែម្ដង
+                    //View
                     var list = db.vw_SaleHistory
-                                 .AsNoTracking() // ប្រើ AsNoTracking ព្រោះយើងគ្រាន់តែ Read ទិន្នន័យប៉ុណ្ណោះ (មិន Update)
-                                 .OrderByDescending(s => s.sale_date) // តម្រៀបវិក្កយបត្រពីថ្មីទៅចាស់
+                                 .AsNoTracking()
+                                 .OrderByDescending(s => s.sale_date)
                                  .ToList();
 
                     return list;
@@ -32,7 +32,7 @@ namespace Supermarket.DAL
             }
             catch (Exception ex)
             {
-                // ប្រើប្រាស់ GetFullErrorMessage ដែលអ្នកមានស្រាប់ក្នុង SalesDAL
+                //GetFullErrorMessage
                 string errorMessage = GetFullErrorMessage(ex);
                 MessageBox.Show("EF Query Error: \n" + errorMessage, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

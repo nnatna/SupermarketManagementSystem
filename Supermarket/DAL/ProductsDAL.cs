@@ -128,9 +128,11 @@ namespace Supermarket.DAL
                         existing.Selling_price = product.Selling_price;
                         existing.Stock_quantity = product.Stock_quantity;
                         existing.Stock_alert_level = product.Stock_alert_level;
+                        existing.Discount_percent = product.Discount_percent;
                         existing.Image = product.Image ?? "";
 
-                        return db.SaveChanges() > 0;
+                        db.SaveChanges();
+                        return true;
                     }
                 }
             }

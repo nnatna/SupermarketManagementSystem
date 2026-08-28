@@ -28,276 +28,225 @@ namespace Supermarket.UI.Point_of_sale
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlTop = new System.Windows.Forms.Panel();
+            this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblCustomer = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.cmbCustomer = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnAddCustomer = new Guna.UI2.WinForms.Guna2Button();
+            this.lblPaymentMethod = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cmbPaymentMethod = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txtCategoryName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.pnlPayment = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlSummary = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblSummaryTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblSubtotalTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtSubtotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblDiscountTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtDiscount = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblTotalTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtTotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel2.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
-            this.pnlPayment.SuspendLayout();
+            this.pnlTop.SuspendLayout();
+            this.pnlSummary.SuspendLayout();
             this.SuspendLayout();
             // 
-            // guna2HtmlLabel1
+            // pnlTop
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(12, 12);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(89, 32);
-            this.guna2HtmlLabel1.TabIndex = 1;
-            this.guna2HtmlLabel1.Text = "Payment";
+            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.pnlTop.Controls.Add(this.lblTitle);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(520, 60);
+            this.pnlTop.TabIndex = 0;
             // 
-            // guna2BorderlessForm1
+            // lblTitle
             // 
-            this.guna2BorderlessForm1.BorderRadius = 8;
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lblTitle.Location = new System.Drawing.Point(24, 16);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(167, 27);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Payment Checkout";
             // 
-            // guna2Panel2
+            // lblCustomer
             // 
-            this.guna2Panel2.Controls.Add(this.cmbPaymentMethod);
-            this.guna2Panel2.Controls.Add(this.txtCategoryName);
-            this.guna2Panel2.Location = new System.Drawing.Point(180, 57);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(275, 114);
-            this.guna2Panel2.TabIndex = 19;
+            this.lblCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.lblCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.lblCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCustomer.Location = new System.Drawing.Point(24, 75);
+            this.lblCustomer.Name = "lblCustomer";
+            this.lblCustomer.Size = new System.Drawing.Size(107, 19);
+            this.lblCustomer.TabIndex = 1;
+            this.lblCustomer.Text = "Select Customer:";
+            // 
+            // cmbCustomer
+            // 
+            this.cmbCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.cmbCustomer.BorderRadius = 6;
+            this.cmbCustomer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCustomer.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbCustomer.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbCustomer.ItemHeight = 34;
+            this.cmbCustomer.Location = new System.Drawing.Point(24, 100);
+            this.cmbCustomer.Name = "cmbCustomer";
+            this.cmbCustomer.Size = new System.Drawing.Size(418, 40);
+            this.cmbCustomer.TabIndex = 2;
+            // 
+            // btnAddCustomer
+            // 
+            this.btnAddCustomer.Animated = true;
+            this.btnAddCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddCustomer.BorderRadius = 6;
+            this.btnAddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddCustomer.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddCustomer.ForeColor = System.Drawing.Color.White;
+            this.btnAddCustomer.Image = global::Supermarket.Properties.Resources.plus;
+            this.btnAddCustomer.Location = new System.Drawing.Point(448, 100);
+            this.btnAddCustomer.Name = "btnAddCustomer";
+            this.btnAddCustomer.Size = new System.Drawing.Size(48, 40);
+            this.btnAddCustomer.TabIndex = 3;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
+            // 
+            // lblPaymentMethod
+            // 
+            this.lblPaymentMethod.BackColor = System.Drawing.Color.Transparent;
+            this.lblPaymentMethod.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPaymentMethod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPaymentMethod.Location = new System.Drawing.Point(24, 155);
+            this.lblPaymentMethod.Name = "lblPaymentMethod";
+            this.lblPaymentMethod.Size = new System.Drawing.Size(113, 19);
+            this.lblPaymentMethod.TabIndex = 4;
+            this.lblPaymentMethod.Text = "Payment Method:";
             // 
             // cmbPaymentMethod
             // 
             this.cmbPaymentMethod.BackColor = System.Drawing.Color.Transparent;
-            this.cmbPaymentMethod.BorderRadius = 8;
+            this.cmbPaymentMethod.BorderRadius = 6;
             this.cmbPaymentMethod.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPaymentMethod.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbPaymentMethod.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbPaymentMethod.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.cmbPaymentMethod.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             this.cmbPaymentMethod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbPaymentMethod.ItemHeight = 34;
-            this.cmbPaymentMethod.Location = new System.Drawing.Point(6, 63);
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(24, 180);
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
-            this.cmbPaymentMethod.Size = new System.Drawing.Size(265, 40);
-            this.cmbPaymentMethod.TabIndex = 13;
+            this.cmbPaymentMethod.Size = new System.Drawing.Size(472, 40);
+            this.cmbPaymentMethod.TabIndex = 5;
             // 
-            // txtCategoryName
+            // pnlSummary
             // 
-            this.txtCategoryName.BorderRadius = 8;
-            this.txtCategoryName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCategoryName.DefaultText = "";
-            this.txtCategoryName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCategoryName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCategoryName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCategoryName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCategoryName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategoryName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategoryName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategoryName.Location = new System.Drawing.Point(6, 1);
-            this.txtCategoryName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.PlaceholderText = "Enter customer name (optional)";
-            this.txtCategoryName.SelectedText = "";
-            this.txtCategoryName.Size = new System.Drawing.Size(265, 40);
-            this.txtCategoryName.TabIndex = 2;
+            this.pnlSummary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this.pnlSummary.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(230)))), ((int)(((byte)(250)))));
+            this.pnlSummary.BorderRadius = 8;
+            this.pnlSummary.BorderThickness = 1;
+            this.pnlSummary.Controls.Add(this.lblSummaryTitle);
+            this.pnlSummary.Controls.Add(this.lblSubtotalTitle);
+            this.pnlSummary.Controls.Add(this.txtSubtotal);
+            this.pnlSummary.Controls.Add(this.lblDiscountTitle);
+            this.pnlSummary.Controls.Add(this.txtDiscount);
+            this.pnlSummary.Controls.Add(this.lblTotalTitle);
+            this.pnlSummary.Controls.Add(this.txtTotal);
+            this.pnlSummary.Location = new System.Drawing.Point(24, 235);
+            this.pnlSummary.Name = "pnlSummary";
+            this.pnlSummary.Size = new System.Drawing.Size(472, 130);
+            this.pnlSummary.TabIndex = 6;
             // 
-            // guna2Panel1
+            // lblSummaryTitle
             // 
-            this.guna2Panel1.Controls.Add(this.guna2HtmlLabel4);
-            this.guna2Panel1.Controls.Add(this.guna2HtmlLabel2);
-            this.guna2Panel1.Controls.Add(this.guna2HtmlLabel3);
-            this.guna2Panel1.Controls.Add(this.guna2HtmlLabel14);
-            this.guna2Panel1.Location = new System.Drawing.Point(12, 57);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(155, 114);
-            this.guna2Panel1.TabIndex = 18;
+            this.lblSummaryTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblSummaryTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblSummaryTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(100)))), ((int)(((byte)(160)))));
+            this.lblSummaryTitle.Location = new System.Drawing.Point(16, 8);
+            this.lblSummaryTitle.Name = "lblSummaryTitle";
+            this.lblSummaryTitle.Size = new System.Drawing.Size(100, 19);
+            this.lblSummaryTitle.TabIndex = 0;
+            this.lblSummaryTitle.Text = "ORDER SUMMARY";
             // 
-            // guna2HtmlLabel4
+            // lblSubtotalTitle
             // 
-            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(142, 72);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(7, 23);
-            this.guna2HtmlLabel4.TabIndex = 13;
-            this.guna2HtmlLabel4.Text = ":";
-            // 
-            // guna2HtmlLabel2
-            // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(12, 10);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(20);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(68, 22);
-            this.guna2HtmlLabel2.TabIndex = 1;
-            this.guna2HtmlLabel2.Text = "Customer";
-            // 
-            // guna2HtmlLabel3
-            // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(12, 72);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(20);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(121, 22);
-            this.guna2HtmlLabel3.TabIndex = 3;
-            this.guna2HtmlLabel3.Text = "Payment Method";
-            // 
-            // guna2HtmlLabel14
-            // 
-            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel14.Location = new System.Drawing.Point(142, 10);
-            this.guna2HtmlLabel14.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            this.guna2HtmlLabel14.Size = new System.Drawing.Size(7, 23);
-            this.guna2HtmlLabel14.TabIndex = 12;
-            this.guna2HtmlLabel14.Text = ":";
-            // 
-            // pnlPayment
-            // 
-            this.pnlPayment.BackColor = System.Drawing.Color.Transparent;
-            this.pnlPayment.BorderRadius = 12;
-            this.pnlPayment.Controls.Add(this.txtSubtotal);
-            this.pnlPayment.Controls.Add(this.txtDiscount);
-            this.pnlPayment.Controls.Add(this.txtTotal);
-            this.pnlPayment.Controls.Add(this.guna2HtmlLabel10);
-            this.pnlPayment.Controls.Add(this.guna2HtmlLabel9);
-            this.pnlPayment.Controls.Add(this.guna2HtmlLabel8);
-            this.pnlPayment.Controls.Add(this.guna2HtmlLabel7);
-            this.pnlPayment.Controls.Add(this.guna2HtmlLabel6);
-            this.pnlPayment.Controls.Add(this.guna2HtmlLabel5);
-            this.pnlPayment.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.pnlPayment.Location = new System.Drawing.Point(12, 178);
-            this.pnlPayment.Name = "pnlPayment";
-            this.pnlPayment.Size = new System.Drawing.Size(443, 139);
-            this.pnlPayment.TabIndex = 0;
-            this.pnlPayment.UseTransparentBackground = true;
+            this.lblSubtotalTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblSubtotalTitle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblSubtotalTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lblSubtotalTitle.Location = new System.Drawing.Point(16, 35);
+            this.lblSubtotalTitle.Name = "lblSubtotalTitle";
+            this.lblSubtotalTitle.Size = new System.Drawing.Size(56, 19);
+            this.lblSubtotalTitle.TabIndex = 1;
+            this.lblSubtotalTitle.Text = "Subtotal:";
             // 
             // txtSubtotal
             // 
             this.txtSubtotal.BackColor = System.Drawing.Color.Transparent;
-            this.txtSubtotal.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubtotal.Location = new System.Drawing.Point(387, 15);
-            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(20);
+            this.txtSubtotal.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
+            this.txtSubtotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtSubtotal.Location = new System.Drawing.Point(370, 35);
             this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.Size = new System.Drawing.Size(39, 22);
-            this.txtSubtotal.TabIndex = 19;
+            this.txtSubtotal.Size = new System.Drawing.Size(39, 21);
+            this.txtSubtotal.TabIndex = 2;
             this.txtSubtotal.Text = "$0.00";
+            this.txtSubtotal.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblDiscountTitle
+            // 
+            this.lblDiscountTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblDiscountTitle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblDiscountTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lblDiscountTitle.Location = new System.Drawing.Point(16, 62);
+            this.lblDiscountTitle.Name = "lblDiscountTitle";
+            this.lblDiscountTitle.Size = new System.Drawing.Size(57, 19);
+            this.lblDiscountTitle.TabIndex = 3;
+            this.lblDiscountTitle.Text = "Discount:";
             // 
             // txtDiscount
             // 
             this.txtDiscount.BackColor = System.Drawing.Color.Transparent;
-            this.txtDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscount.Location = new System.Drawing.Point(387, 55);
-            this.txtDiscount.Margin = new System.Windows.Forms.Padding(20);
+            this.txtDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
+            this.txtDiscount.ForeColor = System.Drawing.Color.Crimson;
+            this.txtDiscount.Location = new System.Drawing.Point(370, 62);
             this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(39, 22);
-            this.txtDiscount.TabIndex = 18;
-            this.txtDiscount.Text = "$0.00";
+            this.txtDiscount.Size = new System.Drawing.Size(45, 21);
+            this.txtDiscount.TabIndex = 4;
+            this.txtDiscount.Text = "-$0.00";
+            this.txtDiscount.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalTitle
+            // 
+            this.lblTotalTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalTitle.Font = new System.Drawing.Font("Segoe UI", 11.5F, System.Drawing.FontStyle.Bold);
+            this.lblTotalTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.lblTotalTitle.Location = new System.Drawing.Point(16, 92);
+            this.lblTotalTitle.Name = "lblTotalTitle";
+            this.lblTotalTitle.Size = new System.Drawing.Size(95, 23);
+            this.lblTotalTitle.TabIndex = 5;
+            this.lblTotalTitle.Text = "Grand Total:";
             // 
             // txtTotal
             // 
             this.txtTotal.BackColor = System.Drawing.Color.Transparent;
-            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.txtTotal.Location = new System.Drawing.Point(363, 92);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(20);
+            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.txtTotal.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txtTotal.Location = new System.Drawing.Point(360, 92);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(66, 34);
-            this.txtTotal.TabIndex = 17;
+            this.txtTotal.Size = new System.Drawing.Size(49, 25);
+            this.txtTotal.TabIndex = 6;
             this.txtTotal.Text = "$0.00";
-            // 
-            // guna2HtmlLabel10
-            // 
-            this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(142, 95);
-            this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            this.guna2HtmlLabel10.Size = new System.Drawing.Size(8, 27);
-            this.guna2HtmlLabel10.TabIndex = 16;
-            this.guna2HtmlLabel10.Text = ":";
-            // 
-            // guna2HtmlLabel9
-            // 
-            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel9.Location = new System.Drawing.Point(142, 55);
-            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(7, 23);
-            this.guna2HtmlLabel9.TabIndex = 15;
-            this.guna2HtmlLabel9.Text = ":";
-            // 
-            // guna2HtmlLabel8
-            // 
-            this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(142, 15);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(7, 23);
-            this.guna2HtmlLabel8.TabIndex = 14;
-            this.guna2HtmlLabel8.Text = ":";
-            // 
-            // guna2HtmlLabel7
-            // 
-            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(12, 95);
-            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(20);
-            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(48, 27);
-            this.guna2HtmlLabel7.TabIndex = 6;
-            this.guna2HtmlLabel7.Text = "Total";
-            // 
-            // guna2HtmlLabel6
-            // 
-            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(12, 55);
-            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(20);
-            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(63, 22);
-            this.guna2HtmlLabel6.TabIndex = 5;
-            this.guna2HtmlLabel6.Text = "Discount";
-            // 
-            // guna2HtmlLabel5
-            // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(12, 15);
-            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(20);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(60, 22);
-            this.guna2HtmlLabel5.TabIndex = 4;
-            this.guna2HtmlLabel5.Text = "Subtotal";
+            this.txtTotal.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnSave
             // 
             this.btnSave.Animated = true;
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
             this.btnSave.BorderRadius = 8;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -305,20 +254,18 @@ namespace Supermarket.UI.Point_of_sale
             this.btnSave.FillColor = System.Drawing.Color.DodgerBlue;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.IndicateFocus = true;
-            this.btnSave.Location = new System.Drawing.Point(350, 327);
+            this.btnSave.Location = new System.Drawing.Point(316, 385);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(105, 40);
-            this.btnSave.TabIndex = 16;
-            this.btnSave.Text = "Pay Now";
-            this.btnSave.UseTransparentBackground = true;
+            this.btnSave.Size = new System.Drawing.Size(180, 45);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Complete Payment";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Animated = true;
-            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel.BorderRadius = 8;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -326,36 +273,39 @@ namespace Supermarket.UI.Point_of_sale
             this.btnCancel.FillColor = System.Drawing.Color.Gray;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.IndicateFocus = true;
-            this.btnCancel.Location = new System.Drawing.Point(240, 327);
+            this.btnCancel.Location = new System.Drawing.Point(186, 385);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 40);
-            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Size = new System.Drawing.Size(120, 45);
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseTransparentBackground = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frmPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 384);
-            this.Controls.Add(this.pnlPayment);
-            this.Controls.Add(this.guna2Panel2);
-            this.Controls.Add(this.guna2Panel1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(520, 455);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.guna2HtmlLabel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Controls.Add(this.pnlSummary);
+            this.Controls.Add(this.cmbPaymentMethod);
+            this.Controls.Add(this.lblPaymentMethod);
+            this.Controls.Add(this.btnAddCustomer);
+            this.Controls.Add(this.cmbCustomer);
+            this.Controls.Add(this.lblCustomer);
+            this.Controls.Add(this.pnlTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmPayment";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmPayment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Payment";
             this.Load += new System.EventHandler(this.frmPayment_Load);
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
-            this.pnlPayment.ResumeLayout(false);
-            this.pnlPayment.PerformLayout();
+            this.pnlTop.ResumeLayout(false);
+            this.pnlTop.PerformLayout();
+            this.pnlSummary.ResumeLayout(false);
+            this.pnlSummary.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,27 +313,22 @@ namespace Supermarket.UI.Point_of_sale
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2TextBox txtCategoryName;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
+        private System.Windows.Forms.Panel pnlTop;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblCustomer;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbCustomer;
+        private Guna.UI2.WinForms.Guna2Button btnAddCustomer;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblPaymentMethod;
         private Guna.UI2.WinForms.Guna2ComboBox cmbPaymentMethod;
-        private Guna.UI2.WinForms.Guna2Panel pnlPayment;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
-        private Guna.UI2.WinForms.Guna2HtmlLabel txtTotal;
+        private Guna.UI2.WinForms.Guna2Panel pnlSummary;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblSummaryTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblSubtotalTitle;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtSubtotal;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblDiscountTitle;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtDiscount;
-        private Guna.UI2.WinForms.Guna2Button btnCancel;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTotalTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel txtTotal;
         private Guna.UI2.WinForms.Guna2Button btnSave;
+        private Guna.UI2.WinForms.Guna2Button btnCancel;
     }
-}
+}

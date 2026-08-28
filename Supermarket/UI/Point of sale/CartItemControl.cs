@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Supermarket.UI.Point_of_sale
@@ -9,7 +10,16 @@ namespace Supermarket.UI.Point_of_sale
     {
         public Products Product { get; private set; }
         public int Quantity { get; private set; } = 1;
-        public decimal Subtotal => Product != null ? Product.Selling_price * Quantity : 0;
+        
+        // Item-level discount properties
+        public decimal ItemDiscountPercent { get; set; } = 0.00m;
+        public decimal ItemDiscountAmount { get; set; } = 0.00m;
+
+        public decimal TotalItemDiscount => ItemDiscountPercent > 0 
+            ? (Product != null ? Math.Round((Product.Selling_price * Quantity) * (ItemDiscountPercent / 100m), 2) : 0)
+            : Math.Min(Product != null ? Product.Selling_price * Quantity : 0, ItemDiscountAmount * Quantity);
+
+        public decimal Subtotal => Product != null ? Math.Max(0, (Product.Selling_price * Quantity) - TotalItemDiscount) : 0;
 
         public event EventHandler<CartItemControl> QuantityChanged;
         public event EventHandler<CartItemControl> ItemRemoved;
@@ -23,6 +33,8 @@ namespace Supermarket.UI.Point_of_sale
         {
             Product = product;
             Quantity = Math.Max(1, initialQuantity);
+            ItemDiscountPercent = 0;
+            ItemDiscountAmount = 0;
             UpdateUI();
         }
 
@@ -50,11 +62,38 @@ namespace Supermarket.UI.Point_of_sale
             return false;
         }
 
-        private void UpdateUI()
+        public void SetDiscount(decimal percent, decimal fixedAmount = 0)
+        {
+            ItemDiscountPercent = percent;
+            ItemDiscountAmount = fixedAmount;
+            UpdateUI();
+            QuantityChanged?.Invoke(this, this);
+        }
+
+        public void UpdateUI()
         {
             if (Product == null) return;
+            
             lblProductName.Text = Product.Name;
-            lblPrice.Text = $"${Product.Selling_price:N2} each";
+
+            if (ItemDiscountPercent > 0)
+            {
+                decimal discountedUnitPrice = Math.Round(Product.Selling_price * (1m - (ItemDiscountPercent / 100m)), 2);
+                lblPrice.Text = $"${discountedUnitPrice:N2} (-{ItemDiscountPercent:0.#}%)";
+                lblPrice.ForeColor = Color.Crimson;
+            }
+            else if (ItemDiscountAmount > 0)
+            {
+                decimal discountedUnitPrice = Math.Max(0, Product.Selling_price - ItemDiscountAmount);
+                lblPrice.Text = $"${discountedUnitPrice:N2} (-${ItemDiscountAmount:N2})";
+                lblPrice.ForeColor = Color.Crimson;
+            }
+            else
+            {
+                lblPrice.Text = $"${Product.Selling_price:N2} each";
+                lblPrice.ForeColor = Color.DimGray;
+            }
+
             lblQuantity.Text = Quantity.ToString();
             lblSubtotal.Text = $"${Subtotal:N2}";
         }

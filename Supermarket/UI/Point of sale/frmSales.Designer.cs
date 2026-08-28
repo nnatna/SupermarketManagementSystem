@@ -34,6 +34,8 @@ namespace Supermarket.UI.Point_of_sale
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbCategory = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnlCurrentOrdor = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnAddOrderCustomer = new Guna.UI2.WinForms.Guna2Button();
+            this.cmbOrderCustomer = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.flpnlCurrentOrder = new System.Windows.Forms.FlowLayoutPanel();
@@ -74,7 +76,7 @@ namespace Supermarket.UI.Point_of_sale
             this.splitContainer1.Panel2.Controls.Add(this.pnlCurrentOrdor);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(10);
             this.splitContainer1.Size = new System.Drawing.Size(1200, 680);
-            this.splitContainer1.SplitterDistance = 891;
+            this.splitContainer1.SplitterDistance = 930;
             this.splitContainer1.TabIndex = 0;
             // 
             // flpnlShowProduct
@@ -85,7 +87,7 @@ namespace Supermarket.UI.Point_of_sale
             this.flpnlShowProduct.Location = new System.Drawing.Point(10, 60);
             this.flpnlShowProduct.Name = "flpnlShowProduct";
             this.flpnlShowProduct.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.flpnlShowProduct.Size = new System.Drawing.Size(871, 610);
+            this.flpnlShowProduct.Size = new System.Drawing.Size(910, 610);
             this.flpnlShowProduct.TabIndex = 1;
             // 
             // pnlFilterHeader
@@ -95,7 +97,7 @@ namespace Supermarket.UI.Point_of_sale
             this.pnlFilterHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFilterHeader.Location = new System.Drawing.Point(10, 10);
             this.pnlFilterHeader.Name = "pnlFilterHeader";
-            this.pnlFilterHeader.Size = new System.Drawing.Size(871, 50);
+            this.pnlFilterHeader.Size = new System.Drawing.Size(910, 50);
             this.pnlFilterHeader.TabIndex = 0;
             // 
             // txtSearch
@@ -112,7 +114,7 @@ namespace Supermarket.UI.Point_of_sale
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "Search product by name or barcode...";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(631, 40);
+            this.txtSearch.Size = new System.Drawing.Size(670, 40);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -127,7 +129,7 @@ namespace Supermarket.UI.Point_of_sale
             this.cmbCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbCategory.ItemHeight = 34;
-            this.cmbCategory.Location = new System.Drawing.Point(641, 5);
+            this.cmbCategory.Location = new System.Drawing.Point(680, 5);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(230, 40);
             this.cmbCategory.TabIndex = 1;
@@ -140,25 +142,74 @@ namespace Supermarket.UI.Point_of_sale
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlCurrentOrdor.BackColor = System.Drawing.Color.White;
             this.pnlCurrentOrdor.BorderRadius = 15;
+            this.pnlCurrentOrdor.Controls.Add(this.btnAddOrderCustomer);
+            this.pnlCurrentOrdor.Controls.Add(this.cmbOrderCustomer);
             this.pnlCurrentOrdor.Controls.Add(this.guna2HtmlLabel1);
             this.pnlCurrentOrdor.Controls.Add(this.guna2Button1);
             this.pnlCurrentOrdor.Controls.Add(this.flpnlCurrentOrder);
             this.pnlCurrentOrdor.Controls.Add(this.guna2Panel2);
             this.pnlCurrentOrdor.Location = new System.Drawing.Point(13, 10);
             this.pnlCurrentOrdor.Name = "pnlCurrentOrdor";
-            this.pnlCurrentOrdor.Size = new System.Drawing.Size(280, 660);
+            this.pnlCurrentOrdor.Size = new System.Drawing.Size(241, 660);
             this.pnlCurrentOrdor.TabIndex = 0;
+            // 
+            // btnAddOrderCustomer
+            // 
+            this.btnAddOrderCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddOrderCustomer.Animated = true;
+            this.btnAddOrderCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddOrderCustomer.BorderRadius = 8;
+            this.btnAddOrderCustomer.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnAddOrderCustomer.CheckedState.CustomBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddOrderCustomer.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnAddOrderCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddOrderCustomer.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnAddOrderCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddOrderCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddOrderCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddOrderCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddOrderCustomer.FillColor = System.Drawing.Color.White;
+            this.btnAddOrderCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddOrderCustomer.ForeColor = System.Drawing.Color.Black;
+            this.btnAddOrderCustomer.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.btnAddOrderCustomer.Image = global::Supermarket.Properties.Resources.plus;
+            this.btnAddOrderCustomer.IndicateFocus = true;
+            this.btnAddOrderCustomer.Location = new System.Drawing.Point(195, 48);
+            this.btnAddOrderCustomer.Name = "btnAddOrderCustomer";
+            this.btnAddOrderCustomer.Size = new System.Drawing.Size(36, 36);
+            this.btnAddOrderCustomer.TabIndex = 4;
+            this.btnAddOrderCustomer.TabStop = false;
+            this.btnAddOrderCustomer.UseTransparentBackground = true;
+            this.btnAddOrderCustomer.Click += new System.EventHandler(this.btnAddOrderCustomer_Click);
+            // 
+            // cmbOrderCustomer
+            // 
+            this.cmbOrderCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbOrderCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.cmbOrderCustomer.BorderRadius = 8;
+            this.cmbOrderCustomer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbOrderCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOrderCustomer.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbOrderCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbOrderCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.cmbOrderCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbOrderCustomer.ItemHeight = 30;
+            this.cmbOrderCustomer.Location = new System.Drawing.Point(10, 48);
+            this.cmbOrderCustomer.Name = "cmbOrderCustomer";
+            this.cmbOrderCustomer.Size = new System.Drawing.Size(179, 36);
+            this.cmbOrderCustomer.TabIndex = 3;
             // 
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(15, 12);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(10, 8);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(129, 27);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(65, 27);
             this.guna2HtmlLabel1.TabIndex = 0;
-            this.guna2HtmlLabel1.Text = "Current Order";
+            this.guna2HtmlLabel1.Text = "ORDER";
             // 
             // guna2Button1
             // 
@@ -170,7 +221,7 @@ namespace Supermarket.UI.Point_of_sale
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.guna2Button1.ForeColor = System.Drawing.Color.Red;
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.guna2Button1.Location = new System.Drawing.Point(180, 8);
+            this.guna2Button1.Location = new System.Drawing.Point(146, 4);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(85, 34);
             this.guna2Button1.TabIndex = 1;
@@ -180,16 +231,19 @@ namespace Supermarket.UI.Point_of_sale
             // 
             // flpnlCurrentOrder
             // 
-            this.flpnlCurrentOrder.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.flpnlCurrentOrder.AccessibleRole = System.Windows.Forms.AccessibleRole.DropList;
+            this.flpnlCurrentOrder.AllowDrop = true;
             this.flpnlCurrentOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flpnlCurrentOrder.AutoScroll = true;
             this.flpnlCurrentOrder.BackColor = System.Drawing.Color.White;
-            this.flpnlCurrentOrder.Location = new System.Drawing.Point(10, 48);
+            this.flpnlCurrentOrder.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpnlCurrentOrder.Location = new System.Drawing.Point(10, 90);
             this.flpnlCurrentOrder.Name = "flpnlCurrentOrder";
-            this.flpnlCurrentOrder.Size = new System.Drawing.Size(260, 432);
+            this.flpnlCurrentOrder.Size = new System.Drawing.Size(221, 390);
             this.flpnlCurrentOrder.TabIndex = 2;
+            this.flpnlCurrentOrder.WrapContents = false;
             this.flpnlCurrentOrder.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flpnlCurrentOrder_ControlAdded);
             this.flpnlCurrentOrder.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.flpnlCurrentOrder_ControlRemoved);
             this.flpnlCurrentOrder.Resize += new System.EventHandler(this.flpnlCurrentOrder_Resize);
@@ -215,7 +269,7 @@ namespace Supermarket.UI.Point_of_sale
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.guna2Panel2.Location = new System.Drawing.Point(10, 490);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(260, 160);
+            this.guna2Panel2.Size = new System.Drawing.Size(221, 160);
             this.guna2Panel2.TabIndex = 3;
             // 
             // guna2HtmlLabel7
@@ -266,13 +320,14 @@ namespace Supermarket.UI.Point_of_sale
             // 
             this.txtSubtotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSubtotal.BackColor = System.Drawing.Color.Transparent;
-            this.txtSubtotal.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtSubtotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.txtSubtotal.Location = new System.Drawing.Point(180, 12);
+            this.txtSubtotal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubtotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtSubtotal.Location = new System.Drawing.Point(145, 12);
             this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.Size = new System.Drawing.Size(34, 19);
+            this.txtSubtotal.Size = new System.Drawing.Size(35, 19);
             this.txtSubtotal.TabIndex = 1;
             this.txtSubtotal.Text = "$0.00";
+            this.txtSubtotal.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // guna2HtmlLabel3
             // 
@@ -281,30 +336,31 @@ namespace Supermarket.UI.Point_of_sale
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Gray;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(15, 36);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(56, 19);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(53, 19);
             this.guna2HtmlLabel3.TabIndex = 2;
-            this.guna2HtmlLabel3.Text = "Discount:";
+            this.guna2HtmlLabel3.Text = "Discount";
             // 
             // txtDiscount
             // 
             this.txtDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiscount.BackColor = System.Drawing.Color.Transparent;
-            this.txtDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.txtDiscount.Location = new System.Drawing.Point(180, 36);
+            this.txtDiscount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtDiscount.Location = new System.Drawing.Point(145, 36);
             this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(34, 19);
+            this.txtDiscount.Size = new System.Drawing.Size(35, 19);
             this.txtDiscount.TabIndex = 3;
             this.txtDiscount.Text = "$0.00";
+            this.txtDiscount.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // guna2HtmlLabel4
             // 
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(15, 66);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(42, 23);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(39, 22);
             this.guna2HtmlLabel4.TabIndex = 4;
             this.guna2HtmlLabel4.Text = "Total";
             // 
@@ -312,13 +368,14 @@ namespace Supermarket.UI.Point_of_sale
             // 
             this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotal.BackColor = System.Drawing.Color.Transparent;
-            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.txtTotal.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.txtTotal.Location = new System.Drawing.Point(180, 64);
+            this.txtTotal.Location = new System.Drawing.Point(145, 62);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(52, 27);
             this.txtTotal.TabIndex = 5;
             this.txtTotal.Text = "$0.00";
+            this.txtTotal.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnPay
             // 
@@ -326,21 +383,25 @@ namespace Supermarket.UI.Point_of_sale
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPay.Animated = true;
             this.btnPay.BorderRadius = 8;
+            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPay.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnPay.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPay.ForeColor = System.Drawing.Color.White;
-            this.btnPay.Location = new System.Drawing.Point(15, 100);
+            this.btnPay.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(220)))));
+            this.btnPay.Location = new System.Drawing.Point(10, 105);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(230, 45);
+            this.btnPay.Size = new System.Drawing.Size(201, 45);
             this.btnPay.TabIndex = 6;
-            this.btnPay.Text = "PROCEED TO PAY";
+            this.btnPay.Text = "Pay Now";
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // frmSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(1200, 680);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -363,24 +424,26 @@ namespace Supermarket.UI.Point_of_sale
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.FlowLayoutPanel flpnlShowProduct;
         private System.Windows.Forms.Panel pnlFilterHeader;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private Guna.UI2.WinForms.Guna2ComboBox cmbCategory;
-        private System.Windows.Forms.FlowLayoutPanel flpnlShowProduct;
         private Guna.UI2.WinForms.Guna2Panel pnlCurrentOrdor;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.FlowLayoutPanel flpnlCurrentOrder;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtSubtotal;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtDiscount;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtTotal;
         private Guna.UI2.WinForms.Guna2Button btnPay;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbOrderCustomer;
+        private Guna.UI2.WinForms.Guna2Button btnAddOrderCustomer;
     }
 }

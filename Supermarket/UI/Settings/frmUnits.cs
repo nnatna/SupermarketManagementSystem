@@ -1,3 +1,4 @@
+﻿using Supermarket.Utils;
 using Supermarket.DAL;
 using Supermarket.Model;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UnitModel = Supermarket.Model.Units;
 
-namespace Supermarket.UI.Products
+namespace Supermarket.UI.Settings
 {
     public partial class frmUnits : Form
     {
@@ -21,6 +22,7 @@ namespace Supermarket.UI.Products
         public frmUnits()
         {
             InitializeComponent();
+            UIThemeHelper.ApplyModernGridStyle(displayCategories);
         }
 
         private void PopulateSortColumns()
@@ -43,8 +45,15 @@ namespace Supermarket.UI.Products
 
         private async Task LoadUnitsAsync()
         {
-            _allUnits = await Task.Run(() => _unitsDAL.GetAllUnits());
-            ApplyFilterAndSort();
+            try
+            {
+                _allUnits = await Task.Run(() => _unitsDAL.GetAllUnits());
+                ApplyFilterAndSort();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading units: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ApplyFilterAndSort()
@@ -59,8 +68,8 @@ namespace Supermarket.UI.Products
             {
                 query = query.Where(u =>
                     u.UnitId.ToString().Contains(keyword) ||
-                    (u.UnitName != null && u.UnitName.ToLower().Contains(keyword)) ||
-                    (u.ShortName != null && u.ShortName.ToLower().Contains(keyword))
+                    (!string.IsNullOrEmpty(u.UnitName) && u.UnitName.ToLower().Contains(keyword)) ||
+                    (!string.IsNullOrEmpty(u.ShortName) && u.ShortName.ToLower().Contains(keyword))
                 );
             }
 
@@ -110,6 +119,10 @@ namespace Supermarket.UI.Products
                 if (displayCategories.CurrentRow.DataBoundItem is UnitModel unit)
                 {
                     return unit.UnitName;
+                }
+                else if (displayCategories.CurrentRow.Cells["colCategoryName"].Value != null)
+                {
+                    return displayCategories.CurrentRow.Cells["colCategoryName"].Value.ToString();
                 }
             }
             return "selected unit";
@@ -186,7 +199,12 @@ namespace Supermarket.UI.Products
                     MessageBox.Show("Unit deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await LoadUnitsAsync();
                 }
+                else
+                {
+                    MessageBox.Show("Failed to delete the unit. It may be in use by other records.", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
 }
+

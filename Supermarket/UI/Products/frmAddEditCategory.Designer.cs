@@ -28,121 +28,111 @@ namespace Supermarket.UI.Products
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.pnlTop = new System.Windows.Forms.Panel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblCategoryName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtCategoryName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblDescription = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel1.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
+            this.pnlTop.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pnlTop
+            // 
+            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.pnlTop.Controls.Add(this.guna2HtmlLabel1);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(480, 60);
+            this.pnlTop.TabIndex = 0;
             // 
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(12, 12);
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(24, 16);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(138, 32);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(154, 27);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Add Category";
             // 
-            // guna2HtmlLabel2
+            // lblCategoryName
             // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(12, 10);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(20);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(110, 22);
-            this.guna2HtmlLabel2.TabIndex = 1;
-            this.guna2HtmlLabel2.Text = "Category Name";
+            this.lblCategoryName.BackColor = System.Drawing.Color.Transparent;
+            this.lblCategoryName.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.lblCategoryName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCategoryName.Location = new System.Drawing.Point(24, 75);
+            this.lblCategoryName.Name = "lblCategoryName";
+            this.lblCategoryName.Size = new System.Drawing.Size(103, 19);
+            this.lblCategoryName.TabIndex = 1;
+            this.lblCategoryName.Text = "Category Name:";
             // 
             // txtCategoryName
             // 
-            this.txtCategoryName.BorderRadius = 8;
+            this.txtCategoryName.BorderRadius = 6;
             this.txtCategoryName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCategoryName.DefaultText = "";
-            this.txtCategoryName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCategoryName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCategoryName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCategoryName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCategoryName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategoryName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategoryName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategoryName.Location = new System.Drawing.Point(6, 1);
-            this.txtCategoryName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCategoryName.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.txtCategoryName.Location = new System.Drawing.Point(24, 100);
             this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.PlaceholderText = "Enter the category name";
+            this.txtCategoryName.PlaceholderText = "e.g. Beverages, Snacks, Dairy";
             this.txtCategoryName.SelectedText = "";
-            this.txtCategoryName.Size = new System.Drawing.Size(265, 40);
+            this.txtCategoryName.Size = new System.Drawing.Size(430, 40);
             this.txtCategoryName.TabIndex = 2;
             // 
-            // guna2HtmlLabel3
+            // lblDescription
             // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(12, 72);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(20);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(81, 22);
-            this.guna2HtmlLabel3.TabIndex = 3;
-            this.guna2HtmlLabel3.Text = "Description";
+            this.lblDescription.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescription.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblDescription.Location = new System.Drawing.Point(24, 155);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(76, 19);
+            this.lblDescription.TabIndex = 3;
+            this.lblDescription.Text = "Description:";
             // 
             // txtDescription
             // 
-            this.txtDescription.BorderRadius = 8;
+            this.txtDescription.BorderRadius = 6;
             this.txtDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDescription.DefaultText = "";
-            this.txtDescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDescription.Location = new System.Drawing.Point(6, 65);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.txtDescription.Location = new System.Drawing.Point(24, 180);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.PlaceholderText = "Enter the description";
+            this.txtDescription.PlaceholderText = "Enter category description...";
             this.txtDescription.SelectedText = "";
-            this.txtDescription.Size = new System.Drawing.Size(265, 125);
+            this.txtDescription.Size = new System.Drawing.Size(430, 90);
             this.txtDescription.TabIndex = 4;
             // 
             // btnSave
             // 
             this.btnSave.Animated = true;
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
             this.btnSave.BorderRadius = 8;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.FillColor = System.Drawing.Color.DodgerBlue;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.IndicateFocus = true;
-            this.btnSave.Location = new System.Drawing.Point(357, 261);
+            this.btnSave.Location = new System.Drawing.Point(314, 290);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(94, 40);
+            this.btnSave.Size = new System.Drawing.Size(140, 45);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
-            this.btnSave.UseTransparentBackground = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Animated = true;
-            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel.BorderRadius = 8;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -150,84 +140,35 @@ namespace Supermarket.UI.Products
             this.btnCancel.FillColor = System.Drawing.Color.Gray;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.IndicateFocus = true;
-            this.btnCancel.Location = new System.Drawing.Point(257, 261);
+            this.btnCancel.Location = new System.Drawing.Point(164, 290);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(94, 40);
+            this.btnCancel.Size = new System.Drawing.Size(140, 45);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseTransparentBackground = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.BorderRadius = 8;
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockForm = false;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
-            // guna2HtmlLabel14
-            // 
-            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel14.Location = new System.Drawing.Point(142, 10);
-            this.guna2HtmlLabel14.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            this.guna2HtmlLabel14.Size = new System.Drawing.Size(7, 23);
-            this.guna2HtmlLabel14.TabIndex = 12;
-            this.guna2HtmlLabel14.Text = ":";
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.Controls.Add(this.guna2HtmlLabel4);
-            this.guna2Panel1.Controls.Add(this.guna2HtmlLabel2);
-            this.guna2Panel1.Controls.Add(this.guna2HtmlLabel3);
-            this.guna2Panel1.Controls.Add(this.guna2HtmlLabel14);
-            this.guna2Panel1.Location = new System.Drawing.Point(12, 53);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(155, 202);
-            this.guna2Panel1.TabIndex = 14;
-            // 
-            // guna2HtmlLabel4
-            // 
-            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(142, 72);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(7, 23);
-            this.guna2HtmlLabel4.TabIndex = 13;
-            this.guna2HtmlLabel4.Text = ":";
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Controls.Add(this.txtDescription);
-            this.guna2Panel2.Controls.Add(this.txtCategoryName);
-            this.guna2Panel2.Location = new System.Drawing.Point(180, 53);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(275, 202);
-            this.guna2Panel2.TabIndex = 15;
             // 
             // frmAddEditCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(467, 316);
-            this.Controls.Add(this.guna2Panel2);
-            this.Controls.Add(this.guna2Panel1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(480, 355);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.guna2HtmlLabel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.lblDescription);
+            this.Controls.Add(this.txtCategoryName);
+            this.Controls.Add(this.lblCategoryName);
+            this.Controls.Add(this.pnlTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddEditCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmAddEditCategory";
+            this.Text = "Category Details";
             this.Load += new System.EventHandler(this.frmAddEditCategory_Load);
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
-            this.guna2Panel2.ResumeLayout(false);
+            this.pnlTop.ResumeLayout(false);
+            this.pnlTop.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,17 +176,13 @@ namespace Supermarket.UI.Products
 
         #endregion
 
+        private System.Windows.Forms.Panel pnlTop;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblCategoryName;
         private Guna.UI2.WinForms.Guna2TextBox txtCategoryName;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblDescription;
         private Guna.UI2.WinForms.Guna2TextBox txtDescription;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
     }
 }

@@ -32,6 +32,9 @@ namespace Supermarket.Model
         [Column("subtotal")]
         public decimal Subtotal { get; set; }
 
+        [Column("status")]
+        public string Status { get; set; } = "Completed";
+
         // Navigation Properties
         [ForeignKey("Sale_id")]
         public virtual Sales Sales { get; set; }

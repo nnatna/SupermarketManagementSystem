@@ -28,15 +28,15 @@ namespace Supermarket.UI.Products
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.displayProducts = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -58,6 +58,7 @@ namespace Supermarket.UI.Products
             this.Cost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Selling_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock_alert_level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.displayProducts)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -69,20 +70,24 @@ namespace Supermarket.UI.Products
             this.displayProducts.AllowDrop = true;
             this.displayProducts.AllowUserToAddRows = false;
             this.displayProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.displayProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.displayProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.displayProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.displayProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.displayProducts.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.displayProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.displayProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.displayProducts.ColumnHeadersHeight = 45;
             this.displayProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.displayProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -96,41 +101,46 @@ namespace Supermarket.UI.Products
             this.Cost_price,
             this.Selling_price,
             this.Stock_quantity,
+            this.colDiscount,
             this.Stock_alert_level});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.displayProducts.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.displayProducts.DefaultCellStyle = dataGridViewCellStyle17;
             this.displayProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.displayProducts.Location = new System.Drawing.Point(12, 105);
             this.displayProducts.Name = "displayProducts";
             this.displayProducts.ReadOnly = true;
             this.displayProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.displayProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.displayProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.displayProducts.RowHeadersVisible = false;
             this.displayProducts.RowHeadersWidth = 45;
-            this.displayProducts.RowTemplate.Height = 60;
+            this.displayProducts.RowTemplate.Height = 45;
             this.displayProducts.Size = new System.Drawing.Size(1208, 500);
             this.displayProducts.TabIndex = 9;
             this.displayProducts.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.displayProducts.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayProducts.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.displayProducts.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.displayProducts.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.displayProducts.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.displayProducts.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Gray;
             this.displayProducts.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayProducts.ThemeStyle.HeaderStyle.Height = 45;
             this.displayProducts.ThemeStyle.ReadOnly = true;
             this.displayProducts.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayProducts.ThemeStyle.RowsStyle.Height = 60;
+            this.displayProducts.ThemeStyle.RowsStyle.Height = 45;
             this.displayProducts.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.displayProducts.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.displayProducts_CellFormatting);
             // 
@@ -140,9 +150,9 @@ namespace Supermarket.UI.Products
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(12, 12);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(160, 27);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(191, 27);
             this.guna2HtmlLabel1.TabIndex = 10;
-            this.guna2HtmlLabel1.Text = "Products Manage";
+            this.guna2HtmlLabel1.Text = "PRODUCTS MANAGE";
             // 
             // flowLayoutPanel2
             // 
@@ -169,7 +179,7 @@ namespace Supermarket.UI.Products
             this.txtSearch.Location = new System.Drawing.Point(4, 4);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PlaceholderText = "";
+            this.txtSearch.PlaceholderText = "Search by Product, Barcode, Supplier, Category...";
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(444, 40);
             this.txtSearch.TabIndex = 14;
@@ -191,7 +201,7 @@ namespace Supermarket.UI.Products
             this.btnSort.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSort.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSort.FillColor = System.Drawing.Color.White;
-            this.btnSort.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnSort.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSort.ForeColor = System.Drawing.Color.Black;
             this.btnSort.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.btnSort.Image = global::Supermarket.Properties.Resources.sort;
@@ -232,14 +242,14 @@ namespace Supermarket.UI.Products
             this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAdd.FillColor = System.Drawing.Color.White;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.Black;
             this.btnAdd.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.btnAdd.Image = global::Supermarket.Properties.Resources.plus;
             this.btnAdd.IndicateFocus = true;
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(122, 40);
+            this.btnAdd.Size = new System.Drawing.Size(120, 40);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.TabStop = false;
             this.btnAdd.Text = "Add";
@@ -261,14 +271,14 @@ namespace Supermarket.UI.Products
             this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEdit.FillColor = System.Drawing.Color.White;
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.Black;
             this.btnEdit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnEdit.Image = global::Supermarket.Properties.Resources.edit;
             this.btnEdit.IndicateFocus = true;
-            this.btnEdit.Location = new System.Drawing.Point(131, 3);
+            this.btnEdit.Location = new System.Drawing.Point(129, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(122, 40);
+            this.btnEdit.Size = new System.Drawing.Size(120, 40);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Edit";
@@ -290,14 +300,14 @@ namespace Supermarket.UI.Products
             this.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDelete.FillColor = System.Drawing.Color.White;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnDelete.Image = global::Supermarket.Properties.Resources.delete;
             this.btnDelete.IndicateFocus = true;
-            this.btnDelete.Location = new System.Drawing.Point(259, 3);
+            this.btnDelete.Location = new System.Drawing.Point(255, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(122, 40);
+            this.btnDelete.Size = new System.Drawing.Size(120, 40);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.TabStop = false;
             this.btnDelete.Text = "Delete";
@@ -315,7 +325,7 @@ namespace Supermarket.UI.Products
             this.cmbSortColumn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSortColumn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbSortColumn.ItemHeight = 34;
-            this.cmbSortColumn.Location = new System.Drawing.Point(387, 3);
+            this.cmbSortColumn.Location = new System.Drawing.Point(381, 3);
             this.cmbSortColumn.Name = "cmbSortColumn";
             this.cmbSortColumn.Size = new System.Drawing.Size(154, 40);
             this.cmbSortColumn.TabIndex = 6;
@@ -336,12 +346,12 @@ namespace Supermarket.UI.Products
             this.btnRefesh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRefesh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRefesh.FillColor = System.Drawing.Color.White;
-            this.btnRefesh.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnRefesh.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefesh.ForeColor = System.Drawing.Color.Black;
             this.btnRefesh.HoverState.FillColor = System.Drawing.Color.DarkGray;
             this.btnRefesh.Image = global::Supermarket.Properties.Resources.refresh;
             this.btnRefesh.IndicateFocus = true;
-            this.btnRefesh.Location = new System.Drawing.Point(547, 3);
+            this.btnRefesh.Location = new System.Drawing.Point(541, 3);
             this.btnRefesh.Name = "btnRefesh";
             this.btnRefesh.Size = new System.Drawing.Size(122, 40);
             this.btnRefesh.TabIndex = 7;
@@ -354,9 +364,9 @@ namespace Supermarket.UI.Products
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Id.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Id.DefaultCellStyle = dataGridViewCellStyle12;
             this.Id.FillWeight = 40F;
             this.Id.HeaderText = "ID";
             this.Id.MinimumWidth = 45;
@@ -438,11 +448,12 @@ namespace Supermarket.UI.Products
             // 
             this.Cost_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Cost_price.DataPropertyName = "Cost_price";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Cost_price.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle13.Format = "C2";
+            dataGridViewCellStyle13.NullValue = null;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Cost_price.DefaultCellStyle = dataGridViewCellStyle13;
             this.Cost_price.FillWeight = 90F;
             this.Cost_price.HeaderText = "Cost Price";
             this.Cost_price.MinimumWidth = 80;
@@ -456,11 +467,12 @@ namespace Supermarket.UI.Products
             // 
             this.Selling_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Selling_price.DataPropertyName = "Selling_price";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Selling_price.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle14.Format = "C2";
+            dataGridViewCellStyle14.NullValue = null;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Selling_price.DefaultCellStyle = dataGridViewCellStyle14;
             this.Selling_price.FillWeight = 90F;
             this.Selling_price.HeaderText = "Selling Price";
             this.Selling_price.MinimumWidth = 80;
@@ -474,8 +486,8 @@ namespace Supermarket.UI.Products
             // 
             this.Stock_quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Stock_quantity.DataPropertyName = "Stock_quantity";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Stock_quantity.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Stock_quantity.DefaultCellStyle = dataGridViewCellStyle15;
             this.Stock_quantity.FillWeight = 90F;
             this.Stock_quantity.HeaderText = "Stock Quantity";
             this.Stock_quantity.MinimumWidth = 80;
@@ -483,12 +495,23 @@ namespace Supermarket.UI.Products
             this.Stock_quantity.ReadOnly = true;
             this.Stock_quantity.Width = 150;
             // 
+            // colDiscount
+            // 
+            this.colDiscount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colDiscount.DataPropertyName = "Discount_percent";
+            this.colDiscount.FillWeight = 85F;
+            this.colDiscount.HeaderText = "Discount (%)";
+            this.colDiscount.MinimumWidth = 70;
+            this.colDiscount.Name = "colDiscount";
+            this.colDiscount.ReadOnly = true;
+            this.colDiscount.Width = 150;
+            // 
             // Stock_alert_level
             // 
             this.Stock_alert_level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Stock_alert_level.DataPropertyName = "Stock_alert_level";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Stock_alert_level.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Stock_alert_level.DefaultCellStyle = dataGridViewCellStyle16;
             this.Stock_alert_level.FillWeight = 90F;
             this.Stock_alert_level.HeaderText = "Stock Alert";
             this.Stock_alert_level.MinimumWidth = 80;
@@ -540,6 +563,7 @@ namespace Supermarket.UI.Products
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Selling_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock_quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock_alert_level;
     }
 }

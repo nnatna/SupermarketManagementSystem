@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Supermarket.DAL;
 using Supermarket.Model;
 
-namespace Supermarket.UI.Products
+namespace Supermarket.UI.Settings
 {
     public partial class frmAddEditUnit : Form
     {

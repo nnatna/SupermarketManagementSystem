@@ -1,7 +1,7 @@
 using Supermarket.Model;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Supermarket.DAL
@@ -13,7 +13,7 @@ namespace Supermarket.DAL
             return "INV-" + DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + new Random().Next(100, 999).ToString();
         }
 
-        // Create Sale
+        // CREATE SALE - Pure Entity Framework ORM
         public bool CreateSale(Sales sale, List<SalesDetails> details, out string errorMessage)
         {
             errorMessage = string.Empty;
@@ -36,120 +36,58 @@ namespace Supermarket.DAL
             {
                 using (var db = new SupermarketContext())
                 {
-                    var conn = db.Database.Connection;
-                    if (conn.State != System.Data.ConnectionState.Open)
-                    {
-                        conn.Open();
-                    }
-
-                    using (var trans = conn.BeginTransaction())
+                    using (var trans = db.Database.BeginTransaction())
                     {
                         try
                         {
-                            sale.User_id = GetOrCreateValidUserId(db, conn, trans);
+                            // 1. Ensure user_id is valid
+                            sale.User_id = GetOrCreateValidUserId(db);
                             if (!sale.Sale_date.HasValue || sale.Sale_date == default(DateTime))
                                 sale.Sale_date = DateTime.Now;
 
                             if (string.IsNullOrWhiteSpace(sale.Status))
                                 sale.Status = "Completed";
 
-                            // 1. Check whether 'sales' table has 'invoice_number' column
-                            bool salesHasInvoiceCol = false;
-                            using (var cmdCheck = conn.CreateCommand())
-                            {
-                                cmdCheck.Transaction = trans;
-                                cmdCheck.CommandText = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'sales' AND COLUMN_NAME = 'invoice_number'";
-                                salesHasInvoiceCol = Convert.ToInt32(cmdCheck.ExecuteScalar()) > 0;
-                            }
+                            decimal totalSubtotal = details.Sum(d => d.Subtotal);
+                            if (!sale.Subtotal.HasValue || sale.Subtotal == 0m)
+                                sale.Subtotal = totalSubtotal;
 
-                            long newSaleId;
-                            using (var cmdSale = conn.CreateCommand())
+                            if (!sale.Grand_total.HasValue || sale.Grand_total == 0m)
+                                sale.Grand_total = (sale.Subtotal ?? totalSubtotal) - (sale.Discount_amount ?? 0m);
+
+                            // 2. Add Sale entity via EF
+                            db.Sales.Add(sale);
+                            db.SaveChanges(); // Generates sale.Id
+
+                            // 3. Award loyalty points to customer if applicable
+                            if (sale.Customer_id.HasValue && sale.Customer_id.Value > 0)
                             {
-                                cmdSale.Transaction = trans;
-                                if (salesHasInvoiceCol)
+                                var customer = db.Customers.FirstOrDefault(c => c.Id == sale.Customer_id.Value);
+                                if (customer != null)
                                 {
-                                    cmdSale.CommandText = @"
-                                        INSERT INTO sales (user_id, invoice_number, sale_date, payment_method, status, subtotal, discount_amount, grand_total)
-                                        VALUES (@UserId, @InvoiceNumber, @SaleDate, @PaymentMethod, @Status, @Subtotal, @Discount, @GrandTotal);
-                                        SELECT CAST(SCOPE_IDENTITY() AS BIGINT);";
-                                    cmdSale.Parameters.Add(new SqlParameter("@InvoiceNumber", sale.Invoice_number));
+                                    int earnedPoints = (int)Math.Round(sale.Grand_total ?? 0m, MidpointRounding.AwayFromZero);
+                                    if (earnedPoints <= 0 && (sale.Grand_total ?? 0m) > 0m)
+                                    {
+                                        earnedPoints = 1;
+                                    }
+                                    customer.Points += earnedPoints;
                                 }
-                                else
-                                {
-                                    cmdSale.CommandText = @"
-                                        INSERT INTO sales (user_id, sale_date, payment_method, status, subtotal, discount_amount, grand_total)
-                                        VALUES (@UserId, @SaleDate, @PaymentMethod, @Status, @Subtotal, @Discount, @GrandTotal);
-                                        SELECT CAST(SCOPE_IDENTITY() AS BIGINT);";
-                                }
-
-                                decimal totalSubtotal = details.Sum(d => d.Subtotal);
-                                cmdSale.Parameters.Add(new SqlParameter("@UserId", sale.User_id));
-                                cmdSale.Parameters.Add(new SqlParameter("@SaleDate", sale.Sale_date.Value));
-                                cmdSale.Parameters.Add(new SqlParameter("@PaymentMethod", (object)sale.Payment_method ?? "Cash"));
-                                cmdSale.Parameters.Add(new SqlParameter("@Status", sale.Status));
-                                cmdSale.Parameters.Add(new SqlParameter("@Subtotal", (object)sale.Subtotal ?? totalSubtotal));
-                                cmdSale.Parameters.Add(new SqlParameter("@Discount", (object)sale.Discount_amount ?? 0m));
-                                cmdSale.Parameters.Add(new SqlParameter("@GrandTotal", (object)sale.Grand_total ?? totalSubtotal));
-
-                                object result = cmdSale.ExecuteScalar();
-                                newSaleId = Convert.ToInt64(result);
-                                sale.Id = newSaleId;
                             }
 
-                            // 2. Check if 'sale_details' has 'invoice_number' column
-                            bool detailsHasInvoiceCol = false;
-                            using (var cmdCheck = conn.CreateCommand())
-                            {
-                                cmdCheck.Transaction = trans;
-                                cmdCheck.CommandText = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'sale_details' AND COLUMN_NAME = 'invoice_number'";
-                                detailsHasInvoiceCol = Convert.ToInt32(cmdCheck.ExecuteScalar()) > 0;
-                            }
-
-                            // 3. Insert each item into 'sale_details' and deduct product stock
+                            // 4. Add SaleDetails & update product stock via EF
                             foreach (var item in details)
                             {
-                                item.Sale_id = newSaleId;
+                                item.Sale_id = sale.Id;
+                                db.SalesDetails.Add(item);
 
-                                using (var cmdDetail = conn.CreateCommand())
+                                var product = db.Products.FirstOrDefault(p => p.Id == item.Product_id);
+                                if (product != null)
                                 {
-                                    cmdDetail.Transaction = trans;
-                                    if (detailsHasInvoiceCol)
-                                    {
-                                        cmdDetail.CommandText = @"
-                                            INSERT INTO sale_details (sale_id, invoice_number, product_id, quantity, unit_price, subtotal)
-                                            VALUES (@SaleId, @InvoiceNumber, @ProductId, @Quantity, @UnitPrice, @Subtotal);";
-                                        cmdDetail.Parameters.Add(new SqlParameter("@InvoiceNumber", item.Invoice_number ?? sale.Invoice_number));
-                                    }
-                                    else
-                                    {
-                                        cmdDetail.CommandText = @"
-                                            INSERT INTO sale_details (sale_id, product_id, quantity, unit_price, subtotal)
-                                            VALUES (@SaleId, @ProductId, @Quantity, @UnitPrice, @Subtotal);";
-                                    }
-
-                                    cmdDetail.Parameters.Add(new SqlParameter("@SaleId", newSaleId));
-                                    cmdDetail.Parameters.Add(new SqlParameter("@ProductId", item.Product_id));
-                                    cmdDetail.Parameters.Add(new SqlParameter("@Quantity", item.Quantity));
-                                    cmdDetail.Parameters.Add(new SqlParameter("@UnitPrice", item.Unit_price));
-                                    cmdDetail.Parameters.Add(new SqlParameter("@Subtotal", item.Subtotal));
-
-                                    cmdDetail.ExecuteNonQuery();
-                                }
-
-                                // Deduct product stock
-                                using (var cmdStock = conn.CreateCommand())
-                                {
-                                    cmdStock.Transaction = trans;
-                                    cmdStock.CommandText = @"
-                                        UPDATE products
-                                        SET stock_quantity = CASE WHEN stock_quantity - @Qty < 0 THEN 0 ELSE stock_quantity - @Qty END
-                                        WHERE id = @ProductId;";
-                                    cmdStock.Parameters.Add(new SqlParameter("@Qty", item.Quantity));
-                                    cmdStock.Parameters.Add(new SqlParameter("@ProductId", item.Product_id));
-                                    cmdStock.ExecuteNonQuery();
+                                    product.Stock_quantity = Math.Max(0, product.Stock_quantity - item.Quantity);
                                 }
                             }
 
+                            db.SaveChanges();
                             trans.Commit();
                             return true;
                         }
@@ -169,7 +107,7 @@ namespace Supermarket.DAL
             }
         }
 
-        // Cancel Sale
+        // CANCEL SALE - Pure Entity Framework ORM
         public bool CancelSale(long saleId, out string errorMessage)
         {
             errorMessage = string.Empty;
@@ -183,67 +121,57 @@ namespace Supermarket.DAL
             {
                 using (var db = new SupermarketContext())
                 {
-                    var conn = db.Database.Connection;
-                    if (conn.State != System.Data.ConnectionState.Open)
-                    {
-                        conn.Open();
-                    }
-
-                    using (var trans = conn.BeginTransaction())
+                    using (var trans = db.Database.BeginTransaction())
                     {
                         try
                         {
-                            // 1. Check current status
-                            string currentStatus = null;
-                            using (var cmdStatus = conn.CreateCommand())
-                            {
-                                cmdStatus.Transaction = trans;
-                                cmdStatus.CommandText = "SELECT status FROM sales WHERE id = @SaleId";
-                                cmdStatus.Parameters.Add(new SqlParameter("@SaleId", saleId));
-                                var obj = cmdStatus.ExecuteScalar();
-                                if (obj != null && obj != DBNull.Value)
-                                {
-                                    currentStatus = obj.ToString();
-                                }
-                            }
-
-                            if (string.IsNullOrWhiteSpace(currentStatus))
+                            // 1. Fetch sale
+                            var sale = db.Sales.FirstOrDefault(s => s.Id == saleId);
+                            if (sale == null)
                             {
                                 errorMessage = "Sale not found in database.";
                                 trans.Rollback();
                                 return false;
                             }
 
-                            if (currentStatus.StartsWith("Cancel", StringComparison.OrdinalIgnoreCase))
+                            if (sale.Status != null && sale.Status.StartsWith("Cancel", StringComparison.OrdinalIgnoreCase))
                             {
                                 errorMessage = "This sale has already been cancelled.";
                                 trans.Rollback();
                                 return false;
                             }
 
-                            // 2. Update status to 'Cancelled'
-                            using (var cmdUpdate = conn.CreateCommand())
+                            // 2. Mark as Cancelled
+                            sale.Status = "Cancelled";
+
+                            // 3. Restore product stock quantities & mark details as Cancelled
+                            var details = db.SalesDetails.Where(sd => sd.Sale_id == saleId).ToList();
+                            foreach (var item in details)
                             {
-                                cmdUpdate.Transaction = trans;
-                                cmdUpdate.CommandText = "UPDATE sales SET status = 'Cancelled' WHERE id = @SaleId";
-                                cmdUpdate.Parameters.Add(new SqlParameter("@SaleId", saleId));
-                                cmdUpdate.ExecuteNonQuery();
+                                if (item.Status == null || !item.Status.StartsWith("Cancel", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    item.Status = "Cancelled";
+                                    var product = db.Products.FirstOrDefault(p => p.Id == item.Product_id);
+                                    if (product != null)
+                                    {
+                                        product.Stock_quantity += item.Quantity;
+                                    }
+                                }
                             }
 
-                            // 3. Restore product stock quantities
-                            using (var cmdRestore = conn.CreateCommand())
+                            // 4. Deduct loyalty points if applicable
+                            if (sale.Customer_id.HasValue && sale.Customer_id.Value > 0)
                             {
-                                cmdRestore.Transaction = trans;
-                                cmdRestore.CommandText = @"
-                                    UPDATE p
-                                    SET p.stock_quantity = p.stock_quantity + sd.quantity
-                                    FROM products p
-                                    INNER JOIN sale_details sd ON p.id = sd.product_id
-                                    WHERE sd.sale_id = @SaleId;";
-                                cmdRestore.Parameters.Add(new SqlParameter("@SaleId", saleId));
-                                cmdRestore.ExecuteNonQuery();
+                                var customer = db.Customers.FirstOrDefault(c => c.Id == sale.Customer_id.Value);
+                                if (customer != null)
+                                {
+                                    int pointsToDeduct = (int)Math.Round(sale.Grand_total ?? 0m, MidpointRounding.AwayFromZero);
+                                    if (pointsToDeduct <= 0 && (sale.Grand_total ?? 0m) > 0m) pointsToDeduct = 1;
+                                    customer.Points = Math.Max(0, customer.Points - pointsToDeduct);
+                                }
                             }
 
+                            db.SaveChanges();
                             trans.Commit();
                             return true;
                         }
@@ -263,7 +191,111 @@ namespace Supermarket.DAL
             }
         }
 
-        // Update Sale Status
+        // CANCEL SINGLE SALE ITEM - Pure Entity Framework ORM
+        public bool CancelSaleItem(long saleDetailId, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+            if (saleDetailId <= 0)
+            {
+                errorMessage = "Invalid sale item ID.";
+                return false;
+            }
+
+            try
+            {
+                using (var db = new SupermarketContext())
+                {
+                    using (var trans = db.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            // 1. Fetch sale detail item
+                            var item = db.SalesDetails.FirstOrDefault(sd => sd.Id == saleDetailId);
+                            if (item == null)
+                            {
+                                errorMessage = "Sale item not found in database.";
+                                trans.Rollback();
+                                return false;
+                            }
+
+                            if (item.Status != null && item.Status.StartsWith("Cancel", StringComparison.OrdinalIgnoreCase))
+                            {
+                                errorMessage = "This item has already been cancelled.";
+                                trans.Rollback();
+                                return false;
+                            }
+
+                            // 2. Fetch parent sale
+                            var sale = db.Sales.FirstOrDefault(s => s.Id == item.Sale_id);
+                            if (sale == null)
+                            {
+                                errorMessage = "Associated sale invoice not found.";
+                                trans.Rollback();
+                                return false;
+                            }
+
+                            // 3. Mark item as Cancelled
+                            item.Status = "Cancelled";
+
+                            // 4. Restore product stock for this item only
+                            var product = db.Products.FirstOrDefault(p => p.Id == item.Product_id);
+                            if (product != null)
+                            {
+                                product.Stock_quantity += item.Quantity;
+                            }
+
+                            // 5. Update Sale Grand Total and Status
+                            var allDetails = db.SalesDetails.Where(sd => sd.Sale_id == sale.Id).ToList();
+                            bool allCancelled = allDetails.All(d => d.Id == item.Id || (d.Status != null && d.Status.StartsWith("Cancel", StringComparison.OrdinalIgnoreCase)));
+
+                            decimal newActiveSubtotal = allDetails
+                                .Where(d => d.Id != item.Id && (d.Status == null || !d.Status.StartsWith("Cancel", StringComparison.OrdinalIgnoreCase)))
+                                .Sum(d => d.Subtotal);
+
+                            if (allCancelled)
+                            {
+                                sale.Status = "Cancelled";
+                                sale.Grand_total = 0;
+                            }
+                            else
+                            {
+                                sale.Subtotal = newActiveSubtotal;
+                                sale.Grand_total = Math.Max(0, newActiveSubtotal - (sale.Discount_amount ?? 0m));
+                            }
+
+                            // 6. Deduct loyalty points for the cancelled item value
+                            if (sale.Customer_id.HasValue && sale.Customer_id.Value > 0)
+                            {
+                                var customer = db.Customers.FirstOrDefault(c => c.Id == sale.Customer_id.Value);
+                                if (customer != null)
+                                {
+                                    int pointsToDeduct = (int)Math.Round(item.Subtotal, MidpointRounding.AwayFromZero);
+                                    if (pointsToDeduct <= 0 && item.Subtotal > 0m) pointsToDeduct = 1;
+                                    customer.Points = Math.Max(0, customer.Points - pointsToDeduct);
+                                }
+                            }
+
+                            db.SaveChanges();
+                            trans.Commit();
+                            return true;
+                        }
+                        catch (Exception ex)
+                        {
+                            trans.Rollback();
+                            errorMessage = GetFullErrorMessage(ex);
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorMessage = GetFullErrorMessage(ex);
+                return false;
+            }
+        }
+
+        // UPDATE SALE STATUS - Pure Entity Framework ORM
         public bool UpdateSaleStatus(long saleId, string newStatus, out string errorMessage)
         {
             errorMessage = string.Empty;
@@ -283,19 +315,15 @@ namespace Supermarket.DAL
             {
                 using (var db = new SupermarketContext())
                 {
-                    var paramId = new SqlParameter("@Id", saleId);
-                    var paramStatus = new SqlParameter("@Status", newStatus);
-
-                    int rows = db.Database.ExecuteSqlCommand("UPDATE sales SET status = @Status WHERE id = @Id", paramStatus, paramId);
-                    if (rows > 0)
-                    {
-                        return true;
-                    }
-                    else
+                    var sale = db.Sales.FirstOrDefault(s => s.Id == saleId);
+                    if (sale == null)
                     {
                         errorMessage = "Sale record not found.";
                         return false;
                     }
+
+                    sale.Status = newStatus;
+                    return db.SaveChanges() > 0;
                 }
             }
             catch (Exception ex)
@@ -305,43 +333,63 @@ namespace Supermarket.DAL
             }
         }
 
-        private long GetOrCreateValidUserId(SupermarketContext db, System.Data.Common.DbConnection conn, System.Data.Common.DbTransaction trans)
+        // READ - Get single sale with details
+        public Sales GetSaleById(long saleId)
         {
             try
             {
-                using (var cmd = conn.CreateCommand())
+                using (var db = new SupermarketContext())
                 {
-                    cmd.Transaction = trans;
-                    cmd.CommandText = "SELECT TOP 1 id FROM users";
-                    var obj = cmd.ExecuteScalar();
-                    if (obj != null && obj != DBNull.Value)
-                    {
-                        return Convert.ToInt64(obj);
-                    }
+                    db.Configuration.LazyLoadingEnabled = false;
+                    db.Configuration.ProxyCreationEnabled = false;
+
+                    return db.Sales
+                             .Include(s => s.SaleDetails.Select(d => d.Products))
+                             .FirstOrDefault(s => s.Id == saleId);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private long GetOrCreateValidUserId(SupermarketContext db)
+        {
+            try
+            {
+                var firstUser = db.Users.FirstOrDefault();
+                if (firstUser != null)
+                {
+                    return firstUser.Id;
                 }
 
-                // If no user exists, create role and user
-                using (var cmd = conn.CreateCommand())
+                // If no user exists, create role and user using EF
+                var adminRole = db.Roles.FirstOrDefault(r => r.Name == "Admin");
+                if (adminRole == null)
                 {
-                    cmd.Transaction = trans;
-                    cmd.CommandText = "SELECT TOP 1 id FROM roles";
-                    var rObj = cmd.ExecuteScalar();
-                    int roleId;
-                    if (rObj == null || rObj == DBNull.Value)
+                    adminRole = new Roles
                     {
-                        cmd.CommandText = "INSERT INTO roles (name, description) VALUES ('Admin', 'System Administrator'); SELECT SCOPE_IDENTITY();";
-                        roleId = Convert.ToInt32(cmd.ExecuteScalar());
-                    }
-                    else
-                    {
-                        roleId = Convert.ToInt32(rObj);
-                    }
-
-                    cmd.CommandText = "INSERT INTO users (role_id, username, password, status) VALUES (@p0, 'admin', '123456', 'active'); SELECT SCOPE_IDENTITY();";
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.Add(new SqlParameter("@p0", roleId));
-                    return Convert.ToInt64(cmd.ExecuteScalar());
+                        Name = "Admin",
+                        Description = "System Administrator",
+                        CreatedAt = DateTime.Now
+                    };
+                    db.Roles.Add(adminRole);
+                    db.SaveChanges();
                 }
+
+                var defaultUser = new Users
+                {
+                    RoleId = adminRole.Id,
+                    Username = "admin",
+                    Password = UsersDAL.HashPassword("123456"),
+                    Status = "Active",
+                    CreatedAt = DateTime.Now
+                };
+                db.Users.Add(defaultUser);
+                db.SaveChanges();
+
+                return defaultUser.Id;
             }
             catch
             {

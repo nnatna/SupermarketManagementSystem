@@ -1,3 +1,4 @@
+﻿using Supermarket.Utils;
 using Supermarket.DAL;
 using Supermarket.Model;
 using System;
@@ -19,6 +20,7 @@ namespace Supermarket.UI.Point_of_sale
         public frmSaleHistory()
         {
             InitializeComponent();
+            UIThemeHelper.ApplyModernGridStyle(displayProducts);
             WireUpEvents();
         }
 
@@ -29,9 +31,8 @@ namespace Supermarket.UI.Point_of_sale
             this.btnSort.Click += btnSort_Click;
             this.cmbSortColumn.SelectedIndexChanged += cmbSortColumn_SelectedIndexChanged;
             this.btnRefesh.Click += btnRefesh_Click;
-            this.btnEdit.Click += btnEdit_Click;
+            this.btnCancel.Click += btnCancel_Click;
             this.dtpStartDate.ValueChanged += dtpDateFilter_ValueChanged;
-            this.dtpEndDate.ValueChanged += dtpDateFilter_ValueChanged;
             this.displayProducts.CellFormatting += displayProducts_CellFormatting;
         }
 
@@ -77,16 +78,13 @@ namespace Supermarket.UI.Point_of_sale
             txtSearch.PlaceholderText = "Search by Invoice, Product, Status...";
             txtSearch.PlaceholderForeColor = Color.Gray;
 
+            dtpStartDate.CustomFormat = "yyyy-MM-dd";
+            dtpStartDate.Format = DateTimePickerFormat.Custom;
             dtpStartDate.FillColor = Color.White;
             dtpStartDate.CheckedState.FillColor = Color.White;
             dtpStartDate.HoverState.FillColor = Color.White;
 
-            dtpEndDate.FillColor = Color.White;
-            dtpEndDate.CheckedState.FillColor = Color.White;
-            dtpEndDate.HoverState.FillColor = Color.White;
-
             dtpStartDate.Value = DateTime.Today;
-            dtpEndDate.Value = DateTime.Today;
 
             await LoadSaleHistoryAsync();
         }
@@ -103,23 +101,11 @@ namespace Supermarket.UI.Point_of_sale
 
             string keyword = txtSearch.Text.Trim().ToLower();
 
-            // 1. Filter
+            // 1. Filter by Date
             IEnumerable<vw_SaleHistory> query = _allSaleHistory;
 
-            // Date Range Filter (Start Date to End Date)
-            DateTime startDate = dtpStartDate.Value.Date;
-            DateTime endDate = dtpEndDate.Value.Date;
-
-            if (startDate > endDate)
-            {
-                DateTime temp = startDate;
-                startDate = endDate;
-                endDate = temp;
-            }
-
-            query = query.Where(s => s.sale_date.HasValue &&
-                                     s.sale_date.Value.Date >= startDate &&
-                                     s.sale_date.Value.Date <= endDate);
+            DateTime filterDate = dtpStartDate.Value.Date;
+            query = query.Where(s => s.sale_date.HasValue && s.sale_date.Value.Date == filterDate);
 
             if (!string.IsNullOrWhiteSpace(keyword))
             {
@@ -193,25 +179,49 @@ namespace Supermarket.UI.Point_of_sale
         {
             txtSearch.Clear();
             dtpStartDate.Value = DateTime.Today;
-            dtpEndDate.Value = DateTime.Today;
             await LoadSaleHistoryAsync();
         }
 
-        private async void btnEdit_Click(object sender, EventArgs e)
+        private async void btnCancel_Click(object sender, EventArgs e)
         {
             var selected = GetSelectedSale();
             if (selected == null)
             {
-                MessageBox.Show("Please select a sale record first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a sale item first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            using (frmEditSaleHistory frm = new frmEditSaleHistory(selected))
+            if (selected.status != null && selected.status.StartsWith("Cancel", StringComparison.OrdinalIgnoreCase))
             {
-                if (frm.ShowDialog() == DialogResult.OK)
-                {
-                    await LoadSaleHistoryAsync();
-                }
+                MessageBox.Show($"Item '{selected.product_name}' in Invoice '{selected.invoice_number}' has already been cancelled.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var confirm = MessageBox.Show(
+                $"Are you sure you want to cancel item '{selected.product_name}' (Qty: {selected.Quantity}) from Invoice '{selected.invoice_number}'?\n\nThis will restore {selected.Quantity} unit(s) back to inventory stock.",
+                "Confirm Cancel Item",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirm != DialogResult.Yes) return;
+
+            string errorMsg = string.Empty;
+            bool success = await Task.Run(() =>
+            {
+                string err;
+                bool res = _salesDAL.CancelSaleItem(selected.SaleHistoryID, out err);
+                errorMsg = err;
+                return res;
+            });
+
+            if (success)
+            {
+                MessageBox.Show($"Item '{selected.product_name}' was successfully cancelled and stock restored.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await LoadSaleHistoryAsync();
+            }
+            else
+            {
+                MessageBox.Show($"Failed to cancel item: {errorMsg}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -235,6 +245,8 @@ namespace Supermarket.UI.Point_of_sale
                 if (e.Value != null && decimal.TryParse(e.Value.ToString(), out decimal val))
                 {
                     e.Value = val.ToString("$#,##0.00");
+                    e.CellStyle.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
+                    e.CellStyle.SelectionForeColor = displayProducts.DefaultCellStyle.ForeColor;
                     e.FormattingApplied = true;
                 }
             }
@@ -243,6 +255,8 @@ namespace Supermarket.UI.Point_of_sale
                 if (e.Value != null && DateTime.TryParse(e.Value.ToString(), out DateTime dt))
                 {
                     e.Value = dt.ToString("yyyy-MM-dd HH:mm:ss");
+                    e.CellStyle.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
+                    e.CellStyle.SelectionForeColor = displayProducts.DefaultCellStyle.ForeColor;
                     e.FormattingApplied = true;
                 }
             }
@@ -255,15 +269,60 @@ namespace Supermarket.UI.Point_of_sale
                     {
                         e.Value = "Cancelled";
                         e.CellStyle.ForeColor = Color.FromArgb(220, 38, 38); // Red
+                        e.CellStyle.SelectionForeColor = Color.FromArgb(220, 38, 38);
+                        e.CellStyle.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
                     }
                     else if (status.Equals("Completed", StringComparison.OrdinalIgnoreCase))
                     {
                         e.Value = "Completed";
                         e.CellStyle.ForeColor = Color.FromArgb(22, 163, 74); // Green
+                        e.CellStyle.SelectionForeColor = Color.FromArgb(22, 163, 74);
+                        e.CellStyle.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
                     }
                     e.FormattingApplied = true;
                 }
             }
+            else
+            {
+                e.CellStyle.SelectionForeColor = displayProducts.DefaultCellStyle.ForeColor;
+            }
+        }
+
+        private void btnPrintInvoice_Click(object sender, EventArgs e)
+        {
+            var selected = GetSelectedSale();
+            if (selected == null)
+            {
+                MessageBox.Show("Please select a sale record or invoice to print.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                if (selected.status.StartsWith("Cancel", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Cannot print cancelled invoice.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    using (var rptForm = new frmInvoiceReport(selected.invoice_number))
+                    {
+                        rptForm.ShowDialog(this);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unable to open invoice report: {ex.Message}", "Print Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void frmSaleHistory_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
+
+

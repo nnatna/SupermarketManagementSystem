@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Supermarket.UI;
+using System;
 using System.Windows.Forms;
 
 namespace Supermarket
@@ -16,7 +14,29 @@ namespace Supermarket
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FramMain());
+
+            while (true)
+            {
+                using (var loginForm = new frmLogin())
+                {
+                    if (loginForm.ShowDialog() != DialogResult.OK)
+                    {
+                        // User cancelled or closed the login window -> exit application
+                        break;
+                    }
+                }
+
+                using (var mainForm = new FramMain())
+                {
+                    var result = mainForm.ShowDialog();
+                    if (result != DialogResult.Retry)
+                    {
+                        // User exited main window directly -> exit application
+                        break;
+                    }
+                    // If result is DialogResult.Retry, user logged out -> loops back to login form
+                }
+            }
         }
     }
 }

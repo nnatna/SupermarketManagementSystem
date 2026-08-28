@@ -30,6 +30,7 @@ namespace Supermarket.UI.Point_of_sale
             // 
             // pnlMain
             // 
+            this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.BackColor = System.Drawing.Color.Transparent;
             this.pnlMain.BorderColor = System.Drawing.Color.LightGray;
             this.pnlMain.BorderRadius = 8;
@@ -41,11 +42,10 @@ namespace Supermarket.UI.Point_of_sale
             this.pnlMain.Controls.Add(this.btnMinus);
             this.pnlMain.Controls.Add(this.lblPrice);
             this.pnlMain.Controls.Add(this.lblProductName);
-            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1650, 65);
+            this.pnlMain.Size = new System.Drawing.Size(215, 65);
             this.pnlMain.TabIndex = 0;
             // 
             // btnRemove
@@ -62,7 +62,7 @@ namespace Supermarket.UI.Point_of_sale
             this.btnRemove.ForeColor = System.Drawing.Color.Red;
             this.btnRemove.Image = global::Supermarket.Properties.Resources.x1;
             this.btnRemove.ImageSize = new System.Drawing.Size(16, 16);
-            this.btnRemove.Location = new System.Drawing.Point(1620, 5);
+            this.btnRemove.Location = new System.Drawing.Point(185, 5);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(24, 24);
             this.btnRemove.TabIndex = 6;
@@ -74,11 +74,12 @@ namespace Supermarket.UI.Point_of_sale
             this.lblSubtotal.BackColor = System.Drawing.Color.Transparent;
             this.lblSubtotal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblSubtotal.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblSubtotal.Location = new System.Drawing.Point(1609, 41);
+            this.lblSubtotal.Location = new System.Drawing.Point(135, 41);
             this.lblSubtotal.Name = "lblSubtotal";
             this.lblSubtotal.Size = new System.Drawing.Size(35, 19);
             this.lblSubtotal.TabIndex = 5;
             this.lblSubtotal.Text = "$0.00";
+            this.lblSubtotal.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnPlus
             // 
@@ -103,7 +104,7 @@ namespace Supermarket.UI.Point_of_sale
             // 
             this.lblQuantity.BackColor = System.Drawing.Color.Transparent;
             this.lblQuantity.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.lblQuantity.Location = new System.Drawing.Point(34, 43);
+            this.lblQuantity.Location = new System.Drawing.Point(32, 43);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(8, 17);
             this.lblQuantity.TabIndex = 3;
@@ -134,7 +135,7 @@ namespace Supermarket.UI.Point_of_sale
             this.lblPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPrice.Location = new System.Drawing.Point(8, 25);
+            this.lblPrice.Location = new System.Drawing.Point(8, 24);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(57, 15);
             this.lblPrice.TabIndex = 1;
@@ -156,7 +157,7 @@ namespace Supermarket.UI.Point_of_sale
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlMain);
             this.Name = "CartItemControl";
-            this.Size = new System.Drawing.Size(1650, 65);
+            this.Size = new System.Drawing.Size(215, 65);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.ResumeLayout(false);

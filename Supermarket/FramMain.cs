@@ -1,4 +1,4 @@
-﻿using Guna.UI2.WinForms.Enums;
+using Guna.UI2.WinForms.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +17,8 @@ using Supermarket.UI.Report;
 using Supermarket.UI.Purchasing_and_Suppliers;
 using Supermarket.UI.Settings;
 using Supermarket.UI.Products;
+using Supermarket.Utils;
+using Supermarket.DAL;
 
 
 namespace Supermarket
@@ -53,7 +55,10 @@ namespace Supermarket
             }
         }
 
+        private readonly StoreInfoDAL _storeInfoDAL = new StoreInfoDAL();
+        private int _settingsExpandedHeight = 370;
         private Form activeForm = null;
+
         private void FramMain_Load(object sender, EventArgs e)
         {
             btnDashboard.Checked = true;
@@ -61,14 +66,89 @@ namespace Supermarket
             btnPointOfSales.Checked = false;
             openChildForrm(new frrmDashoard());
 
+            UpdateUserProfileDisplay();
+            UpdateStoreInfoDisplay();
+            ApplyRolePermissions();
+
             this.ActiveControl = null;
+        }
+
+        private void ApplyRolePermissions()
+        {
+            if (!UserSession.IsLoggedIn)
+                return;
+
+            // Settings buttons visibility
+            btnAccountSetting.Visible = true;
+            btnStoreInfo.Visible = UserSession.CanAccessStoreInfo;
+            btnUnits.Visible = UserSession.CanAccessUnits;
+            btnSystemSetting.Visible = UserSession.CanAccessSystemSettings;
+            btnUsers.Visible = UserSession.CanAccessUsers;
+            btnEmployees.Visible = UserSession.CanAccessEmployees;
+            btnPromotion.Visible = UserSession.CanAccessPromotions;
+
+            // Rearrange visible settings sub-buttons vertically
+            int yOffset = 50;
+            Guna.UI2.WinForms.Guna2Button[] subButtons = new Guna.UI2.WinForms.Guna2Button[]
+            {
+                btnAccountSetting,
+                btnStoreInfo,
+                btnUnits,
+                btnSystemSetting,
+                btnUsers,
+                btnEmployees,
+                btnPromotion
+            };
+
+            int visibleCount = 0;
+            foreach (var btn in subButtons)
+            {
+                if (btn != null && btn.Visible)
+                {
+                    btn.Location = new Point(40, yOffset);
+                    yOffset += 45;
+                    visibleCount++;
+                }
+            }
+
+            _settingsExpandedHeight = 45 + (visibleCount * 45);
+
+            // Menu categories permissions
+            pnlReportsContainer.Visible = UserSession.CanAccessReports;
+            pnlPurchasingSuppliersContainer.Visible = UserSession.CanAccessPurchasing;
+            pnlInventoryContainer.Visible = UserSession.CanAccessInventory;
         }
 
         private void openChildForrm(Form childForm)
         {
+            if (childForm == null) return;
+
+            // Role-based security check
+            if (childForm is frmSystemSettings && !UserSession.CanAccessSystemSettings)
+            {
+                MessageBox.Show("Access Denied: Only Administrators can access System & Role settings.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (childForm is frmUsers && !UserSession.CanAccessUsers)
+            {
+                MessageBox.Show("Access Denied: Only Administrators can manage User accounts.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (childForm is frmStore_nfo && !UserSession.CanAccessStoreInfo)
+            {
+                MessageBox.Show("Access Denied: You do not have permission to edit Store Information.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (childForm is frmUnits && !UserSession.CanAccessUnits)
+            {
+                MessageBox.Show("Access Denied: You do not have permission to manage Product Units.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             pnlContent.SuspendLayout();
             if (activeForm != null)
             {
+                pnlContent.Controls.Remove(activeForm);
                 activeForm.Close();
                 activeForm.Dispose();
             }
@@ -169,6 +249,10 @@ namespace Supermarket
                 {
                     openChildForrm(new frmSaleHistory());
                 }
+                if (sender == btnCustomers)
+                {
+                    openChildForrm(new frmCustomers());
+                }
                 //Product
                 if (sender == btnCategories)
                 {
@@ -178,19 +262,19 @@ namespace Supermarket
                 {
                     openChildForrm(new frmProductsList());
                 }
-                if (sender == btnUnits)
-                {
-                    openChildForrm(new frmUnits());
-                }
 
                 //Purchasing & Suppliers
-                if (sender == btnPurchasingSuppliers)
+                if (sender == btnPurchasing)
                 {
                     openChildForrm(new frmPurchaseOrders());
                 }
                 if (sender == btnSuppliers)
                 {
                     openChildForrm(new frmSuppliers());
+                }
+                if (sender == btnGoodsReceive)
+                {
+                    openChildForrm(new frmGoodsReceive());
                 }
                 //Report
                 if (sender == btnInventoryReport)
@@ -207,17 +291,33 @@ namespace Supermarket
                 }
 
                 //Settings
+                if (sender == btnAccountSetting)
+                {
+                    openChildForrm(new frmAccountSettings());
+                }
+                if (sender == btnStoreInfo)
+                {
+                    openChildForrm(new frmStore_nfo());
+                }
+                if (sender == btnUnits)
+                {
+                    openChildForrm(new frmUnits());
+                }
+                if (sender == btnSystemSetting)
+                {
+                    openChildForrm(new frmSystemSettings());
+                }
                 if (sender == btnEmployees)
                 {
                     openChildForrm(new frmEmployees());
                 }
                 if (sender == btnGeneralSetting)
                 {
-                    openChildForrm(new frmGeneralSettings());
+                    openChildForrm(new frmAccountSettings());
                 }
-                if (sender == btnStoreInfo)
+                if (sender == btnPromotion)
                 {
-                    openChildForrm(new frmStore_nfo());
+                    openChildForrm(new frmPromotion());
                 }
                 if (sender == btnUsers)
                 {
@@ -235,7 +335,6 @@ namespace Supermarket
                 {
                     ProductsTimer.Start();
                     closeDropdowns();
-                    openChildForrm(new frmProductsList());
                     
 
                 }
@@ -243,7 +342,6 @@ namespace Supermarket
                 {
                     PointOfSalesTimer.Start();
                     closeDropdowns();
-                    openChildForrm(new frmSales());
                 }
                 else if (sender == btnPurchasingSuppliers)
                 {
@@ -383,9 +481,9 @@ namespace Supermarket
             {
                 closeMenu();
                 pnlProductsContainer.Height += 25;
-                if(pnlProductsContainer.Height >= 200)
+                if(pnlProductsContainer.Height >= 150)
                 {
-                    pnlProductsContainer.Height = 200;
+                    pnlProductsContainer.Height = 150;
                     ProductsTimer.Stop();
                     isProductsCollapsed = false;
                 }
@@ -465,17 +563,17 @@ namespace Supermarket
             if (isSettingsCollapsed)
             {
                 closeMenu();
-                pnlSettingsContainer.Height += 30;
-                if (pnlSettingsContainer.Height >= 255)
+                pnlSettingsContainer.Height += 35;
+                if (pnlSettingsContainer.Height >= _settingsExpandedHeight)
                 {
-                    pnlSettingsContainer.Height = 255;
+                    pnlSettingsContainer.Height = _settingsExpandedHeight;
                     SettingsTimer.Stop();
                     isSettingsCollapsed = false;
                 }
             }
             else
             {
-                pnlSettingsContainer.Height -= 30;
+                pnlSettingsContainer.Height -= 35;
                 if (pnlSettingsContainer.Height <= 45)
                 {
                     pnlSettingsContainer.Height = 45;
@@ -493,6 +591,78 @@ namespace Supermarket
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public void RefreshProfileDisplay()
+        {
+            UpdateUserProfileDisplay();
+            ApplyRolePermissions();
+        }
+
+        public void RefreshStoreInfoDisplay()
+        {
+            UpdateStoreInfoDisplay();
+        }
+
+        private void UpdateStoreInfoDisplay()
+        {
+            try
+            {
+                var store = _storeInfoDAL.GetStoreInfo();
+                string storeName = !string.IsNullOrWhiteSpace(store?.StoreName) 
+                    ? store.StoreName 
+                    : (Properties.Settings.Default.StoreName ?? "Supermarket Management System");
+
+                label1.Text = storeName;
+                this.Text = storeName;
+            }
+            catch
+            {
+                label1.Text = Properties.Settings.Default.StoreName ?? "Supermarket Management System";
+            }
+        }
+
+        private void UpdateUserProfileDisplay()
+        {
+            if (UserSession.IsLoggedIn)
+            {
+                string displayName = !string.IsNullOrWhiteSpace(UserSession.EmployeeFullName) 
+                    ? UserSession.EmployeeFullName 
+                    : UserSession.Username;
+
+                lblUserProfile.Text = $"{displayName} ({UserSession.RoleName})";
+
+                Image photo = UserSession.UserImage;
+                if (photo != null)
+                {
+                    picUserProfile.Image = photo;
+                }
+                else
+                {
+                    picUserProfile.Image = global::Supermarket.Properties.Resources.users;
+                }
+            }
+            else
+            {
+                lblUserProfile.Text = "Administrator";
+                picUserProfile.Image = global::Supermarket.Properties.Resources.users;
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show(
+                "Are you sure you want to log out?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                UserSession.Logout();
+                this.DialogResult = DialogResult.Retry; // Return to login form
+                this.Close();
+            }
         }
     }
 }

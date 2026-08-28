@@ -12,8 +12,7 @@ namespace Supermarket.Model
         [Column("id")]
         public long Id { get; set; }
 
-        // Moved to sale_details table in database; kept unmapped here for convenient business logic / UI usage
-        [NotMapped]
+        [Column("invoice_number")]
         public string Invoice_number { get; set; } = "";
 
         [NotMapped]

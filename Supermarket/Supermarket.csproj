@@ -132,6 +132,7 @@
     </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -157,12 +158,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\CategoriesDAL.cs" />
+    <Compile Include="DAL\CustomersDAL.cs" />
     <Compile Include="DAL\DBConnection.cs" />
+    <Compile Include="DAL\EmployeesDAL.cs" />
     <Compile Include="DAL\ProductsDAL.cs" />
+    <Compile Include="DAL\PurchaseOrdersDAL.cs" />
     <Compile Include="DAL\SaleDetailDAL.cs" />
     <Compile Include="DAL\SalesDAL.cs" />
+    <Compile Include="DAL\StockAdjustmentsDAL.cs" />
     <Compile Include="DAL\SupermarketContext.cs" />
+    <Compile Include="DAL\SuppliersDAL.cs" />
+    <Compile Include="DAL\PromotionsDAL.cs" />
     <Compile Include="DAL\UnitsDAL.cs" />
+    <Compile Include="DAL\UsersDAL.cs" />
+    <Compile Include="DAL\DashboardDAL.cs" />
+    <Compile Include="DAL\ReportsDAL.cs" />
+    <Compile Include="DAL\StoreInfoDAL.cs" />
     <Compile Include="FramMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,8 +184,9 @@
     <Compile Include="Model\Customers.cs" />
     <Compile Include="Model\Employees.cs" />
     <Compile Include="Model\Products.cs" />
-    <Compile Include="Model\PruschaseDetails.cs" />
-    <Compile Include="Model\Pruschases.cs" />
+    <Compile Include="Model\Promotions.cs" />
+    <Compile Include="Model\PurchaseDetails.cs" />
+    <Compile Include="Model\Purchases.cs" />
     <Compile Include="Model\Roles.cs" />
     <Compile Include="Model\Sales.cs" />
     <Compile Include="Model\SalesDetails.cs" />
@@ -184,12 +196,30 @@
     <Compile Include="Model\Units.cs" />
     <Compile Include="Model\Users.cs" />
     <Compile Include="Model\vw_SaleHistory.cs" />
+    <Compile Include="Model\vw_StockAlert.cs" />
+    <Compile Include="Model\vw_PurchasesOrder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SupermarketManagementDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SupermarketManagementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SupermarketManagementDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SupermarketManagementDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SupermarketManagementDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SupermarketManagementDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Customers\frmAddEditCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Customers\frmAddEditCustomer.Designer.cs">
+      <DependentUpon>frmAddEditCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Customers\frmCustomers.cs">
       <SubType>Form</SubType>
@@ -208,6 +238,12 @@
     </Compile>
     <Compile Include="UI\Inventory\frmStockAdjustment.Designer.cs">
       <DependentUpon>frmStockAdjustment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\frmAddStockAdjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Inventory\frmAddStockAdjustment.Designer.cs">
+      <DependentUpon>frmAddStockAdjustment.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Inventory\frmStoctAlert.cs">
       <SubType>Form</SubType>
@@ -233,11 +269,11 @@
     <Compile Include="UI\Point of sale\frmSaleHistory.Designer.cs">
       <DependentUpon>frmSaleHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Point of sale\frmEditSaleHistory.cs">
+    <Compile Include="UI\Point of sale\frmInvoiceReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Point of sale\frmEditSaleHistory.Designer.cs">
-      <DependentUpon>frmEditSaleHistory.cs</DependentUpon>
+    <Compile Include="UI\Point of sale\frmInvoiceReport.Designer.cs">
+      <DependentUpon>frmInvoiceReport.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Point of sale\frmSales.cs">
       <SubType>Form</SubType>
@@ -251,6 +287,12 @@
     <Compile Include="UI\Point of sale\frmPayment.Designer.cs">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Point of sale\frmApplyDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Point of sale\frmApplyDiscount.Designer.cs">
+      <DependentUpon>frmApplyDiscount.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Products\frmAddEditCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,35 +305,29 @@
     <Compile Include="UI\Products\frmAddEditProduct.Designer.cs">
       <DependentUpon>frmAddEditProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Products\frmAddEditUnit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Products\frmAddEditUnit.Designer.cs">
-      <DependentUpon>frmAddEditUnit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Products\frmCategories.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Products\frmCategories.Designer.cs">
-      <DependentUpon>frmCategories.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Products\frmProductsList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Products\frmProductsList.Designer.cs">
-      <DependentUpon>frmProductsList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Products\frmUnits.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Products\frmUnits.Designer.cs">
-      <DependentUpon>frmUnits.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Purchasing and Suppliers\frmPurchaseOrders.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Purchasing and Suppliers\frmPurchaseOrders.Designer.cs">
       <DependentUpon>frmPurchaseOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Purchasing and Suppliers\frmAddPurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Purchasing and Suppliers\frmAddPurchaseOrder.Designer.cs">
+      <DependentUpon>frmAddPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Purchasing and Suppliers\frmGoodsReceive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Purchasing and Suppliers\frmGoodsReceive.Designer.cs">
+      <DependentUpon>frmGoodsReceive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Purchasing and Suppliers\frmAddEditSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Purchasing and Suppliers\frmAddEditSuppliers.Designer.cs">
+      <DependentUpon>frmAddEditSuppliers.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Purchasing and Suppliers\frmSuppliers.cs">
       <SubType>Form</SubType>
@@ -317,6 +353,18 @@
     <Compile Include="UI\Report\frmSalesReport.Designer.cs">
       <DependentUpon>frmSalesReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Report\frmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Report\frmReportViewer.Designer.cs">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Settings\frmAddeditEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings\frmAddeditEmployee.Designer.cs">
+      <DependentUpon>frmAddeditEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Settings\frmEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,12 +383,92 @@
     <Compile Include="UI\Settings\frmStoreinfo.Designer.cs">
       <DependentUpon>frmStoreinfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Settings\frmAddEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings\frmAddEditUser.Designer.cs">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Products\frmCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Products\frmCategories.Designer.cs">
+      <DependentUpon>frmCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Products\frmProductsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Products\frmProductsList.Designer.cs">
+      <DependentUpon>frmProductsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Settings\frmAddEditUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings\frmAddEditUnit.Designer.cs">
+      <DependentUpon>frmAddEditUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Settings\frmUnits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings\frmUnits.Designer.cs">
+      <DependentUpon>frmUnits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Settings\frmPromotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings\frmPromotion.Designer.cs">
+      <DependentUpon>frmPromotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Settings\frmAddEditPromotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings\frmAddEditPromotion.Designer.cs">
+      <DependentUpon>frmAddEditPromotion.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Settings\frmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Settings\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\UserSession.cs" />
+    <Compile Include="Utils\UIThemeHelper.cs" />
+    <Compile Include="UI\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Settings\frmAddEditRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings\frmAddEditRole.Designer.cs">
+      <DependentUpon>frmAddEditRole.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\Settings\frmAddEditRole.resx">
+      <DependentUpon>frmAddEditRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="UI\Settings\frmAccountSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings\frmAccountSettings.Designer.cs">
+      <DependentUpon>frmAccountSettings.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\Settings\frmAccountSettings.resx">
+      <DependentUpon>frmAccountSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="UI\Settings\frmSystemSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings\frmSystemSettings.Designer.cs">
+      <DependentUpon>frmSystemSettings.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\Settings\frmSystemSettings.resx">
+      <DependentUpon>frmSystemSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FramMain.resx">
       <DependentUpon>FramMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,6 +482,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Customers\frmAddEditCustomer.resx">
+      <DependentUpon>frmAddEditCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Customers\frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +493,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Inventory\frmStockAdjustment.resx">
       <DependentUpon>frmStockAdjustment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Inventory\frmAddStockAdjustment.resx">
+      <DependentUpon>frmAddStockAdjustment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Inventory\frmStoctAlert.resx">
       <DependentUpon>frmStoctAlert.cs</DependentUpon>
@@ -375,35 +509,33 @@
     <EmbeddedResource Include="UI\Point of sale\frmSaleHistory.resx">
       <DependentUpon>frmSaleHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Point of sale\frmEditSaleHistory.resx">
-      <DependentUpon>frmEditSaleHistory.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Point of sale\frmSales.resx">
       <DependentUpon>frmSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Point of sale\frmPayment.resx">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Point of sale\rptInvoice.rdlc" />
+    <EmbeddedResource Include="UI\Report\rptSalesReport.rdlc" />
+    <EmbeddedResource Include="UI\Report\rptInventoryReport.rdlc" />
+    <EmbeddedResource Include="UI\Report\rptProfitLoss.rdlc" />
     <EmbeddedResource Include="UI\Products\frmAddEditCategory.resx">
       <DependentUpon>frmAddEditCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Products\frmAddEditProduct.resx">
       <DependentUpon>frmAddEditProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Products\frmAddEditUnit.resx">
-      <DependentUpon>frmAddEditUnit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Products\frmCategories.resx">
-      <DependentUpon>frmCategories.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Products\frmProductsList.resx">
-      <DependentUpon>frmProductsList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Products\frmUnits.resx">
-      <DependentUpon>frmUnits.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Purchasing and Suppliers\frmAddEditSuppliers.resx">
+      <DependentUpon>frmAddEditSuppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Purchasing and Suppliers\frmPurchaseOrders.resx">
       <DependentUpon>frmPurchaseOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Purchasing and Suppliers\frmAddPurchaseOrder.resx">
+      <DependentUpon>frmAddPurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Purchasing and Suppliers\frmGoodsReceive.resx">
+      <DependentUpon>frmGoodsReceive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Purchasing and Suppliers\frmSuppliers.resx">
       <DependentUpon>frmSuppliers.cs</DependentUpon>
@@ -417,6 +549,9 @@
     <EmbeddedResource Include="UI\Report\frmSalesReport.resx">
       <DependentUpon>frmSalesReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Settings\frmAddeditEmployee.resx">
+      <DependentUpon>frmAddeditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Settings\frmEmployees.resx">
       <DependentUpon>frmEmployees.cs</DependentUpon>
     </EmbeddedResource>
@@ -426,8 +561,32 @@
     <EmbeddedResource Include="UI\Settings\frmStoreinfo.resx">
       <DependentUpon>frmStoreinfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Settings\frmAddEditUser.resx">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Products\frmCategories.resx">
+      <DependentUpon>frmCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Products\frmProductsList.resx">
+      <DependentUpon>frmProductsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Settings\frmAddEditUnit.resx">
+      <DependentUpon>frmAddEditUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Settings\frmUnits.resx">
+      <DependentUpon>frmUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Settings\frmPromotion.resx">
+      <DependentUpon>frmPromotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Settings\frmAddEditPromotion.resx">
+      <DependentUpon>frmAddEditPromotion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Settings\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Point of sale\frmApplyDiscount.resx">
+      <DependentUpon>frmApplyDiscount.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -471,6 +630,28 @@
     </None>
     <None Include="SupermarketManagementDataSet.xss">
       <DependentUpon>SupermarketManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SupermarketManagementDataSet1.xsc">
+      <DependentUpon>SupermarketManagementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SupermarketManagementDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SupermarketManagementDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SupermarketManagementDataSet1.xss">
+      <DependentUpon>SupermarketManagementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SupermarketManagementDataSet2.xsc">
+      <DependentUpon>SupermarketManagementDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SupermarketManagementDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SupermarketManagementDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SupermarketManagementDataSet2.xss">
+      <DependentUpon>SupermarketManagementDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -546,7 +727,18 @@
     <None Include="Resources\minus.png" />
     <None Include="Resources\plus %281%29.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop_99439.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop_99439.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.3.2\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.3.2\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

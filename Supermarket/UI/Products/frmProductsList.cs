@@ -1,3 +1,4 @@
+﻿using Supermarket.Utils;
 using Guna.UI2.WinForms;
 using Supermarket.DAL;
 using System;
@@ -21,6 +22,7 @@ namespace Supermarket.UI.Products
         public frmProductsList()
         {
             InitializeComponent();
+            UIThemeHelper.ApplyModernGridStyle(displayProducts);
         }
 
         private void cmbFilter()
@@ -212,6 +214,7 @@ namespace Supermarket.UI.Products
                 "Cost_price",
                 "Selling_price",
                 "Stock_quantity",
+                "colDiscount",
                 "Stock_alert_level"
             };
 
@@ -241,7 +244,11 @@ namespace Supermarket.UI.Products
 
         private void displayProducts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && displayProducts.Columns[e.ColumnIndex].Name == "Stock_alert_level")
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+
+            string colName = displayProducts.Columns[e.ColumnIndex].Name;
+
+            if (colName == "Stock_alert_level")
             {
                 var product = displayProducts.Rows[e.RowIndex].DataBoundItem as ProductModel;
                 if (product != null)
@@ -254,22 +261,72 @@ namespace Supermarket.UI.Products
                         e.Value = "Low";
                         e.CellStyle.BackColor = Color.FromArgb(254, 226, 226); // Light Red
                         e.CellStyle.ForeColor = Color.FromArgb(220, 38, 38); // Dark Red
+                        e.CellStyle.SelectionBackColor = Color.FromArgb(254, 226, 226);
+                        e.CellStyle.SelectionForeColor = Color.FromArgb(220, 38, 38);
                     }
                     else if (qty <= alertLevel * 2)
                     {
                         e.Value = "Medium";
                         e.CellStyle.BackColor = Color.FromArgb(254, 243, 199); // Light Yellow/Amber
                         e.CellStyle.ForeColor = Color.FromArgb(217, 119, 6);  // Dark Amber
+                        e.CellStyle.SelectionBackColor = Color.FromArgb(254, 243, 199);
+                        e.CellStyle.SelectionForeColor = Color.FromArgb(217, 119, 6);
                     }
                     else
                     {
                         e.Value = "High";
                         e.CellStyle.BackColor = Color.FromArgb(209, 250, 229); // Light Green
                         e.CellStyle.ForeColor = Color.FromArgb(5, 150, 105);  // Dark Green
+                        e.CellStyle.SelectionBackColor = Color.FromArgb(209, 250, 229);
+                        e.CellStyle.SelectionForeColor = Color.FromArgb(5, 150, 105);
                     }
 
                     e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    e.CellStyle.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
+                    e.CellStyle.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
+                    e.FormattingApplied = true;
+                }
+            }
+            else if (colName == "Cost_price" && e.Value != null)
+            {
+                if (decimal.TryParse(e.Value.ToString(), out decimal cost))
+                {
+                    e.Value = $"${cost:N2}";
+                    e.CellStyle.ForeColor = Color.FromArgb(13, 110, 253); // Blue
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(13, 110, 253);
+                    e.CellStyle.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
+                    e.FormattingApplied = true;
+                }
+            }
+            else if (colName == "Selling_price" && e.Value != null)
+            {
+                if (decimal.TryParse(e.Value.ToString(), out decimal price))
+                {
+                    e.Value = $"${price:N2}";
+                    e.CellStyle.ForeColor = Color.FromArgb(22, 163, 74); // Green
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(22, 163, 74);
+                    e.CellStyle.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
+                    e.FormattingApplied = true;
+                }
+            }
+            else if (colName == "colDiscount" && e.Value != null)
+            {
+                if (decimal.TryParse(e.Value.ToString(), out decimal discountVal))
+                {
+                    if (discountVal > 0)
+                    {
+                        e.Value = $"{discountVal:0.##}%";
+                        e.CellStyle.ForeColor = Color.Crimson;
+                        e.CellStyle.SelectionForeColor = Color.Crimson;
+                        e.CellStyle.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
+                    }
+                    else
+                    {
+                        e.Value = "-";
+                        e.CellStyle.ForeColor = Color.FromArgb(160, 160, 160);
+                        e.CellStyle.SelectionForeColor = Color.FromArgb(160, 160, 160);
+                        e.CellStyle.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
+                    }
+                    e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     e.FormattingApplied = true;
                 }
             }
@@ -278,7 +335,6 @@ namespace Supermarket.UI.Products
         private async void btnRefresh_Click(object sender, EventArgs e)
         {
             txtSearch.Text = string.Empty;
-            txtSearch.PlaceholderText = "Search by Product...";
             if (cmbSortColumn.Items.Count > 0)
             {
                 cmbSortColumn.SelectedIndex = 0;
@@ -290,3 +346,5 @@ namespace Supermarket.UI.Products
 
     }
 }
+
+

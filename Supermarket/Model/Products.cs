@@ -40,6 +40,9 @@ namespace Supermarket.Model
         [Column("selling_price")]
         public decimal Selling_price { get; set; }
 
+        [Column("discount_percent")]
+        public decimal Discount_percent { get; set; } = 0.00m;
+
         [Column("stock_quantity")]
         public int Stock_quantity { get; set; }
 
